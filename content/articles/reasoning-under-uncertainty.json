@@ -3,7 +3,7 @@
   "title": "Reasoning Under Uncertainty: How LLMs Handle What They Don't Know",
   "subtitle": "Calibration, confidence, and truthfulness in AI reasoning.",
   "description": "An essay on uncertainty-aware AI reasoning, calibration, and evaluation for research-grade systems.",
-  "excerpt": "The gap between confidence and calibration is where hallucinations live. Exploring how modern language models express uncertainty — and how we can make them better at it.",
+  "excerpt": "The gap between confidence and calibration is where hallucinations live. This essay explores how modern language models express uncertainty — and how we can improve that behavior.",
   "tags": ["LLM", "Reasoning"],
   "published_date": "2026-02-20",
   "published_display": "February 20, 2026",
