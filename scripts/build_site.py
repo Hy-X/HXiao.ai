@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
+import sys
 from dataclasses import dataclass
 from datetime import date
 from html import escape
@@ -255,6 +257,27 @@ def update_sitemap(articles: list[Article]) -> None:
     SITEMAP_PATH.write_text("\n".join(lines), encoding="utf-8")
 
 
+def run_style_check() -> None:
+    checker = ROOT / "scripts" / "style_check.py"
+    if not checker.exists():
+        raise FileNotFoundError(f"Missing style checker script: {checker}")
+
+    result = subprocess.run(
+        [sys.executable, str(checker)],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if result.stdout:
+        print(result.stdout, end="")
+    if result.stderr:
+        print(result.stderr, file=sys.stderr, end="")
+
+    if result.returncode != 0:
+        raise RuntimeError("Style check failed")
+
+
 def main() -> None:
     articles = load_articles()
     if not articles:
@@ -263,7 +286,8 @@ def main() -> None:
     update_index(articles)
     build_article_pages(articles)
     update_sitemap(articles)
-    print(f"Built {len(articles)} article pages and updated index/sitemap.")
+    run_style_check()
+    print(f"Built {len(articles)} article pages, updated index/sitemap, and passed style checks.")
 
 
 if __name__ == "__main__":

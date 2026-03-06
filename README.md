@@ -46,6 +46,7 @@ The site follows an editorial minimal design system inspired by Medium-style cla
 3. Fill in title, subtitle, tags, dates, excerpt, and body content.
 3. Run the builder locally:
 	- `./.venv/bin/python scripts/build_site.py`
+   - This now also runs `scripts/style_check.py` automatically after generating pages.
 4. Commit and push to `main`.
 
 What is generated automatically:
@@ -53,6 +54,10 @@ What is generated automatically:
 - New article page `article-<slug>.html`
 - Latest alias page `article.html`
 - URL entries in `sitemap.xml`
+
+Quality checks:
+- Build-time style conformance check against `design-rules.md` via `scripts/style_check.py`
+- Optional standalone run: `./.venv/bin/python scripts/style_check.py`
 
 The GitHub Pages workflow also runs the same builder step on every deploy.
 
