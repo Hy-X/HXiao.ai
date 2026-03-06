@@ -48,6 +48,9 @@ class Article:
 def load_articles() -> list[Article]:
     articles: list[Article] = []
     for meta_file in sorted(CONTENT_DIR.glob("*.json")):
+        if meta_file.name.startswith("_"):
+            continue
+
         data = json.loads(meta_file.read_text(encoding="utf-8"))
         body_file_name = data.get("body_file", f"{data['slug']}.body.html")
         body_file = meta_file.with_name(body_file_name)

@@ -41,8 +41,9 @@ The site follows an editorial minimal design system inspired by Medium-style cla
 - Structured metadata for search and AI discovery (meta tags, Open Graph, JSON-LD, sitemap, robots, llms.txt)
 
 ## Publish a New Article (Automated)
-1. Add a metadata file in `content/articles/` (example: `my-new-article.json`).
-2. Add the matching body file in `content/articles/` (example: `my-new-article.body.html`).
+1. Copy `content/articles/_example.json` to `content/articles/<slug>.json`.
+2. Copy `content/articles/_example.body.html` to `content/articles/<slug>.body.html`.
+3. Fill in title, subtitle, tags, dates, excerpt, and body content.
 3. Run the builder locally:
 	- `./.venv/bin/python scripts/build_site.py`
 4. Commit and push to `main`.
@@ -54,6 +55,8 @@ What is generated automatically:
 - URL entries in `sitemap.xml`
 
 The GitHub Pages workflow also runs the same builder step on every deploy.
+
+Files beginning with `_` are treated as templates and ignored by the builder.
 
 ## SEO & AI Indexing Setup
 

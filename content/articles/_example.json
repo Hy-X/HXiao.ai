@@ -1,0 +1,14 @@
+{
+  "slug": "your-article-slug",
+  "title": "Your Article Title",
+  "subtitle": "One-line subtitle for the article header.",
+  "description": "SEO description for search and social previews.",
+  "excerpt": "Short feed preview text shown on the homepage card.",
+  "tags": ["AI", "Research"],
+  "published_date": "2026-03-05",
+  "published_display": "March 5, 2026",
+  "read_time": "7 min read",
+  "hero_caption": "Caption below the hero placeholder image.",
+  "hero_aria": "Accessible description of hero image",
+  "body_file": "your-article-slug.body.html"
+}
