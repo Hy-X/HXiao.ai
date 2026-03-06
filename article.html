@@ -74,8 +74,9 @@
             <span id="clapCount">0</span>
           </button>
           <div class="share-actions">
-            <button class="clap-btn" aria-label="Bookmark this article">
-              <span aria-hidden="true">🔖</span>
+            <button class="clap-btn save-btn" aria-label="Save this article" id="saveBtn">
+              <span class="save-icon" aria-hidden="true">🔖</span>
+              <span class="save-label">Save</span>
             </button>
             <button class="clap-btn share-toggle" aria-label="Share this article" aria-expanded="false" aria-haspopup="menu">
               <span class="share-icon" aria-hidden="true">↗</span>
@@ -125,8 +126,9 @@
           <span id="clapCountBottom">0</span>
         </button>
         <div class="share-actions">
-          <button class="clap-btn" aria-label="Bookmark this article">
-            <span aria-hidden="true">🔖</span>
+          <button class="clap-btn save-btn" aria-label="Save this article" id="saveBtnBottom">
+            <span class="save-icon" aria-hidden="true">🔖</span>
+            <span class="save-label">Save</span>
           </button>
           <button class="clap-btn share-toggle" aria-label="Share this article" aria-expanded="false" aria-haspopup="menu">
             <span class="share-icon" aria-hidden="true">↗</span>
@@ -209,8 +211,11 @@
     }, { passive: true });
 
     const clapStorageKey = `hxiao:claps:${window.location.pathname}`;
+    const saveStorageKey = `hxiao:saved:${window.location.pathname}`;
     const clapCountTop = document.getElementById('clapCount');
     const clapCountBottom = document.getElementById('clapCountBottom');
+    const saveBtnTop = document.getElementById('saveBtn');
+    const saveBtnBottom = document.getElementById('saveBtnBottom');
 
     function readClaps() {
       try {
@@ -225,6 +230,21 @@
     function writeClaps(value) {
       try {
         localStorage.setItem(clapStorageKey, String(value));
+      } catch (error) {
+      }
+    }
+
+    function readSavedState() {
+      try {
+        return localStorage.getItem(saveStorageKey) === '1';
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function writeSavedState(value) {
+      try {
+        localStorage.setItem(saveStorageKey, value ? '1' : '0');
       } catch (error) {
       }
     }
@@ -250,6 +270,31 @@
     renderClaps();
     document.getElementById('clapBtn').addEventListener('click', handleClap);
     document.getElementById('clapBtnBottom').addEventListener('click', handleClap);
+
+    let isSaved = readSavedState();
+
+    function renderSavedState() {
+      const label = isSaved ? 'Saved' : 'Save';
+      const icon = isSaved ? '✅' : '🔖';
+      [saveBtnTop, saveBtnBottom].forEach(button => {
+        if (!button) {
+          return;
+        }
+        button.querySelector('.save-label').textContent = label;
+        button.querySelector('.save-icon').textContent = icon;
+        button.setAttribute('aria-label', isSaved ? 'Remove from saved articles' : 'Save this article');
+      });
+    }
+
+    function handleSave() {
+      isSaved = !isSaved;
+      writeSavedState(isSaved);
+      renderSavedState();
+    }
+
+    renderSavedState();
+    saveBtnTop?.addEventListener('click', handleSave);
+    saveBtnBottom?.addEventListener('click', handleSave);
 
     document.querySelectorAll('.btn-follow').forEach(btn => {
       btn.addEventListener('click', function () {

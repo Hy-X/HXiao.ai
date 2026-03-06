@@ -831,27 +831,23 @@ img {
   gap: var(--space-md);
 }
 
-.share-toggle {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  padding: 0 12px;
-  color: var(--color-text-secondary);
-  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
-}
-
-.share-toggle:hover,
-.share-toggle[aria-expanded="true"] {
-  background: var(--color-surface);
-  color: var(--color-text-primary);
-  border-color: var(--color-text-secondary);
-}
-
 .share-icon {
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.save-icon {
+  font-size: 18px;
   line-height: 1;
 }
 
 .share-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  line-height: 1;
+}
+
+.save-label {
   font-family: var(--font-sans);
   font-size: var(--text-ui);
   line-height: 1;
