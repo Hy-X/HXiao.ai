@@ -204,6 +204,9 @@ def update_sitemap(articles: list[Article]) -> None:
     entries = [
         (f"{BASE_URL}/", today, "weekly", "1.0"),
         (f"{BASE_URL}/about.html", today, "monthly", "0.7"),
+        (f"{BASE_URL}/help.html", today, "monthly", "0.5"),
+        (f"{BASE_URL}/terms.html", today, "monthly", "0.4"),
+        (f"{BASE_URL}/privacy.html", today, "monthly", "0.4"),
         (f"{BASE_URL}/article.html", today, "weekly", "0.9"),
     ]
 
