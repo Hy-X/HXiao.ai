@@ -18,6 +18,8 @@ DEFAULT_AUTHOR = "Hongyu Xiao"
 
 CARD_START = "<!-- AUTO:ARTICLE_CARDS:START -->"
 CARD_END = "<!-- AUTO:ARTICLE_CARDS:END -->"
+STAFF_START = "<!-- AUTO:STAFF_PICKS:START -->"
+STAFF_END = "<!-- AUTO:STAFF_PICKS:END -->"
 
 
 @dataclass
@@ -105,16 +107,37 @@ def render_feed_card(article: Article) -> str:
     )
 
 
+def render_staff_pick(article: Article) -> str:
+    return (
+        f'            <div class="sidebar-pick">\n'
+        f'              <div class="sidebar-pick-meta">\n'
+        f'                <div class="sidebar-pick-avatar" role="img" aria-label="Author avatar"></div>\n'
+        f'                <span>{escape(article.author)}</span>\n'
+        f'              </div>\n'
+        f'              <a href="{escape(article.file_name)}" class="sidebar-pick-title">{escape(article.title)}</a>\n'
+        f'            </div>'
+    )
+
+
 def update_index(articles: list[Article]) -> None:
     source = INDEX_PATH.read_text(encoding="utf-8")
     cards_html = "\n\n".join(render_feed_card(article) for article in articles)
-    replacement = f"{CARD_START}\n{cards_html}\n          {CARD_END}"
+    cards_replacement = f"{CARD_START}\n{cards_html}\n          {CARD_END}"
 
-    pattern = re.compile(r"<!-- AUTO:ARTICLE_CARDS:START -->.*<!-- AUTO:ARTICLE_CARDS:END -->", re.S)
-    if not pattern.search(source):
+    staff_html = "\n\n".join(render_staff_pick(article) for article in articles[:3])
+    staff_replacement = f"{STAFF_START}\n{staff_html}\n            {STAFF_END}"
+
+    cards_pattern = re.compile(r"<!-- AUTO:ARTICLE_CARDS:START -->.*<!-- AUTO:ARTICLE_CARDS:END -->", re.S)
+    if not cards_pattern.search(source):
         raise ValueError("index.html missing AUTO article card markers")
 
-    INDEX_PATH.write_text(pattern.sub(replacement, source), encoding="utf-8")
+    staff_pattern = re.compile(r"<!-- AUTO:STAFF_PICKS:START -->.*<!-- AUTO:STAFF_PICKS:END -->", re.S)
+    if not staff_pattern.search(source):
+        raise ValueError("index.html missing AUTO staff picks markers")
+
+    updated = cards_pattern.sub(cards_replacement, source)
+    updated = staff_pattern.sub(staff_replacement, updated)
+    INDEX_PATH.write_text(updated, encoding="utf-8")
 
 
 def render_related_cards(current: Article, articles: list[Article]) -> str:

@@ -74,7 +74,7 @@
          ============================== -->
     <section class="hero" aria-labelledby="hero-heading">
       <h1 class="hero-title" id="hero-heading">
-        Ideas worth thinking about.
+        Thoughts on AI, agentic systems, and the future of intelligent action.
       </h1>
       <p class="hero-subtitle">
         Exploring AI, agentic systems, and the science behind intelligent agents learning to act—with perspectives on seismology, research, and beyond.
@@ -171,27 +171,31 @@
         <div class="sidebar-section">
           <h2 class="sidebar-heading">Staff picks</h2>
           <div>
+            <!-- AUTO:STAFF_PICKS:START -->
             <div class="sidebar-pick">
               <div class="sidebar-pick-meta">
                 <div class="sidebar-pick-avatar" role="img" aria-label="Author avatar"></div>
                 <span>Hongyu Xiao</span>
               </div>
-              <p class="sidebar-pick-title">The Rise of Agentic AI: When Models Learn to Act</p>
+              <a href="article-rise-of-agentic-ai.html" class="sidebar-pick-title">The Rise of Agentic AI: When Models Learn to Act</a>
             </div>
+
             <div class="sidebar-pick">
               <div class="sidebar-pick-meta">
                 <div class="sidebar-pick-avatar" role="img" aria-label="Author avatar"></div>
                 <span>Hongyu Xiao</span>
               </div>
-              <p class="sidebar-pick-title">Prompt Engineering Is Not a Hack — It's a Design Discipline</p>
+              <a href="article-reasoning-under-uncertainty.html" class="sidebar-pick-title">Reasoning Under Uncertainty: How LLMs Handle What They Don&#x27;t Know</a>
             </div>
+
             <div class="sidebar-pick">
               <div class="sidebar-pick-meta">
                 <div class="sidebar-pick-avatar" role="img" aria-label="Author avatar"></div>
                 <span>Hongyu Xiao</span>
               </div>
-              <p class="sidebar-pick-title">Tool Use and the Expanding Boundary of What AI Can Do</p>
+              <a href="article-agentic-ai-seismology-research.html" class="sidebar-pick-title">Agentic AI for Seismology Research: From Signal Detection to Scientific Workflows</a>
             </div>
+            <!-- AUTO:STAFF_PICKS:END -->
           </div>
         </div>
 
@@ -292,10 +296,26 @@
         tab.addEventListener('click', event => {
           event.preventDefault();
           const selectedTopic = normalizeLabel(tab.textContent);
-          activeTopic = activeTopic === selectedTopic ? null : selectedTopic;
+          activeTopic = selectedTopic;
           applyTopicFilter();
           featuredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+      });
+    }
+
+    function bindCardTagFilters() {
+      feedRoot.addEventListener('click', event => {
+        const tag = event.target.closest('.card-footer .tag');
+        if (!tag) {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        activeTopic = normalizeLabel(tag.textContent);
+        applyTopicFilter();
+        featuredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     }
 
@@ -331,6 +351,7 @@
     }
 
     renderTopicTabs(getAllTopics());
+    bindCardTagFilters();
     applyTopicFilter();
   </script>
 
