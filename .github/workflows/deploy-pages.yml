@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    # Runs every day at 03:00 UTC for fully automated refresh/deploy.
-    - cron: "0 3 * * *"
   workflow_dispatch:
 
 permissions:
