@@ -200,11 +200,38 @@
       navbar.classList.toggle('scrolled', window.scrollY > 65);
     }, { passive: true });
 
-    let claps = 0;
+    const clapStorageKey = `hxiao:claps:${window.location.pathname}`;
+    const clapCountTop = document.getElementById('clapCount');
+    const clapCountBottom = document.getElementById('clapCountBottom');
+
+    function readClaps() {
+      try {
+        const raw = localStorage.getItem(clapStorageKey);
+        const parsed = Number.parseInt(raw ?? '0', 10);
+        return Number.isNaN(parsed) || parsed < 0 ? 0 : parsed;
+      } catch (error) {
+        return 0;
+      }
+    }
+
+    function writeClaps(value) {
+      try {
+        localStorage.setItem(clapStorageKey, String(value));
+      } catch (error) {
+      }
+    }
+
+    let claps = readClaps();
+
+    function renderClaps() {
+      clapCountTop.textContent = claps;
+      clapCountBottom.textContent = claps;
+    }
+
     function handleClap() {
       claps++;
-      document.getElementById('clapCount').textContent = claps;
-      document.getElementById('clapCountBottom').textContent = claps;
+      writeClaps(claps);
+      renderClaps();
 
       document.querySelectorAll('.clap-icon').forEach(icon => {
         icon.classList.add('clapped');
@@ -212,6 +239,7 @@
       });
     }
 
+    renderClaps();
     document.getElementById('clapBtn').addEventListener('click', handleClap);
     document.getElementById('clapBtnBottom').addEventListener('click', handleClap);
 
