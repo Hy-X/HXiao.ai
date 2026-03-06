@@ -635,6 +635,21 @@ img {
   background: var(--color-surface);
 }
 
+.article-hero-image-full {
+  height: 420px;
+  border-radius: 0;
+}
+
+.article-hero-caption {
+  text-align: center;
+  font-size: var(--text-caption);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  font-family: var(--font-sans);
+  margin-top: calc(-1 * var(--space-sm));
+  margin-bottom: var(--space-xl);
+}
+
 /* Article body (§5.6) */
 .article-body {
   font-family: var(--font-serif);
