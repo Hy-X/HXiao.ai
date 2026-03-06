@@ -10,5 +10,6 @@
   "read_time": "7 min read",
   "hero_caption": "Caption below the hero placeholder image.",
   "hero_aria": "Accessible description of hero image",
+  "hero_image_file": "content/articles/your-article-slug.png",
   "body_file": "your-article-slug.body.html"
 }

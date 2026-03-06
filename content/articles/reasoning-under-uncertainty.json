@@ -12,5 +12,6 @@
   "hero_aria": "Abstract uncertainty visualization",
   "hero_image_placeholder": "1200x630 probabilistic confidence bands illustration",
   "hero_image_note": "Use an abstract visual of overlapping confidence intervals/probability surfaces with calm contrast; avoid literal chatbot imagery.",
+  "hero_image_file": "content/articles/reasoning-under-uncertainty.png",
   "body_file": "reasoning-under-uncertainty.body.html"
 }

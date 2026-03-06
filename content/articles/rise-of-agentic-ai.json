@@ -12,5 +12,6 @@
   "hero_aria": "Abstract visualization of AI decision trees",
   "hero_image_placeholder": "1200x630 conceptual branching decision graph",
   "hero_image_note": "Use a clean, editorial illustration of an AI agent decision tree with subtle node/edge structure; avoid dashboard UI screenshots.",
+  "hero_image_file": "content/articles/rise-of-agentic-ai.png",
   "body_file": "rise-of-agentic-ai.body.html"
 }
