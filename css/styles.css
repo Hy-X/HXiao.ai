@@ -306,6 +306,22 @@ img {
   background: var(--color-border);
 }
 
+.topic-tab-active {
+  background: var(--color-text-primary);
+  color: var(--color-bg);
+}
+
+.article-card-hidden {
+  display: none;
+}
+
+.feed-empty-state {
+  padding: var(--space-xl) 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+}
+
 /* ============================================================
    Hero Section (§12 – Homepage Logged Out)
    ============================================================ */

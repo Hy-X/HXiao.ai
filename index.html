@@ -247,6 +247,55 @@
       navbar.classList.toggle('scrolled', window.scrollY > 65);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    const feedRoot = document.querySelector('.feed-list');
+    const articleCards = Array.from(document.querySelectorAll('.feed-list .article-card'));
+    const topicTabs = Array.from(document.querySelectorAll('.topics-bar .tag, .sidebar-topics .tag'));
+    const featuredSection = document.getElementById('featured');
+
+    const emptyState = document.createElement('p');
+    emptyState.className = 'feed-empty-state';
+    emptyState.textContent = 'No articles yet for this topic.';
+    emptyState.hidden = true;
+    feedRoot.appendChild(emptyState);
+
+    let activeTopic = null;
+
+    function normalizeLabel(text) {
+      return text.trim().toLowerCase();
+    }
+
+    function setActiveTabs() {
+      topicTabs.forEach(tab => {
+        const isActive = activeTopic !== null && normalizeLabel(tab.textContent) === activeTopic;
+        tab.classList.toggle('topic-tab-active', isActive);
+      });
+    }
+
+    function applyTopicFilter() {
+      let visibleCount = 0;
+      articleCards.forEach(card => {
+        const cardTopics = Array.from(card.querySelectorAll('.card-footer .tag')).map(tag => normalizeLabel(tag.textContent));
+        const showCard = activeTopic === null || cardTopics.includes(activeTopic);
+        card.classList.toggle('article-card-hidden', !showCard);
+        if (showCard) {
+          visibleCount++;
+        }
+      });
+
+      emptyState.hidden = visibleCount > 0;
+      setActiveTabs();
+    }
+
+    topicTabs.forEach(tab => {
+      tab.addEventListener('click', event => {
+        event.preventDefault();
+        const selectedTopic = normalizeLabel(tab.textContent);
+        activeTopic = activeTopic === selectedTopic ? null : selectedTopic;
+        applyTopicFilter();
+        featuredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   </script>
 
 </body>
