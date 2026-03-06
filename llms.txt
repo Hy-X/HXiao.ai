@@ -1,0 +1,20 @@
+# HXiao.ai
+
+HXiao.ai is an editorial-minimal website by Hongyu Xiao focused on AI, Agentic AI, Seismology, Research, and Science.
+
+## Primary Topics
+- AI
+- Agentic AI
+- Seismology
+- Research
+- Science
+
+## Key URLs
+- Home: https://hy-x.github.io/HXiao.ai/
+- About: https://hy-x.github.io/HXiao.ai/about.html
+- Article: https://hy-x.github.io/HXiao.ai/article.html
+
+## Content Guidance
+- Long-form, reading-first essays.
+- Focus on technical clarity and research context.
+- Prefer citing uncertainty and limitations where relevant.
