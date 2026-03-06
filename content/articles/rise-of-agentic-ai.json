@@ -1,0 +1,14 @@
+{
+  "slug": "rise-of-agentic-ai",
+  "title": "The Rise of Agentic AI: When Models Learn to Act",
+  "subtitle": "From prediction to action in modern AI systems.",
+  "description": "A research-focused essay on Agentic AI, from ReAct loops to safety, including implications for seismology and scientific workflows.",
+  "excerpt": "We've spent years teaching machines to predict the next token. Now we're teaching them to take the next step. Agentic AI is not just a capability upgrade — it's a philosophical shift.",
+  "tags": ["Agentic AI", "Research"],
+  "published_date": "2026-03-05",
+  "published_display": "March 5, 2026",
+  "read_time": "8 min read",
+  "hero_caption": "An abstract representation of branching decisions in an agentic system.",
+  "hero_aria": "Abstract visualization of AI decision trees",
+  "body_file": "rise-of-agentic-ai.body.html"
+}

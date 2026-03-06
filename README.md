@@ -21,7 +21,8 @@ The site follows an editorial minimal design system inspired by Medium-style cla
 ## Website Pages
 - Home feed: `index.html`
 - About page: `about.html`
-- Article template: `article.html`
+- Latest article alias: `article.html`
+- Generated article pages: `article-<slug>.html`
 
 ## Core Topics (Search Intent)
 - AI research and practical AI systems
@@ -34,7 +35,25 @@ The site follows an editorial minimal design system inspired by Medium-style cla
 - Static HTML pages
 - Custom CSS design system in `css/styles.css`
 - GitHub Pages deployment via GitHub Actions
+- Python content builder in `scripts/build_site.py`
+- Article template in `templates/article-template.html`
+- Article content source files in `content/articles/`
 - Structured metadata for search and AI discovery (meta tags, Open Graph, JSON-LD, sitemap, robots, llms.txt)
+
+## Publish a New Article (Automated)
+1. Add a metadata file in `content/articles/` (example: `my-new-article.json`).
+2. Add the matching body file in `content/articles/` (example: `my-new-article.body.html`).
+3. Run the builder locally:
+	- `./.venv/bin/python scripts/build_site.py`
+4. Commit and push to `main`.
+
+What is generated automatically:
+- Homepage feed cards in `index.html`
+- New article page `article-<slug>.html`
+- Latest alias page `article.html`
+- URL entries in `sitemap.xml`
+
+The GitHub Pages workflow also runs the same builder step on every deploy.
 
 ## SEO & AI Indexing Setup
 

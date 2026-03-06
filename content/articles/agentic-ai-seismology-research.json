@@ -1,0 +1,14 @@
+{
+  "slug": "agentic-ai-seismology-research",
+  "title": "Agentic AI for Seismology Research: From Signal Detection to Scientific Workflows",
+  "subtitle": "Applying agentic systems to earthquake science responsibly.",
+  "description": "How agentic AI can support seismology research workflows, from signal triage to reproducible scientific analysis.",
+  "excerpt": "Seismology is becoming an AI-native science. This essay explores how agentic pipelines can assist earthquake signal triage, literature review, and reproducible research workflows.",
+  "tags": ["Seismology", "Science"],
+  "published_date": "2026-02-05",
+  "published_display": "February 5, 2026",
+  "read_time": "7 min read",
+  "hero_caption": "A conceptual map from waveform ingestion to scientific interpretation.",
+  "hero_aria": "Abstract seismology workflow visualization",
+  "body_file": "agentic-ai-seismology-research.body.html"
+}

@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Rise of Agentic AI: When Models Learn to Act — HXiao.ai</title>
-  <meta name="description" content="A research-focused essay on Agentic AI, from ReAct loops to safety, including implications for seismology and scientific workflows." />
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}" />
   <meta name="keywords" content="AI, Agentic AI, Seismology, Research, Science" />
-  <meta name="author" content="Hongyu Xiao" />
+  <meta name="author" content="{{AUTHOR_NAME}}" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://hy-x.github.io/HXiao.ai/article-rise-of-agentic-ai.html" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="HXiao.ai" />
-  <meta property="og:title" content="The Rise of Agentic AI: When Models Learn to Act — HXiao.ai" />
-  <meta property="og:description" content="A research-focused essay on Agentic AI, from ReAct loops to safety, including implications for seismology and scientific workflows." />
-  <meta property="og:url" content="https://hy-x.github.io/HXiao.ai/article-rise-of-agentic-ai.html" />
+  <meta property="og:title" content="{{OG_TITLE}}" />
+  <meta property="og:description" content="{{OG_DESCRIPTION}}" />
+  <meta property="og:url" content="{{OG_URL}}" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Rise of Agentic AI: When Models Learn to Act — HXiao.ai" />
-  <meta name="twitter:description" content="A research-focused essay on Agentic AI, from ReAct loops to safety, including implications for seismology and scientific workflows." />
+  <meta name="twitter:title" content="{{TWITTER_TITLE}}" />
+  <meta name="twitter:description" content="{{TWITTER_DESCRIPTION}}" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +29,7 @@
       --font-mono: "Source Code Pro", "Courier New", monospace;
     }
   </style>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Rise of Agentic AI: When Models Learn to Act", "description": "A research-focused essay on Agentic AI, from ReAct loops to safety, including implications for seismology and scientific workflows.", "author": {"@type": "Person", "name": "Hongyu Xiao"}, "publisher": {"@type": "Organization", "name": "HXiao.ai"}, "datePublished": "2026-03-05", "dateModified": "2026-03-05", "mainEntityOfPage": "https://hy-x.github.io/HXiao.ai/article-rise-of-agentic-ai.html", "keywords": ["AI", "Agentic AI", "Seismology", "Research", "Science"]}</script>
+  <script type="application/ld+json">{{JSON_LD}}</script>
 </head>
 <body>
   <header>
@@ -52,18 +52,18 @@
   <main>
     <article class="article-container" aria-labelledby="article-title">
       <header class="article-header">
-        <h1 class="article-title" id="article-title">The Rise of Agentic AI: When Models Learn to Act</h1>
-        <p class="article-subtitle">From prediction to action in modern AI systems.</p>
+        <h1 class="article-title" id="article-title">{{ARTICLE_TITLE}}</h1>
+        <p class="article-subtitle">{{ARTICLE_SUBTITLE}}</p>
 
         <div class="article-byline">
-          <div class="byline-avatar" role="img" aria-label="Hongyu Xiao avatar"></div>
+          <div class="byline-avatar" role="img" aria-label="{{AUTHOR_NAME}} avatar"></div>
           <div class="byline-info">
             <div class="byline-name">
-              Hongyu Xiao
-              <button class="btn-follow" aria-label="Follow Hongyu Xiao">Follow</button>
+              {{AUTHOR_NAME}}
+              <button class="btn-follow" aria-label="Follow {{AUTHOR_NAME}}">Follow</button>
             </div>
             <div class="byline-meta">
-              HXiao.ai &middot; March 5, 2026 &middot; 8 min read
+              HXiao.ai &middot; {{PUBLISHED_DISPLAY}} &middot; {{READ_TIME}}
             </div>
           </div>
         </div>
@@ -84,37 +84,15 @@
         </div>
       </header>
 
-      <div class="article-hero-image skeleton" role="img" aria-label="Abstract visualization of AI decision trees" style="height:420px;border-radius:0;"></div>
+      <div class="article-hero-image skeleton" role="img" aria-label="{{HERO_ARIA}}" style="height:420px;border-radius:0;"></div>
       <figure>
         <figcaption style="text-align:center;font-size:14px;color:var(--color-text-secondary);font-style:italic;font-family:var(--font-sans);margin-top:-8px;margin-bottom:32px;">
-          An abstract representation of branching decisions in an agentic system.
+          {{HERO_CAPTION}}
         </figcaption>
       </figure>
 
       <div class="article-body">
-<p>
-          For years, mainstream AI progress was measured by better prediction. Agentic AI expands that paradigm by combining reasoning, tool use, and environment feedback into closed-loop behavior.
-        </p>
-
-        <p>
-          In practice, this means a model can decompose goals, execute tasks, and adapt when outcomes differ from expectation. The shift is not just a product feature; it changes how we design and govern AI systems.
-        </p>
-
-        <h2>The ReAct Pattern in Production</h2>
-
-        <p>
-          A practical agent repeatedly cycles through reason → act → observe. This loop enables self-correction and task persistence, but also introduces compounding failure risks when intermediate assumptions are wrong.
-        </p>
-
-        <blockquote>
-          Agent quality is less about a single answer and more about the quality of its iterative decisions under uncertainty.
-        </blockquote>
-
-        <h2>Research and Safety Implications</h2>
-
-        <p>
-          For AI research and scientific workflows, agentic systems can accelerate synthesis, evaluation, and reproducibility. The same systems require stronger guardrails against prompt injection, scope drift, and overconfident actions.
-        </p>
+{{BODY_HTML}}
       </div>
 
       <div class="engagement-bar" role="group" aria-label="Article engagement">
@@ -134,10 +112,10 @@
 
       <section class="author-bio" aria-labelledby="author-bio-heading">
         <div class="author-bio-header">
-          <div class="author-bio-avatar" role="img" aria-label="Hongyu Xiao avatar"></div>
+          <div class="author-bio-avatar" role="img" aria-label="{{AUTHOR_NAME}} avatar"></div>
           <div>
-            <p class="author-bio-name" id="author-bio-heading">Hongyu Xiao</p>
-            <button class="btn-follow" aria-label="Follow Hongyu Xiao">Follow</button>
+            <p class="author-bio-name" id="author-bio-heading">{{AUTHOR_NAME}}</p>
+            <button class="btn-follow" aria-label="Follow {{AUTHOR_NAME}}">Follow</button>
           </div>
         </div>
         <p class="author-bio-text">
@@ -149,39 +127,7 @@
 
       <section class="more-articles" aria-labelledby="more-heading">
         <h2 class="more-articles-heading" id="more-heading">More from HXiao.ai</h2>
-        <a href="article-reasoning-under-uncertainty.html" class="article-card">
-          <div class="card-meta">
-            <div class="card-avatar" role="img" aria-label="Author avatar"></div>
-            <span class="card-author">Hongyu Xiao</span>
-          </div>
-          <div class="card-body">
-            <div class="card-text">
-              <h3 class="card-title">Reasoning Under Uncertainty: How LLMs Handle What They Don&#x27;t Know</h3>
-              <p class="card-preview">The gap between confidence and calibration is where hallucinations live. Exploring how modern language models express uncertainty — and how we can make them better at it.</p>
-            </div>
-          </div>
-          <div class="card-footer">
-            <span class="tag">LLM</span>
-            <span class="card-read-time">6 min read</span>
-          </div>
-        </a>
-
-        <a href="article-agentic-ai-seismology-research.html" class="article-card">
-          <div class="card-meta">
-            <div class="card-avatar" role="img" aria-label="Author avatar"></div>
-            <span class="card-author">Hongyu Xiao</span>
-          </div>
-          <div class="card-body">
-            <div class="card-text">
-              <h3 class="card-title">Agentic AI for Seismology Research: From Signal Detection to Scientific Workflows</h3>
-              <p class="card-preview">Seismology is becoming an AI-native science. This essay explores how agentic pipelines can assist earthquake signal triage, literature review, and reproducible research workflows.</p>
-            </div>
-          </div>
-          <div class="card-footer">
-            <span class="tag">Seismology</span>
-            <span class="card-read-time">7 min read</span>
-          </div>
-        </a>
+{{RELATED_ARTICLES}}
       </section>
     </article>
   </main>
