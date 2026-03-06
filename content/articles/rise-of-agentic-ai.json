@@ -10,5 +10,7 @@
   "read_time": "8 min read",
   "hero_caption": "An abstract representation of branching decisions in an agentic system.",
   "hero_aria": "Abstract visualization of AI decision trees",
+  "hero_image_placeholder": "1200x630 conceptual branching decision graph",
+  "hero_image_note": "Use a clean, editorial illustration of an AI agent decision tree with subtle node/edge structure; avoid dashboard UI screenshots.",
   "body_file": "rise-of-agentic-ai.body.html"
 }

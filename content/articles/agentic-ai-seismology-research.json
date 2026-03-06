@@ -10,5 +10,7 @@
   "read_time": "7 min read",
   "hero_caption": "A conceptual map from waveform ingestion to scientific interpretation.",
   "hero_aria": "Abstract seismology workflow visualization",
+  "hero_image_placeholder": "1200x630 seismology workflow pipeline map",
+  "hero_image_note": "Use a research-oriented composition that suggests waveform processing and workflow stages; avoid disaster imagery or sensational earthquake photos.",
   "body_file": "agentic-ai-seismology-research.body.html"
 }

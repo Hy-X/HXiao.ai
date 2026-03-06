@@ -37,6 +37,8 @@ class Article:
     read_time: str
     hero_caption: str
     hero_aria: str
+    hero_image_placeholder: str
+    hero_image_note: str
     body_html: str
     author: str = DEFAULT_AUTHOR
 
@@ -73,6 +75,8 @@ def load_articles() -> list[Article]:
             read_time=data["read_time"],
             hero_caption=data.get("hero_caption", "A conceptual visualization for this essay."),
             hero_aria=data.get("hero_aria", "Abstract visualization for article"),
+            hero_image_placeholder=data.get("hero_image_placeholder", "1200x630 cover image"),
+            hero_image_note=data.get("hero_image_note", "Replace skeleton with final article hero image when available."),
             body_html=body_file.read_text(encoding="utf-8").strip(),
             author=data.get("author", DEFAULT_AUTHOR),
         )
@@ -202,6 +206,8 @@ def render_article_page(article: Article, articles: list[Article], template: str
         "{{READ_TIME}}": article.read_time,
         "{{HERO_ARIA}}": article.hero_aria,
         "{{HERO_CAPTION}}": article.hero_caption,
+        "{{HERO_IMAGE_PLACEHOLDER}}": article.hero_image_placeholder,
+        "{{HERO_IMAGE_NOTE}}": article.hero_image_note,
         "{{BODY_HTML}}": article.body_html,
         "{{RELATED_ARTICLES}}": render_related_cards(article, articles),
     }

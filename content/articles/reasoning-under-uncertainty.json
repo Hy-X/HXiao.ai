@@ -10,5 +10,7 @@
   "read_time": "6 min read",
   "hero_caption": "Confidence and uncertainty represented as layered probability fields.",
   "hero_aria": "Abstract uncertainty visualization",
+  "hero_image_placeholder": "1200x630 probabilistic confidence bands illustration",
+  "hero_image_note": "Use an abstract visual of overlapping confidence intervals/probability surfaces with calm contrast; avoid literal chatbot imagery.",
   "body_file": "reasoning-under-uncertainty.body.html"
 }
