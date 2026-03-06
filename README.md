@@ -124,4 +124,6 @@ Files beginning with `_` are treated as templates and ignored by the builder.
 ## Deployment
 - Source branch: `main`
 - Auto deploy: `.github/workflows/deploy-pages.yml`
+- Scheduled deploy: daily at `03:00 UTC` via GitHub Actions `cron`
+- Optional image generation on deploy: set repository secret `GEMINI_API_KEY`
 - GitHub Pages URL: https://hy-x.github.io/HXiao.ai/

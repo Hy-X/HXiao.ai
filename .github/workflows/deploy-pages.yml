@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # Runs every day at 03:00 UTC for fully automated refresh/deploy.
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -27,6 +30,12 @@ jobs:
         with:
           enablement: true
 
+      - name: Generate hero images (optional)
+        if: ${{ secrets.GEMINI_API_KEY != '' }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 scripts/generate_images.py
+
       - name: Build site content
         run: python3 scripts/build_site.py
 
@@ -34,7 +43,9 @@ jobs:
         run: |
           mkdir -p public
           cp ./*.html public/
+          cp sitemap.xml robots.txt llms.txt public/
           cp -r css public/
+          cp -r assets public/
           touch public/.nojekyll
 
       - name: Upload artifact
