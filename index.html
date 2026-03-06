@@ -114,7 +114,7 @@
       <section aria-label="Article feed">
         <div class="feed-list">
           <!-- AUTO:ARTICLE_CARDS:START -->
-          <a href="article-rise-of-agentic-ai.html" class="article-card" aria-label="Read: The Rise of Agentic AI: When Models Learn to Act">
+          <a href="article-rise-of-agentic-ai.html" class="article-card" data-topics="Agentic AI|Research" aria-label="Read: The Rise of Agentic AI: When Models Learn to Act">
             <div class="card-meta">
               <span class="card-author">Hongyu Xiao</span>
               <span class="card-meta-sep" aria-hidden="true">·</span>
@@ -134,7 +134,7 @@
             </div>
           </a>
 
-          <a href="article-reasoning-under-uncertainty.html" class="article-card" aria-label="Read: Reasoning Under Uncertainty: How LLMs Handle What They Don&#x27;t Know">
+          <a href="article-reasoning-under-uncertainty.html" class="article-card" data-topics="LLM|Reasoning" aria-label="Read: Reasoning Under Uncertainty: How LLMs Handle What They Don&#x27;t Know">
             <div class="card-meta">
               <span class="card-author">Hongyu Xiao</span>
               <span class="card-meta-sep" aria-hidden="true">·</span>
@@ -154,7 +154,7 @@
             </div>
           </a>
 
-          <a href="article-agentic-ai-seismology-research.html" class="article-card" aria-label="Read: Agentic AI for Seismology Research: From Signal Detection to Scientific Workflows">
+          <a href="article-agentic-ai-seismology-research.html" class="article-card" data-topics="Seismology|Science" aria-label="Read: Agentic AI for Seismology Research: From Signal Detection to Scientific Workflows">
             <div class="card-meta">
               <span class="card-author">Hongyu Xiao</span>
               <span class="card-meta-sep" aria-hidden="true">·</span>
@@ -250,7 +250,9 @@
 
     const feedRoot = document.querySelector('.feed-list');
     const articleCards = Array.from(document.querySelectorAll('.feed-list .article-card'));
-    const topicTabs = Array.from(document.querySelectorAll('.topics-bar .tag, .sidebar-topics .tag'));
+    const topicsBarInner = document.querySelector('.topics-bar-inner');
+    const topicsLabel = topicsBarInner.querySelector('.topics-label');
+    const sidebarTopics = document.querySelector('.sidebar-topics');
     const featuredSection = document.getElementById('featured');
 
     const emptyState = document.createElement('p');
@@ -260,6 +262,7 @@
     feedRoot.appendChild(emptyState);
 
     let activeTopic = null;
+    let topicTabs = [];
 
     function normalizeLabel(text) {
       return text.trim().toLowerCase();
@@ -272,10 +275,70 @@
       });
     }
 
+    function getCardTopics(card) {
+      const raw = card.dataset.topics ?? '';
+      return raw
+        .split('|')
+        .map(item => item.trim())
+        .filter(Boolean);
+    }
+
+    function getAllTopics() {
+      const seen = new Set();
+      const topics = [];
+      articleCards.forEach(card => {
+        getCardTopics(card).forEach(topic => {
+          const key = normalizeLabel(topic);
+          if (!seen.has(key)) {
+            seen.add(key);
+            topics.push(topic);
+          }
+        });
+      });
+      return topics;
+    }
+
+    function buildTopicTab(topic) {
+      const tab = document.createElement('a');
+      tab.href = '#featured';
+      tab.className = 'tag';
+      tab.textContent = topic;
+      return tab;
+    }
+
+    function bindTopicTabs() {
+      topicTabs = Array.from(document.querySelectorAll('.topics-bar .tag, .sidebar-topics .tag'));
+      topicTabs.forEach(tab => {
+        tab.addEventListener('click', event => {
+          event.preventDefault();
+          const selectedTopic = normalizeLabel(tab.textContent);
+          activeTopic = activeTopic === selectedTopic ? null : selectedTopic;
+          applyTopicFilter();
+          featuredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    }
+
+    function renderTopicTabs(topics) {
+      topicsBarInner.querySelectorAll('.tag').forEach(tab => tab.remove());
+      sidebarTopics.innerHTML = '';
+
+      topics.forEach(topic => {
+        topicsBarInner.appendChild(buildTopicTab(topic));
+        sidebarTopics.appendChild(buildTopicTab(topic));
+      });
+
+      if (topicsLabel && topicsBarInner.firstElementChild !== topicsLabel) {
+        topicsBarInner.prepend(topicsLabel);
+      }
+
+      bindTopicTabs();
+    }
+
     function applyTopicFilter() {
       let visibleCount = 0;
       articleCards.forEach(card => {
-        const cardTopics = Array.from(card.querySelectorAll('.card-footer .tag')).map(tag => normalizeLabel(tag.textContent));
+        const cardTopics = getCardTopics(card).map(normalizeLabel);
         const showCard = activeTopic === null || cardTopics.includes(activeTopic);
         card.classList.toggle('article-card-hidden', !showCard);
         if (showCard) {
@@ -287,15 +350,8 @@
       setActiveTabs();
     }
 
-    topicTabs.forEach(tab => {
-      tab.addEventListener('click', event => {
-        event.preventDefault();
-        const selectedTopic = normalizeLabel(tab.textContent);
-        activeTopic = activeTopic === selectedTopic ? null : selectedTopic;
-        applyTopicFilter();
-        featuredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
+    renderTopicTabs(getAllTopics());
+    applyTopicFilter();
   </script>
 
 </body>

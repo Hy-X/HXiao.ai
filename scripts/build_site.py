@@ -80,8 +80,10 @@ def load_articles() -> list[Article]:
 
 def render_feed_card(article: Article) -> str:
     tags_html = "\n".join(f'              <span class="tag">{escape(tag)}</span>' for tag in article.tags[:2])
+    all_tags = "|".join(article.tags)
     return (
         f'          <a href="{escape(article.file_name)}" class="article-card" '
+        f'data-topics="{escape(all_tags)}" '
         f'aria-label="Read: {escape(article.title)}">\n'
         f'            <div class="card-meta">\n'
         f'              <span class="card-author">{escape(article.author)}</span>\n'
