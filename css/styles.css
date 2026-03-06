@@ -55,6 +55,10 @@
   --radius-sm: 4px;
   --radius-pill: 99px;
 
+  /* CTA sizing */
+  --cta-height: 36px;
+  --cta-height-lg: 48px;
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-base: 200ms ease;
@@ -188,6 +192,7 @@ img {
 .navbar-link {
   font-family: var(--font-sans);
   font-size: var(--text-ui);
+  line-height: 1;
   color: var(--color-text-primary);
   text-decoration: none;
   transition: opacity var(--transition-fast);
@@ -216,14 +221,18 @@ img {
    ============================================================ */
 
 .btn-cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--color-text-primary);
   color: var(--color-bg);
   border-radius: var(--radius-pill);
+  height: var(--cta-height);
   padding: 8px 20px;
   font-size: var(--text-ui);
   font-family: var(--font-sans);
   font-weight: 500;
+  line-height: 1;
   letter-spacing: 0.01em;
   border: none;
   cursor: pointer;
@@ -237,6 +246,7 @@ img {
 }
 
 .btn-cta-lg {
+  height: var(--cta-height-lg);
   padding: 12px 28px;
   font-size: 15px;
 }
@@ -421,7 +431,6 @@ img {
   height: 20px;
   border-radius: 50%;
   object-fit: cover;
-  background: var(--color-border);
   flex-shrink: 0;
 }
 
@@ -529,7 +538,6 @@ img {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--color-border);
   flex-shrink: 0;
 }
 
@@ -594,7 +602,6 @@ img {
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  background: var(--color-border);
   flex-shrink: 0;
 }
 
@@ -798,7 +805,17 @@ img {
   height: 72px;
   border-radius: 50%;
   object-fit: cover;
-  background: var(--color-border);
+}
+
+.card-avatar,
+.sidebar-pick-avatar,
+.byline-avatar,
+.author-bio-avatar {
+  border: 1px solid var(--color-border);
+  background:
+    radial-gradient(circle at 50% 34%, var(--color-text-muted) 0 18%, transparent 19%),
+    radial-gradient(ellipse at 50% 80%, var(--color-text-muted) 0 34%, transparent 35%),
+    var(--color-surface);
 }
 
 .author-bio-name {
