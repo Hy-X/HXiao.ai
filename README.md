@@ -1,13 +1,40 @@
 # HXiao.ai
 [![Live Site](https://img.shields.io/badge/Live-HXiao.ai-242424?style=flat&logo=githubpages&logoColor=white)](https://hy-x.github.io/HXiao.ai/)
 
-This is Hongyu Xiao's personal thoughts and tryout on AI and Agentic AI applications
+HXiao.ai is a reading-first personal website by Hongyu Xiao.
+
+It publishes long-form essays and research notes on:
+- AI
+- Agentic AI systems
+- Seismology
+- Research methods
+- Science and reproducible workflows
+
+The site follows an editorial minimal design system inspired by Medium-style clarity: serif body typography, restrained UI, and content-first layout.
 
 ## Live Site
 - Website: https://hy-x.github.io/HXiao.ai/
 - Sitemap: https://hy-x.github.io/HXiao.ai/sitemap.xml
 - Robots: https://hy-x.github.io/HXiao.ai/robots.txt
 - LLMs file: https://hy-x.github.io/HXiao.ai/llms.txt
+
+## Website Pages
+- Home feed: `index.html`
+- About page: `about.html`
+- Article template: `article.html`
+
+## Core Topics (Search Intent)
+- AI research and practical AI systems
+- Agentic workflows and tool-using agents
+- Seismology + AI applications
+- Scientific reasoning, uncertainty, and evaluation
+- Multi-agent systems and safety considerations
+
+## Technical Stack
+- Static HTML pages
+- Custom CSS design system in `css/styles.css`
+- GitHub Pages deployment via GitHub Actions
+- Structured metadata for search and AI discovery (meta tags, Open Graph, JSON-LD, sitemap, robots, llms.txt)
 
 ## SEO & AI Indexing Setup
 
@@ -28,3 +55,9 @@ This is Hongyu Xiao's personal thoughts and tryout on AI and Agentic AI applicat
 - Keep canonical URLs and sitemap domain aligned if switching to a custom domain.
 - Re-submit sitemap after major content updates.
 - Ensure GitHub Pages workflow stays green after every push to `main`.
+- Keep page titles, descriptions, and article headings aligned with target topics (AI, Agentic AI, Seismology, Research, Science).
+
+## Deployment
+- Source branch: `main`
+- Auto deploy: `.github/workflows/deploy-pages.yml`
+- GitHub Pages URL: https://hy-x.github.io/HXiao.ai/
