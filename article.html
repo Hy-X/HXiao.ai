@@ -77,9 +77,10 @@
             <button class="clap-btn" aria-label="Bookmark this article">
               <span aria-hidden="true">🔖</span>
             </button>
-            <button class="clap-btn" aria-label="Share this article">
+            <button class="clap-btn share-toggle" aria-label="Share this article" aria-expanded="false" aria-haspopup="menu">
               <span aria-hidden="true">↗</span>
             </button>
+            <div class="share-menu" role="menu" hidden></div>
           </div>
         </div>
       </header>
@@ -126,9 +127,10 @@
           <button class="clap-btn" aria-label="Bookmark this article">
             <span aria-hidden="true">🔖</span>
           </button>
-          <button class="clap-btn" aria-label="Share this article">
+          <button class="clap-btn share-toggle" aria-label="Share this article" aria-expanded="false" aria-haspopup="menu">
             <span aria-hidden="true">↗</span>
           </button>
+          <div class="share-menu" role="menu" hidden></div>
         </div>
       </div>
 
@@ -253,6 +255,93 @@
         this.textContent = isFollowing ? 'Follow' : 'Following';
         this.className = isFollowing ? 'btn-follow' : 'btn-following';
       });
+    });
+
+    const shareTitle = document.getElementById('article-title')?.textContent?.trim() || document.title;
+    const shareUrl = window.location.href;
+
+    function buildShareLinks(title, url) {
+      const encodedTitle = encodeURIComponent(title);
+      const encodedUrl = encodeURIComponent(url);
+      return [
+        {
+          label: 'X',
+          href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+        },
+        {
+          label: 'LinkedIn',
+          href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+        },
+        {
+          label: 'Email',
+          href: `mailto:?subject=${encodedTitle}&body=${encodedUrl}`,
+        },
+      ];
+    }
+
+    const shareLinks = buildShareLinks(shareTitle, shareUrl);
+
+    function closeAllShareMenus() {
+      document.querySelectorAll('.share-menu').forEach(menu => {
+        menu.hidden = true;
+      });
+      document.querySelectorAll('.share-toggle').forEach(toggle => {
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    document.querySelectorAll('.share-actions').forEach(actions => {
+      const toggle = actions.querySelector('.share-toggle');
+      const menu = actions.querySelector('.share-menu');
+      if (!toggle || !menu) {
+        return;
+      }
+
+      shareLinks.forEach(link => {
+        const anchor = document.createElement('a');
+        anchor.className = 'share-link';
+        anchor.href = link.href;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.textContent = link.label;
+        anchor.setAttribute('role', 'menuitem');
+        menu.appendChild(anchor);
+      });
+
+      const copyButton = document.createElement('button');
+      copyButton.type = 'button';
+      copyButton.className = 'share-link';
+      copyButton.textContent = 'Copy link';
+      copyButton.setAttribute('role', 'menuitem');
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          copyButton.textContent = 'Copied';
+          setTimeout(() => {
+            copyButton.textContent = 'Copy link';
+          }, 1200);
+        } catch (error) {
+          copyButton.textContent = 'Copy failed';
+          setTimeout(() => {
+            copyButton.textContent = 'Copy link';
+          }, 1200);
+        }
+      });
+      menu.appendChild(copyButton);
+
+      toggle.addEventListener('click', event => {
+        event.stopPropagation();
+        const isOpen = !menu.hidden;
+        closeAllShareMenus();
+        menu.hidden = isOpen;
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.share-actions')) {
+        closeAllShareMenus();
+      }
     });
   </script>
 </body>
