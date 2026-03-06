@@ -1,4 +1,6 @@
 # HXiao.ai
+[![Live Site](https://img.shields.io/badge/Live-HXiao.ai-242424?style=flat&logo=githubpages&logoColor=white)](https://hy-x.github.io/HXiao.ai/)
+
 This is Hongyu Xiao's personal thoughts and tryout on AI and Agentic AI applications
 
 ## Live Site
