@@ -421,10 +421,13 @@ img {
 .card-meta {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: var(--space-sm);
   font-size: var(--text-small);
   color: var(--color-text-secondary);
   font-family: var(--font-sans);
+  width: 100%;
+  text-align: left;
 }
 
 .card-avatar {
@@ -495,8 +498,11 @@ img {
 .card-footer {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: var(--space-sm);
   flex-wrap: wrap;
+  width: 100%;
+  text-align: left;
 }
 
 .card-read-time {
@@ -864,6 +870,13 @@ img {
 
 .more-articles {
   padding: var(--space-2xl) 0;
+}
+
+.more-articles .card-meta,
+.more-articles .card-footer,
+.more-articles .card-text {
+  text-align: left;
+  justify-content: flex-start;
 }
 
 .more-articles-heading {
