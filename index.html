@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HXiao.ai — Thoughts on AI &amp; Agentic Systems</title>
+  <meta name="description" content="Hongyu Xiao's personal thoughts and explorations on AI and Agentic AI applications." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Source+Code+Pro&display=swap" rel="stylesheet" />
+  <style>
+    /* Override font families with Google Fonts equivalents (design-rules.md §3 note) */
+    :root {
+      --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+      --font-serif: Lora, Georgia, "Times New Roman", serif;
+      --font-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "Source Code Pro", "Courier New", monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==============================
+       Navbar (§5.1)
+       ============================== -->
+  <header>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
+          <span class="navbar-logo" aria-hidden="true">H</span>
+          <span class="navbar-site-name">HXiao.ai</span>
+        </a>
+
+        <div class="navbar-actions">
+          <a href="#featured" class="navbar-link">Articles</a>
+          <a href="about.html" class="navbar-link">About</a>
+          <a href="article.html" class="btn-cta" aria-label="Start reading articles">Start reading</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ==============================
+         Hero (§12 – Homepage Logged Out)
+         ============================== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 class="hero-title" id="hero-heading">
+        Ideas worth thinking about.
+      </h1>
+      <p class="hero-subtitle">
+        Personal explorations in AI, Agentic systems, and the ideas shaping how machines learn to act.
+      </p>
+      <div class="hero-actions">
+        <a href="article.html" class="btn-cta btn-cta-lg">Start reading</a>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ==============================
+         Topics Bar
+         ============================== -->
+    <nav class="topics-bar" aria-label="Topic filters">
+      <div class="topics-bar-inner">
+        <span style="font-size:12px;color:var(--color-text-secondary);white-space:nowrap;font-family:var(--font-sans);">Topics:</span>
+        <a href="#" class="tag">Agentic AI</a>
+        <a href="#" class="tag">LLM</a>
+        <a href="#" class="tag">Reasoning</a>
+        <a href="#" class="tag">Multi-Agent</a>
+        <a href="#" class="tag">Prompt Engineering</a>
+        <a href="#" class="tag">AI Safety</a>
+        <a href="#" class="tag">Machine Learning</a>
+        <a href="#" class="tag">Tool Use</a>
+      </div>
+    </nav>
+
+    <!-- ==============================
+         Feed Layout (§4, §12 – Feed)
+         ============================== -->
+    <div class="feed-layout" id="featured">
+      <!-- Main feed -->
+      <section aria-label="Article feed">
+        <div class="feed-list">
+
+          <!-- Card 1 -->
+          <a href="article.html" class="article-card" aria-label="Read: The Rise of Agentic AI">
+            <div class="card-meta">
+              <div class="card-avatar" role="img" aria-label="Author avatar" style="background:var(--color-border);"></div>
+              <span class="card-author">Hongyu Xiao</span>
+              <span aria-hidden="true">·</span>
+              <span>HXiao.ai</span>
+            </div>
+            <div class="card-body">
+              <div class="card-text">
+                <h2 class="card-title">The Rise of Agentic AI: When Models Learn to Act</h2>
+                <p class="card-preview">
+                  We've spent years teaching machines to predict the next token. Now we're teaching them to take the next step. Agentic AI is not just a capability upgrade — it's a philosophical shift.
+                </p>
+              </div>
+              <div class="card-thumbnail skeleton" role="img" aria-label="Article thumbnail"></div>
+            </div>
+            <div class="card-footer">
+              <span class="tag">Agentic AI</span>
+              <span class="card-read-time">8 min read</span>
+            </div>
+          </a>
+
+          <!-- Card 2 -->
+          <a href="article.html" class="article-card" aria-label="Read: Reasoning Under Uncertainty">
+            <div class="card-meta">
+              <div class="card-avatar" role="img" aria-label="Author avatar" style="background:var(--color-border);"></div>
+              <span class="card-author">Hongyu Xiao</span>
+              <span aria-hidden="true">·</span>
+              <span>HXiao.ai</span>
+            </div>
+            <div class="card-body">
+              <div class="card-text">
+                <h2 class="card-title">Reasoning Under Uncertainty: How LLMs Handle What They Don't Know</h2>
+                <p class="card-preview">
+                  The gap between confidence and calibration is where hallucinations live. Exploring how modern language models express uncertainty — and how we can make them better at it.
+                </p>
+              </div>
+              <div class="card-thumbnail skeleton" role="img" aria-label="Article thumbnail"></div>
+            </div>
+            <div class="card-footer">
+              <span class="tag">LLM</span>
+              <span class="tag">Reasoning</span>
+              <span class="card-read-time">6 min read</span>
+            </div>
+          </a>
+
+          <!-- Card 3 -->
+          <a href="article.html" class="article-card" aria-label="Read: Multi-Agent Systems">
+            <div class="card-meta">
+              <div class="card-avatar" role="img" aria-label="Author avatar" style="background:var(--color-border);"></div>
+              <span class="card-author">Hongyu Xiao</span>
+              <span aria-hidden="true">·</span>
+              <span>HXiao.ai</span>
+            </div>
+            <div class="card-body">
+              <div class="card-text">
+                <h2 class="card-title">Building Multi-Agent Systems That Actually Cooperate</h2>
+                <p class="card-preview">
+                  Orchestrating multiple AI agents sounds powerful on paper. In practice, you immediately encounter problems of trust, communication overhead, and emergent failure modes that no single agent would produce alone.
+                </p>
+              </div>
+              <div class="card-thumbnail skeleton" role="img" aria-label="Article thumbnail"></div>
+            </div>
+            <div class="card-footer">
+              <span class="tag">Multi-Agent</span>
+              <span class="card-read-time">11 min read</span>
+            </div>
+          </a>
+
+          <!-- Card 4 -->
+          <a href="article.html" class="article-card" aria-label="Read: Prompt Engineering Patterns">
+            <div class="card-meta">
+              <div class="card-avatar" role="img" aria-label="Author avatar" style="background:var(--color-border);"></div>
+              <span class="card-author">Hongyu Xiao</span>
+              <span aria-hidden="true">·</span>
+              <span>HXiao.ai</span>
+            </div>
+            <div class="card-body">
+              <div class="card-text">
+                <h2 class="card-title">Prompt Engineering Is Not a Hack — It's a Design Discipline</h2>
+                <p class="card-preview">
+                  The dismissal of prompt engineering as "just writing better sentences" misunderstands what's happening. Prompting is interface design for probabilistic systems.
+                </p>
+              </div>
+              <div class="card-thumbnail skeleton" role="img" aria-label="Article thumbnail"></div>
+            </div>
+            <div class="card-footer">
+              <span class="tag">Prompt Engineering</span>
+              <span class="card-read-time">5 min read</span>
+            </div>
+          </a>
+
+          <!-- Card 5 -->
+          <a href="article.html" class="article-card" aria-label="Read: Tool Use in AI Agents">
+            <div class="card-meta">
+              <div class="card-avatar" role="img" aria-label="Author avatar" style="background:var(--color-border);"></div>
+              <span class="card-author">Hongyu Xiao</span>
+              <span aria-hidden="true">·</span>
+              <span>HXiao.ai</span>
+            </div>
+            <div class="card-body">
+              <div class="card-text">
+                <h2 class="card-title">Tool Use and the Expanding Boundary of What AI Can Do</h2>
+                <p class="card-preview">
+                  When you give a language model a browser, a calculator, and a file system, you haven't just added capabilities. You've introduced a new class of failure modes that require entirely new thinking about safety.
+                </p>
+              </div>
+              <div class="card-thumbnail skeleton" role="img" aria-label="Article thumbnail"></div>
+            </div>
+            <div class="card-footer">
+              <span class="tag">Tool Use</span>
+              <span class="tag">AI Safety</span>
+              <span class="card-read-time">9 min read</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Recommended reading">
+        <div class="sidebar-section">
+          <h2 class="sidebar-heading">Staff picks</h2>
+          <div>
+            <div class="sidebar-pick">
+              <div class="sidebar-pick-meta">
+                <div class="sidebar-pick-avatar" role="img" aria-label="Author avatar"></div>
+                <span>Hongyu Xiao</span>
+              </div>
+              <p class="sidebar-pick-title">The Rise of Agentic AI: When Models Learn to Act</p>
+            </div>
+            <div class="sidebar-pick">
+              <div class="sidebar-pick-meta">
+                <div class="sidebar-pick-avatar" role="img" aria-label="Author avatar"></div>
+                <span>Hongyu Xiao</span>
+              </div>
+              <p class="sidebar-pick-title">Prompt Engineering Is Not a Hack — It's a Design Discipline</p>
+            </div>
+            <div class="sidebar-pick">
+              <div class="sidebar-pick-meta">
+                <div class="sidebar-pick-avatar" role="img" aria-label="Author avatar"></div>
+                <span>Hongyu Xiao</span>
+              </div>
+              <p class="sidebar-pick-title">Tool Use and the Expanding Boundary of What AI Can Do</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="sidebar-section">
+          <h2 class="sidebar-heading">Recommended topics</h2>
+          <div class="sidebar-topics">
+            <a href="#" class="tag">Agentic AI</a>
+            <a href="#" class="tag">LLM</a>
+            <a href="#" class="tag">Reasoning</a>
+            <a href="#" class="tag">AI Safety</a>
+            <a href="#" class="tag">Multi-Agent</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ==============================
+       Footer
+       ============================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <span>&copy; 2025 HXiao.ai</span>
+      <ul class="footer-links" aria-label="Footer links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar shadow on scroll (§5.1)
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 65);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+
+</body>
+</html>

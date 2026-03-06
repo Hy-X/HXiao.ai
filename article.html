@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Rise of Agentic AI — HXiao.ai</title>
+  <meta name="description" content="We've spent years teaching machines to predict the next token. Now we're teaching them to take the next step. Agentic AI is not just a capability upgrade — it's a philosophical shift." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Source+Code+Pro&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+      --font-serif: Lora, Georgia, "Times New Roman", serif;
+      --font-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "Source Code Pro", "Courier New", monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==============================
+       Navbar (§5.1)
+       ============================== -->
+  <header>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
+          <span class="navbar-logo" aria-hidden="true">H</span>
+          <span class="navbar-site-name">HXiao.ai</span>
+        </a>
+
+        <div class="navbar-actions">
+          <a href="index.html" class="navbar-link">Articles</a>
+          <a href="about.html" class="navbar-link">About</a>
+          <a href="index.html" class="btn-cta">Home</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article-container" aria-labelledby="article-title">
+
+      <!-- ==============================
+           Article Header (§5.8, §12)
+           ============================== -->
+      <header class="article-header">
+        <h1 class="article-title" id="article-title">
+          The Rise of Agentic AI: When Models Learn to Act
+        </h1>
+        <p class="article-subtitle">
+          We've spent years teaching machines to predict the next token. Now we're teaching them to take the next step.
+        </p>
+
+        <!-- Byline (§5.8) -->
+        <div class="article-byline">
+          <div class="byline-avatar skeleton" role="img" aria-label="Hongyu Xiao avatar"></div>
+          <div class="byline-info">
+            <div class="byline-name">
+              Hongyu Xiao
+              <button class="btn-follow" aria-label="Follow Hongyu Xiao">Follow</button>
+            </div>
+            <div class="byline-meta">
+              HXiao.ai &middot; March 6, 2025 &middot; 8 min read
+            </div>
+          </div>
+        </div>
+
+        <!-- Engagement bar top (§5.7) -->
+        <div class="engagement-bar" role="group" aria-label="Article engagement">
+          <button class="clap-btn" aria-label="Clap for this article" id="clapBtn">
+            <span class="clap-icon" aria-hidden="true">👏</span>
+            <span id="clapCount">0</span>
+          </button>
+          <div class="share-actions">
+            <button class="clap-btn" aria-label="Bookmark this article">
+              <span aria-hidden="true">🔖</span>
+            </button>
+            <button class="clap-btn" aria-label="Share this article">
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- ==============================
+           Hero Image (§6)
+           ============================== -->
+      <div class="article-hero-image skeleton" role="img" aria-label="Abstract visualization of AI decision trees" style="height:420px;border-radius:0;"></div>
+      <figure>
+        <figcaption style="text-align:center;font-size:14px;color:var(--color-text-secondary);font-style:italic;font-family:var(--font-sans);margin-top:-8px;margin-bottom:32px;">
+          An abstract representation of branching decision paths in an agentic system.
+        </figcaption>
+      </figure>
+
+      <!-- ==============================
+           Article Body (§5.6)
+           ============================== -->
+      <div class="article-body">
+
+        <p>
+          For the better part of a decade, the dominant paradigm in AI research has been <em>prediction</em>. Given a sequence of tokens, predict the next one. Given an image, predict its label. The extraordinary success of this paradigm—culminating in large language models that can discuss philosophy, write code, and compose music—has obscured a fundamental limitation: these systems have no will to act.
+        </p>
+
+        <p>
+          Agentic AI changes that. It is, at its core, the extension of language models from <em>oracles</em> into <em>actors</em>. An agent doesn't just answer your question—it breaks the question into steps, executes each one, observes the results, and adjusts its plan accordingly. The difference sounds incremental. It isn't.
+        </p>
+
+        <h2>What Makes an Agent?</h2>
+
+        <p>
+          The term "agent" is borrowed from philosophy and economics, where it describes any entity that takes actions to achieve goals. In AI, we typically require three properties:
+        </p>
+
+        <ul>
+          <li><strong>Perception:</strong> The ability to observe the environment—through text, tool outputs, memory stores, or sensor data.</li>
+          <li><strong>Planning:</strong> The ability to decompose a goal into a sequence of sub-tasks and maintain a mental model of progress.</li>
+          <li><strong>Action:</strong> The ability to execute operations that change the state of the world—calling APIs, writing files, browsing the web, running code.</li>
+        </ul>
+
+        <p>
+          What makes modern LLM-based agents remarkable is that these three capabilities emerge from a single substrate: the transformer architecture, pretrained on human text. The model has absorbed enough procedural knowledge from documentation, tutorials, and reasoning traces to approximate each of these properties without being explicitly programmed to do so.
+        </p>
+
+        <blockquote>
+          The model was never taught to use a browser. It learned, from millions of pages describing how humans use browsers, to construct plausible browsing actions — and those constructions happen to work.
+        </blockquote>
+
+        <h2>The ReAct Loop</h2>
+
+        <p>
+          The most influential framing of agentic behavior in recent years is the <strong>ReAct</strong> pattern (Yao et al., 2022): Reason, then Act, then Observe, then repeat. At each step, the model produces a chain-of-thought reasoning trace, selects a tool call, receives the tool's output, and updates its reasoning context accordingly.
+        </p>
+
+        <p>
+          This loop is simple enough to fit in a paragraph, yet complex enough to produce surprising emergent behaviors. Agents running ReAct loops have been observed to self-correct mid-task, to formulate hypotheses and test them, and to recognize when they've reached a dead end and backtrack—behaviors that feel, from the outside, remarkably like thinking.
+        </p>
+
+        <pre><code># Simplified ReAct loop
+while not task_complete:
+    thought = model.think(context)
+    action = model.select_action(thought)
+    observation = environment.execute(action)
+    context.append(thought, action, observation)</code></pre>
+
+        <h2>The Problems That Don't Go Away</h2>
+
+        <p>
+          Agentic systems also inherit, and in some cases amplify, the failure modes of the language models underneath them. Three stand out.
+        </p>
+
+        <p>
+          <strong>Compounding errors.</strong> In a single-turn Q&A, a wrong answer is just a wrong answer. In an agentic loop, a wrong intermediate step can corrupt all subsequent reasoning. By step ten of a twenty-step task, the model may be operating in a completely hallucinated context that bears no relationship to the actual state of the world.
+        </p>
+
+        <p>
+          <strong>Scope creep.</strong> Agents given broad goals tend to expand their interpretation of those goals. An agent tasked with "improve the codebase" might refactor files it was never meant to touch, or make architectural decisions that contradict unstated organizational preferences. Without tight scope constraints, agents optimize for their interpretation of success, which may differ sharply from yours.
+        </p>
+
+        <p>
+          <strong>The trust problem.</strong> When an agent browses the web, it may encounter instructions in the page content designed to hijack its behavior — a technique called <em>prompt injection</em>. The model, trained to follow instructions wherever it finds them, cannot reliably distinguish between its operator's legitimate instructions and adversarial instructions embedded in environmental content.
+        </p>
+
+        <h2>Where We Are Now</h2>
+
+        <p>
+          We are, by most measures, in the early days of practical agentic AI. The systems that exist today—AutoGPT, Claude Computer Use, GPT-4o with tools, Gemini with function calling—are impressively capable in narrow, well-defined tasks and unreliable in anything requiring sustained judgment over long horizons.
+        </p>
+
+        <p>
+          But the trajectory is steep. Every six months, the benchmark scores climb. Every year, the task horizons lengthen. The question is no longer whether language models can become effective agents — it's how quickly we can build the scaffolding, the safety measures, and the human-AI collaboration patterns that make that capability useful and trustworthy.
+        </p>
+
+        <p>
+          The shift from prediction to action is not just a technical upgrade. It is a change in the nature of what these systems are. We are building, for the first time, AI that does things in the world. Getting that right matters more than getting it fast.
+        </p>
+
+      </div>
+
+      <!-- ==============================
+           Bottom Engagement Bar (§5.7)
+           ============================== -->
+      <div class="engagement-bar" role="group" aria-label="Article engagement">
+        <button class="clap-btn" aria-label="Clap for this article" id="clapBtnBottom">
+          <span class="clap-icon" aria-hidden="true">👏</span>
+          <span id="clapCountBottom">0</span>
+        </button>
+        <div class="share-actions">
+          <button class="clap-btn" aria-label="Bookmark this article">
+            <span aria-hidden="true">🔖</span>
+          </button>
+          <button class="clap-btn" aria-label="Share this article">
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ==============================
+           Author Bio
+           ============================== -->
+      <section class="author-bio" aria-labelledby="author-bio-heading">
+        <div class="author-bio-header">
+          <div class="author-bio-avatar skeleton" role="img" aria-label="Hongyu Xiao avatar"></div>
+          <div>
+            <p class="author-bio-name" id="author-bio-heading">Hongyu Xiao</p>
+            <button class="btn-follow" aria-label="Follow Hongyu Xiao">Follow</button>
+          </div>
+        </div>
+        <p class="author-bio-text">
+          Personal thoughts and explorations on AI and Agentic AI applications. Writing at the intersection of systems thinking, language models, and what it means to build machines that act.
+        </p>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- ==============================
+           More Articles
+           ============================== -->
+      <section class="more-articles" aria-labelledby="more-heading">
+        <h2 class="more-articles-heading" id="more-heading">More from HXiao.ai</h2>
+
+        <a href="index.html" class="article-card">
+          <div class="card-meta">
+            <div class="card-avatar skeleton" role="img" aria-label="Author avatar"></div>
+            <span class="card-author">Hongyu Xiao</span>
+          </div>
+          <div class="card-body">
+            <div class="card-text">
+              <h3 class="card-title">Reasoning Under Uncertainty: How LLMs Handle What They Don't Know</h3>
+              <p class="card-preview">
+                The gap between confidence and calibration is where hallucinations live. Exploring how modern language models express uncertainty.
+              </p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">LLM</span>
+            <span class="card-read-time">6 min read</span>
+          </div>
+        </a>
+
+        <a href="index.html" class="article-card">
+          <div class="card-meta">
+            <div class="card-avatar skeleton" role="img" aria-label="Author avatar"></div>
+            <span class="card-author">Hongyu Xiao</span>
+          </div>
+          <div class="card-body">
+            <div class="card-text">
+              <h3 class="card-title">Prompt Engineering Is Not a Hack — It's a Design Discipline</h3>
+              <p class="card-preview">
+                The dismissal of prompt engineering as "just writing better sentences" misunderstands what's happening. Prompting is interface design for probabilistic systems.
+              </p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">Prompt Engineering</span>
+            <span class="card-read-time">5 min read</span>
+          </div>
+        </a>
+
+      </section>
+    </article>
+  </main>
+
+  <!-- ==============================
+       Footer
+       ============================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <span>&copy; 2025 HXiao.ai</span>
+      <ul class="footer-links" aria-label="Footer links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar shadow on scroll (§5.1)
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 65);
+    }, { passive: true });
+
+    // Clap button animation (§5.7)
+    let claps = 0;
+    function handleClap() {
+      claps++;
+      document.getElementById('clapCount').textContent = claps;
+      document.getElementById('clapCountBottom').textContent = claps;
+
+      // Bouncy animation on both icons
+      document.querySelectorAll('.clap-icon').forEach(icon => {
+        icon.classList.add('clapped');
+        setTimeout(() => icon.classList.remove('clapped'), 300);
+      });
+    }
+
+    document.getElementById('clapBtn').addEventListener('click', handleClap);
+    document.getElementById('clapBtnBottom').addEventListener('click', handleClap);
+
+    // Follow button toggle (§5.4)
+    document.querySelectorAll('.btn-follow').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const isFollowing = this.textContent === 'Following';
+        this.textContent = isFollowing ? 'Follow' : 'Following';
+        this.className = isFollowing ? 'btn-follow' : 'btn-following';
+        this.setAttribute('aria-label', isFollowing ? 'Follow Hongyu Xiao' : 'Following Hongyu Xiao — click to unfollow');
+      });
+    });
+  </script>
+
+</body>
+</html>

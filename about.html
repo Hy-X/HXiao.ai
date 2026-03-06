@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — HXiao.ai</title>
+  <meta name="description" content="About Hongyu Xiao and HXiao.ai — personal thoughts and explorations on AI and Agentic AI applications." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Source+Code+Pro&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+      --font-serif: Lora, Georgia, "Times New Roman", serif;
+      --font-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "Source Code Pro", "Courier New", monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
+          <span class="navbar-logo" aria-hidden="true">H</span>
+          <span class="navbar-site-name">HXiao.ai</span>
+        </a>
+        <div class="navbar-actions">
+          <a href="index.html" class="navbar-link">Articles</a>
+          <a href="article.html" class="btn-cta">Start reading</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article-container" aria-labelledby="about-title">
+      <header class="article-header">
+        <h1 class="article-title" id="about-title">About</h1>
+      </header>
+
+      <div class="article-body">
+        <p>
+          <strong>HXiao.ai</strong> is Hongyu Xiao's personal space for thinking out loud about artificial intelligence — specifically the emerging world of Agentic AI, where language models stop being oracles and start being actors.
+        </p>
+
+        <p>
+          These are not polished academic papers. They are working notes, exploratory essays, and honest attempts to understand a technology that is changing faster than any single person can track. The writing is long-form by design: the ideas here don't fit in a thread.
+        </p>
+
+        <h2>What I write about</h2>
+
+        <ul>
+          <li><strong>Agentic AI systems</strong> — how they're built, why they fail, where they're going</li>
+          <li><strong>Reasoning and planning</strong> in large language models</li>
+          <li><strong>Multi-agent architectures</strong> — coordination, trust, and emergent behavior</li>
+          <li><strong>Prompt engineering</strong> as a design discipline</li>
+          <li><strong>AI safety</strong> in the context of tools and autonomy</li>
+        </ul>
+
+        <h2>Design philosophy</h2>
+
+        <p>
+          This site is intentionally minimal. Typography is the interface. Whitespace is content. The goal is to get out of the way of the writing.
+        </p>
+
+        <p>
+          The design follows an editorial minimalism system — reading-first, serif body text, generous line height, no decoration for its own sake. If you're curious about the specifics, the full design system is documented in the repository.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <span>&copy; 2025 HXiao.ai</span>
+      <ul class="footer-links" aria-label="Footer links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 65);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
