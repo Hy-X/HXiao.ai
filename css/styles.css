@@ -886,6 +886,10 @@ img {
   z-index: 5;
 }
 
+.share-menu[hidden] {
+  display: none;
+}
+
 .share-link {
   font-family: var(--font-sans);
   font-size: var(--text-ui);
