@@ -59,6 +59,43 @@ Quality checks:
 - Build-time style conformance check against `design-rules.md` via `scripts/style_check.py`
 - Optional standalone run: `./.venv/bin/python scripts/style_check.py`
 
+## Auto-Generate Hero Images (Gemini)
+
+You can generate article hero images automatically using the Google Gemini API.
+
+1. Define global visual direction in `content/image-style.json`.
+2. Keep per-article image brief fields in each `content/articles/<slug>.json`:
+	- `hero_image_placeholder`
+	- `hero_image_note`
+3. Export your API key:
+	- `export GEMINI_API_KEY="..."`
+4. Generate hero images:
+	- `./.venv/bin/python scripts/generate_images.py`
+	- Optional force regenerate: `./.venv/bin/python scripts/generate_images.py --force`
+5. Rebuild pages so generated images are embedded:
+	- `./.venv/bin/python scripts/build_site.py`
+
+Optional environment variables:
+- `GEMINI_IMAGE_MODEL` (default: `gemini-2.5-flash-image`)
+- `GEMINI_API_BASE` (default: `https://generativelanguage.googleapis.com/v1beta`)
+
+Generated images are written to `assets/images/articles/`, and each article JSON gets `hero_image_file` set automatically.
+
+### Secret Safety (Recommended)
+
+- Never hardcode API keys in tracked files.
+- Keep local secrets in `.env` (ignored by git) or shell environment variables.
+- `.env.example` is provided as a safe template with placeholders only.
+
+Local setup example:
+
+```bash
+cp .env.example .env
+source .env
+./.venv/bin/python scripts/generate_images.py
+./.venv/bin/python scripts/build_site.py
+```
+
 The GitHub Pages workflow also runs the same builder step on every deploy.
 
 Files beginning with `_` are treated as templates and ignored by the builder.

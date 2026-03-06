@@ -1,0 +1,15 @@
+# Python virtual environment
+.venv/
+
+# Local environment secrets
+.env
+.env.*
+!.env.example
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# OS / editor noise
+.DS_Store
+.vscode/settings.json

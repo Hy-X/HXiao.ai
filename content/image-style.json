@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "style_name": "Editorial Scientific Minimalism",
+  "image_size": "1536x1024",
+  "mime_type": "image/png",
+  "global_style_prompt": "Create a refined editorial illustration with clean geometry, subtle texture, restrained contrast, and research-journal tone. Prefer muted neutrals with one controlled accent color. Avoid logos, text overlays, UI screenshots, watermarks, photoreal faces, and visual clutter. Keep composition readable at web-hero scale.",
+  "negative_prompt": "No typography in image, no branding marks, no memes, no chaotic collage, no sensational disaster visuals, no gore, no photoreal people."
+}

@@ -39,6 +39,7 @@ class Article:
     hero_aria: str
     hero_image_placeholder: str
     hero_image_note: str
+    hero_image_file: str
     body_html: str
     author: str = DEFAULT_AUTHOR
 
@@ -77,6 +78,7 @@ def load_articles() -> list[Article]:
             hero_aria=data.get("hero_aria", "Abstract visualization for article"),
             hero_image_placeholder=data.get("hero_image_placeholder", "1200x630 cover image"),
             hero_image_note=data.get("hero_image_note", "Replace skeleton with final article hero image when available."),
+            hero_image_file=data.get("hero_image_file", ""),
             body_html=body_file.read_text(encoding="utf-8").strip(),
             author=data.get("author", DEFAULT_AUTHOR),
         )
@@ -175,6 +177,23 @@ def render_related_cards(current: Article, articles: list[Article]) -> str:
     return "\n\n".join(blocks)
 
 
+def render_hero_media(article: Article) -> str:
+    if article.hero_image_file:
+        image_path = ROOT / article.hero_image_file
+        if image_path.exists():
+            return (
+                f'      <img class="article-hero-image article-hero-image-full" '
+                f'src="{escape(article.hero_image_file)}" '
+                f'alt="{escape(article.hero_aria)}" loading="eager" decoding="async" />'
+            )
+
+    return (
+        f'      <div class="article-hero-image article-hero-image-full skeleton" role="img" '
+        f'aria-label="{escape(article.hero_aria)}" '
+        f'data-image-placeholder="{escape(article.hero_image_placeholder)}"></div>'
+    )
+
+
 def render_article_page(article: Article, articles: list[Article], template: str) -> str:
     json_ld = {
         "@context": "https://schema.org",
@@ -208,6 +227,7 @@ def render_article_page(article: Article, articles: list[Article], template: str
         "{{HERO_CAPTION}}": article.hero_caption,
         "{{HERO_IMAGE_PLACEHOLDER}}": article.hero_image_placeholder,
         "{{HERO_IMAGE_NOTE}}": article.hero_image_note,
+        "{{HERO_MEDIA}}": render_hero_media(article),
         "{{BODY_HTML}}": article.body_html,
         "{{RELATED_ARTICLES}}": render_related_cards(article, articles),
     }
