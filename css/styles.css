@@ -5,6 +5,7 @@
 :root {
   /* Colors */
   --color-bg: #FFFFFF;
+  --color-bg-paper: #FCFCFA;
   --color-surface: #F9F9F9;
   --color-border: #E6E6E6;
   --color-text-primary: #242424;
@@ -68,6 +69,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #191919;
+    --color-bg-paper: #1D1D1B;
     --color-surface: #242424;
     --color-border: #2E2E2E;
     --color-text-primary: #E6E6E6;
@@ -101,13 +103,16 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
+  background:
+    linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-paper) 38%, var(--color-bg) 100%);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   font-size: var(--text-ui);
   line-height: var(--leading-ui);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
 }
 
 a {
@@ -339,6 +344,7 @@ img {
   font-weight: 700;
   line-height: 1.18;
   color: var(--color-text-primary);
+  text-wrap: balance;
   margin-bottom: var(--space-md);
 }
 
@@ -484,6 +490,7 @@ img {
   font-weight: 700;
   line-height: 1.3;
   color: var(--color-text-primary);
+  text-wrap: balance;
   margin-bottom: var(--space-xs);
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -577,6 +584,7 @@ img {
   font-size: var(--text-ui);
   font-weight: 700;
   color: var(--color-text-primary);
+  text-wrap: pretty;
   line-height: 1.3;
 }
 
@@ -606,6 +614,7 @@ img {
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-text-primary);
+  text-wrap: balance;
   margin-bottom: var(--space-md);
 }
 
@@ -693,6 +702,16 @@ img {
 
 .article-body p {
   margin-bottom: 2em;
+}
+
+/* Give article openings a classic editorial cue without overpowering the page. */
+.article-body > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.1em;
+  line-height: 0.9;
+  margin-right: 0.08em;
+  margin-top: 0.03em;
 }
 
 .article-body h2 {
@@ -1093,6 +1112,13 @@ p a,
 
   .article-body {
     font-size: 18px;
+  }
+
+  .article-body > p:first-of-type::first-letter {
+    float: none;
+    font-size: 1.6em;
+    margin-right: 0;
+    margin-top: 0;
   }
 
   .card-thumbnail {
