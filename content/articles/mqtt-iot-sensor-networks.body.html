@@ -1,0 +1,59 @@
+<p>
+  The MQTT protocol was not designed for sophistication. It was designed for
+  survival — originally created for monitoring a remote oil pipeline over
+  satellite links where every byte cost money and connections dropped without
+  warning. That origin story explains almost everything about why it became the
+  default protocol for IoT sensor networks decades later.
+</p>
+
+<p>
+  In seismic sensor deployments, those same constraints apply. A field station
+  running on solar power with a cellular uplink cannot afford the overhead of
+  HTTP or WebSocket handshakes for every waveform packet. It needs a protocol
+  that maintains persistent sessions, delivers messages asynchronously, and
+  keeps the packet header at 2 bytes fixed overhead.
+</p>
+
+<h2>Publish-Subscribe vs. Request-Response</h2>
+
+<p>
+  MQTT's publish-subscribe model is architecturally different from the
+  request-response pattern most web developers default to. Publishers (sensors)
+  emit messages on named topics without knowing who is listening. Subscribers
+  (dashboards, ringservers, alert systems) receive those messages filtered by
+  topic without knowing who is sending.
+</p>
+
+<blockquote>
+  The broker sits between publisher and subscriber, decoupling them in both time
+  and space. A subscriber can join at any point and optionally receive the last
+  retained message — making it ideal for state-of-the-sensor readouts.
+</blockquote>
+
+<h2>Quality of Service Levels</h2>
+
+<p>
+  MQTT's three QoS levels — at-most-once, at-least-once, and exactly-once — give
+  system designers explicit control over the reliability-overhead tradeoff. For
+  raw seismic waveform streaming, QoS 0 is often appropriate: the data is
+  continuous, and dropping occasional packets is preferable to the
+  retransmission overhead. For earthquake detection alerts, QoS 1 or 2 ensures
+  the message gets through even if the connection hiccups.
+</p>
+
+<h2>MQTT in the Seismic Stack</h2>
+
+<p>
+  In my current sensor architecture, the ESP32 node publishes miniSEED-formatted
+  waveform packets on a structured topic hierarchy. A Python subscriber forwards
+  qualifying detection events to a ringserver via the DataLink protocol, while
+  another subscriber feeds the live earthquake tracker dashboard in real time.
+  MQTT serves as the decoupled message bus that allows these consumers to evolve
+  independently without modifying the sensor firmware.
+</p>
+
+<p>
+  The result is a remarkably flexible and resilient stack. New consumers — alert
+  SMS gateways, cloud archiving, ML inference endpoints — can be added by simply
+  subscribing to the existing topic without touching any upstream component.
+</p>

@@ -1,0 +1,14 @@
+{
+  "slug": "rag-scientific-literature-review",
+  "title": "RAG for Science: Using Retrieval-Augmented Generation to Navigate Research Literature",
+  "subtitle": "Why LLMs alone are not enough for rigorous scientific synthesis — and how retrieval changes the equation",
+  "description": "Retrieval-Augmented Generation grounds language model outputs in verifiable sources, making it a powerful tool for scientific literature review, hypothesis formation, and reproducible research workflows.",
+  "excerpt": "An LLM trained on a static corpus cannot know what was published last month. RAG fixes that — by retrieving relevant papers at query time and grounding every claim in a traceable source.",
+  "tags": ["Agentic AI", "LLM"],
+  "published_date": "2025-12-05",
+  "published_display": "December 5, 2025",
+  "read_time": "8 min read",
+  "hero_caption": "A retrieval-augmented pipeline grounding LLM responses in a live corpus of scientific papers.",
+  "hero_aria": "Diagram of a RAG pipeline retrieving documents from a vector store to augment an LLM scientific query",
+  "body_file": "rag-scientific-literature-review.body.html"
+}

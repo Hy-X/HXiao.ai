@@ -1,0 +1,64 @@
+<p>
+  When Geoffrey Hinton introduced knowledge distillation in 2015, the core
+  insight was deceptively simple: a trained neural network knows more than its
+  predictions reveal. The probability distribution over all classes — not just
+  the winning prediction — encodes structural relationships that can be
+  transferred to a smaller model.
+</p>
+
+<p>
+  These "soft labels" carry what Hinton called "dark knowledge." A model that
+  assigns 0.7 probability to class A, 0.2 to class B, and 0.1 to class C is
+  communicating something richer than a hard one-hot label ever could: it is
+  expressing the similarity structure of the input space.
+</p>
+
+<h2>The Mechanics of Distillation</h2>
+
+<p>
+  Training a student model under distillation combines two objectives. The first
+  is standard cross-entropy against ground truth labels. The second — weighted
+  by a temperature hyperparameter — is the KL divergence between the student's
+  soft outputs and the teacher's soft outputs at elevated temperature.
+</p>
+
+<blockquote>
+  Temperature scaling softens both distributions, amplifying the signal in the
+  low-probability tails and giving the student richer gradient information about
+  the structure of the problem.
+</blockquote>
+
+<p>
+  In practice, the temperature parameter <code>T</code> is typically swept
+  between 2 and 10. Higher values transfer more relational structure; lower
+  values keep the student closer to hard decisions. The right balance is
+  task-specific.
+</p>
+
+<h2>Applications in Scientific Machine Learning</h2>
+
+<p>
+  In seismological applications — where I work on P-wave and S-wave detection
+  models — distillation offers a practical path to field deployment. A large
+  teacher network, trained on full Oklahoma datasets with high-capacity
+  architectures, can supervise a compact student that runs within a
+  microcontroller's 320KB RAM constraint.
+</p>
+
+<p>
+  The student inherits the teacher's calibration and its understanding of
+  borderline cases — exactly the events that matter most for real-time
+  monitoring. In field tests with distilled PNet variants, we observed accuracy
+  preservation above 95% of the teacher's performance at a fraction of the
+  compute and memory footprint.
+</p>
+
+<h2>Distillation vs. Quantization</h2>
+
+<p>
+  Distillation and quantization are complementary, not competing. Distillation
+  compresses the model's capacity; quantization compresses its numerical
+  representation. Used together — distill first, then quantize — they produce
+  models that are both architecturally lean and numerically compact, maximally
+  suited for edge deployment scenarios where both RAM and flash are limited.
+</p>

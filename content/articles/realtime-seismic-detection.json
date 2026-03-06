@@ -1,0 +1,14 @@
+{
+  "slug": "realtime-seismic-detection",
+  "title": "Real-Time Seismic Signal Detection with Deep Learning",
+  "subtitle": "From manual phase picking to automated, continuous-stream inference at scale",
+  "description": "Deep learning has transformed seismic phase picking from a laborious manual process to an automated, real-time pipeline. This essay explores the architectures and challenges behind modern seismic detection.",
+  "excerpt": "Phase picking has traditionally been a painstaking manual process. Deep learning is changing that — making automated, real-time P and S wave detection both accurate and deployable at the edge.",
+  "tags": ["Seismology", "Science"],
+  "published_date": "2026-01-22",
+  "published_display": "January 22, 2026",
+  "read_time": "8 min read",
+  "hero_caption": "A three-component seismogram showing identified P-wave and S-wave arrivals produced by a deep phase-picking model.",
+  "hero_aria": "Seismic waveform display with detected P and S wave arrivals highlighted",
+  "body_file": "realtime-seismic-detection.body.html"
+}

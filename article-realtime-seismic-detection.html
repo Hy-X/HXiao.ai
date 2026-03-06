@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Seismic Signal Detection with Deep Learning — HXiao.ai</title>
+    <meta name="description" content="Deep learning has transformed seismic phase picking from a laborious manual process to an automated, real-time pipeline. This essay explores the architectures and challenges behind modern seismic detection." />
+    <meta
+      name="keywords"
+      content="AI, Agentic AI, Seismology, Research, Science" />
+    <meta name="author" content="Hongyu Xiao" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://hy-x.github.io/HXiao.ai/article-realtime-seismic-detection.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="HXiao.ai" />
+    <meta property="og:title" content="Real-Time Seismic Signal Detection with Deep Learning — HXiao.ai" />
+    <meta property="og:description" content="Deep learning has transformed seismic phase picking from a laborious manual process to an automated, real-time pipeline. This essay explores the architectures and challenges behind modern seismic detection." />
+    <meta property="og:url" content="https://hy-x.github.io/HXiao.ai/article-realtime-seismic-detection.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Real-Time Seismic Signal Detection with Deep Learning — HXiao.ai" />
+    <meta name="twitter:description" content="Deep learning has transformed seismic phase picking from a laborious manual process to an automated, real-time pipeline. This essay explores the architectures and challenges behind modern seismic detection." />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Source+Code+Pro&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+        --font-serif: Lora, Georgia, "Times New Roman", serif;
+        --font-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+        --font-mono: "Source Code Pro", "Courier New", monospace;
+      }
+
+      /* ---- Comment Section ---- */
+      .comments-section {
+        margin-top: var(--space-2xl);
+        border-top: 1px solid var(--color-border);
+        padding-top: var(--space-xl);
+      }
+      .comments-heading {
+        font-family: var(--font-sans);
+        font-size: var(--text-ui);
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: var(--space-lg);
+      }
+      .comment-form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-xl);
+      }
+      .comment-form input,
+      .comment-form textarea {
+        font-family: var(--font-sans);
+        font-size: var(--text-ui);
+        color: var(--color-text-primary);
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: 10px 14px;
+        transition: border-color var(--transition-fast);
+        width: 100%;
+        outline: none;
+        resize: vertical;
+      }
+      .comment-form input:focus,
+      .comment-form textarea:focus {
+        border-color: var(--color-text-secondary);
+      }
+      .comment-form textarea {
+        min-height: 100px;
+        line-height: 1.6;
+      }
+      .comment-submit {
+        align-self: flex-start;
+      }
+      .comment-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+      }
+      .comment-item {
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: var(--space-lg);
+      }
+      .comment-item:last-child {
+        border-bottom: none;
+      }
+      .comment-meta {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-xs);
+      }
+      .comment-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--color-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-sans);
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--color-text-secondary);
+        flex-shrink: 0;
+        text-transform: uppercase;
+      }
+      .comment-author {
+        font-family: var(--font-sans);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--color-text-primary);
+      }
+      .comment-date {
+        font-family: var(--font-sans);
+        font-size: var(--text-small);
+        color: var(--color-text-muted);
+      }
+      .comment-body {
+        font-family: var(--font-sans);
+        font-size: var(--text-ui);
+        color: var(--color-text-primary);
+        line-height: 1.6;
+        margin-left: 40px;
+      }
+      .comments-empty {
+        font-family: var(--font-sans);
+        font-size: var(--text-ui);
+        color: var(--color-text-secondary);
+        font-style: italic;
+      }
+    </style>
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Real-Time Seismic Signal Detection with Deep Learning", "description": "Deep learning has transformed seismic phase picking from a laborious manual process to an automated, real-time pipeline. This essay explores the architectures and challenges behind modern seismic detection.", "author": {"@type": "Person", "name": "Hongyu Xiao"}, "publisher": {"@type": "Organization", "name": "HXiao.ai"}, "datePublished": "2026-01-22", "dateModified": "2026-01-22", "mainEntityOfPage": "https://hy-x.github.io/HXiao.ai/article-realtime-seismic-detection.html", "keywords": ["AI", "Agentic AI", "Seismology", "Research", "Science"]}
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar"
+        id="navbar"
+        role="navigation"
+        aria-label="Main navigation">
+        <div class="navbar-inner">
+          <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
+            <span class="navbar-logo" aria-hidden="true">H</span>
+            <span class="navbar-site-name">HXiao.ai</span>
+          </a>
+
+          <div class="navbar-actions">
+            <a href="index.html" class="navbar-link">Articles</a>
+            <a href="about.html" class="navbar-link">About</a>
+            <a href="article.html" class="btn-cta">Start reading</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <article class="article-container" aria-labelledby="article-title">
+        <header class="article-header">
+          <h1 class="article-title" id="article-title">Real-Time Seismic Signal Detection with Deep Learning</h1>
+          <p class="article-subtitle">From manual phase picking to automated, continuous-stream inference at scale</p>
+
+          <div class="article-byline">
+            <div
+              class="byline-avatar"
+              role="img"
+              aria-label="Hongyu Xiao avatar"></div>
+            <div class="byline-info">
+              <div class="byline-name">
+                Hongyu Xiao
+                <button class="btn-follow" aria-label="Follow Hongyu Xiao">
+                  Follow
+                </button>
+              </div>
+              <div class="byline-meta">
+                HXiao.ai &middot; January 22, 2026 &middot; 8 min read
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="engagement-bar"
+            role="group"
+            aria-label="Article engagement">
+            <button
+              class="clap-btn"
+              aria-label="Clap for this article"
+              id="clapBtn">
+              <span class="clap-icon" aria-hidden="true">👏</span>
+              <span id="clapCount">0</span>
+            </button>
+            <div class="share-actions">
+              <button
+                class="clap-btn save-btn"
+                aria-label="Save this article"
+                id="saveBtn">
+                <span class="save-icon" aria-hidden="true">🔖</span>
+                <span class="save-label">Save</span>
+              </button>
+              <button
+                class="clap-btn share-toggle"
+                aria-label="Share this article"
+                aria-expanded="false"
+                aria-haspopup="menu">
+                <span class="share-icon" aria-hidden="true">↗</span>
+                <span class="share-label">Share</span>
+              </button>
+              <div class="share-menu" role="menu" hidden></div>
+            </div>
+          </div>
+        </header>
+
+        <!-- HERO_IMAGE_PLACEHOLDER: 1200x630 cover image -->
+        <!-- HERO_IMAGE_NOTE: Replace skeleton with final article hero image when available. -->
+              <div class="article-hero-image article-hero-image-full skeleton" role="img" aria-label="Seismic waveform display with detected P and S wave arrivals highlighted" data-image-placeholder="1200x630 cover image"></div>
+        <figure>
+          <figcaption class="article-hero-caption">A three-component seismogram showing identified P-wave and S-wave arrivals produced by a deep phase-picking model.</figcaption>
+        </figure>
+
+        <div class="article-body"><p>
+  Seismology has always been a science of patterns in noise. For decades,
+  identifying the precise onset of a P-wave or S-wave arrival in a continuous
+  waveform was work done by trained analysts, armed with intuition built from
+  thousands of hours of waveform review. It was accurate, but slow — and
+  impossible to scale across regional networks generating terabytes of data per
+  day.
+</p>
+
+<p>
+  Deep learning has fundamentally changed the economics of phase picking. Models
+  like PhaseNet, EQTransformer, and the PNet variants I work with can process
+  continuous streams in real time, achieving analyst-level accuracy at a
+  fraction of the human time cost.
+</p>
+
+<h2>The Phase Picking Problem</h2>
+
+<p>
+  Phase picking is the task of identifying when a seismic wave type — P
+  (primary, compressional) or S (secondary, shear) — arrives at a given station.
+  The arrival time is used to locate the earthquake source via triangulation
+  across multiple stations. Errors on the order of even 0.1 seconds can shift
+  hypocenter estimates by several kilometers.
+</p>
+
+<blockquote>
+  In seismology, fractions of a second are not rounding errors — they are the
+  difference between a well-located event and a poorly-constrained one.
+</blockquote>
+
+<p>
+  The difficulty is that real seismograms are messy. Background seismic noise,
+  instrument artifacts, and overlapping events from multiple sources all
+  challenge automated pickers. Early rule-based approaches like STA/LTA
+  (Short-Term Average / Long-Term Average) trigger systems handled the easy
+  cases but struggled with low signal-to-noise events.
+</p>
+
+<h2>Deep Learning Architectures for Seismic Detection</h2>
+
+<p>
+  Modern deep phase pickers are predominantly U-Net-style encoder-decoder
+  networks operating on three-component waveforms (vertical, north-south,
+  east-west). The output is a probability time series for each phase type — P
+  arrival probability, S arrival probability, and noise — allowing
+  post-processing to extract precise onset times.
+</p>
+
+<p>
+  For Oklahoma's induced seismicity context — where events are frequent,
+  clustered, and often small-magnitude — domain adaptation matters
+  significantly. Models pretrained on tectonic event catalogs perform noticeably
+  below their full potential on Oklahoma Geological Survey data without
+  fine-tuning or transfer learning adjustments.
+</p>
+
+<h2>The Edge Deployment Challenge</h2>
+
+<p>
+  A phase-picking model running in a central server can leverage GPU
+  acceleration and full 3-component, high-sample-rate waveforms. A model running
+  on a field-deployed ESP32 microcontroller works under radically different
+  constraints: fixed-point arithmetic, kilobyte-scale buffers, and no
+  connectivity guarantee.
+</p>
+
+<p>
+  This is where the PNet knowledge-distillation pipeline becomes relevant. By
+  distilling the full-fidelity model into one that handles a 10-second sliding
+  window within tight memory constraints, we get a deployable seismic detector
+  that can run continuously at the sensor node — and transmit only candidate
+  events rather than raw data.
+</p>
+
+<p>
+  The implication for monitoring networks is significant: decentralized,
+  AI-native sensor nodes can maintain detection quality while dramatically
+  reducing the communication overhead that limits large-scale deployment.
+</p></div>
+
+        <div
+          class="engagement-bar"
+          role="group"
+          aria-label="Article engagement">
+          <button
+            class="clap-btn"
+            aria-label="Clap for this article"
+            id="clapBtnBottom">
+            <span class="clap-icon" aria-hidden="true">👏</span>
+            <span id="clapCountBottom">0</span>
+          </button>
+          <div class="share-actions">
+            <button
+              class="clap-btn save-btn"
+              aria-label="Save this article"
+              id="saveBtnBottom">
+              <span class="save-icon" aria-hidden="true">🔖</span>
+              <span class="save-label">Save</span>
+            </button>
+            <button
+              class="clap-btn share-toggle"
+              aria-label="Share this article"
+              aria-expanded="false"
+              aria-haspopup="menu">
+              <span class="share-icon" aria-hidden="true">↗</span>
+              <span class="share-label">Share</span>
+            </button>
+            <div class="share-menu" role="menu" hidden></div>
+          </div>
+        </div>
+
+        <section class="author-bio" aria-labelledby="author-bio-heading">
+          <div class="author-bio-header">
+            <div
+              class="author-bio-avatar"
+              role="img"
+              aria-label="Hongyu Xiao avatar"></div>
+            <div>
+              <p class="author-bio-name" id="author-bio-heading">
+                Hongyu Xiao
+              </p>
+              <button class="btn-follow" aria-label="Follow Hongyu Xiao">
+                Follow
+              </button>
+            </div>
+          </div>
+          <p class="author-bio-text">
+            Personal essays on AI, Agentic systems, Seismology, Research, and
+            Science.
+          </p>
+        </section>
+
+        <hr class="divider" />
+
+        <section class="more-articles" aria-labelledby="more-heading">
+          <h2 class="more-articles-heading" id="more-heading">
+            More from HXiao.ai
+          </h2>
+                  <a href="article-rise-of-agentic-ai.html" class="article-card">
+          <div class="card-meta">
+            <div class="card-avatar" role="img" aria-label="Author avatar"></div>
+            <span class="card-author">Hongyu Xiao</span>
+          </div>
+          <div class="card-body">
+            <div class="card-text">
+              <h3 class="card-title">The Rise of Agentic AI: When Models Learn to Act</h3>
+              <p class="card-preview">We&#x27;ve spent years teaching machines to predict the next token. Now we&#x27;re teaching them to take the next step. Agentic AI is not just a capability upgrade — it&#x27;s a philosophical shift.</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">Agentic AI</span>
+            <span class="card-read-time">8 min read</span>
+          </div>
+        </a>
+
+        <a href="article-tinyml-edge-devices.html" class="article-card">
+          <div class="card-meta">
+            <div class="card-avatar" role="img" aria-label="Author avatar"></div>
+            <span class="card-author">Hongyu Xiao</span>
+          </div>
+          <div class="card-body">
+            <div class="card-text">
+              <h3 class="card-title">TinyML on Edge Devices: Bringing AI to the Physical World</h3>
+              <p class="card-preview">Zero latency. Ultra-low power. Real inference at the sensor level. TinyML inverts the cloud-first AI paradigm — and the implications for seismic monitoring are profound.</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">TinyML</span>
+            <span class="card-read-time">7 min read</span>
+          </div>
+        </a>
+        </section>
+
+        <hr class="divider" />
+
+        <section class="comments-section" aria-labelledby="comments-heading">
+          <h2 class="comments-heading" id="comments-heading">
+            Responses (<span id="comment-count">0</span>)
+          </h2>
+
+          <form class="comment-form" id="comment-form" novalidate>
+            <input
+              type="text"
+              id="comment-name"
+              name="name"
+              placeholder="Your name"
+              maxlength="80"
+              autocomplete="name"
+              aria-label="Your name"
+              required />
+            <textarea
+              id="comment-body"
+              name="body"
+              placeholder="Share a thought or response..."
+              maxlength="2000"
+              aria-label="Your response"
+              required></textarea>
+            <button type="submit" class="btn-cta comment-submit">
+              Post response
+            </button>
+          </form>
+
+          <div class="comment-list" id="comment-list" aria-live="polite">
+            <p class="comments-empty" id="comments-empty">
+              Be the first to respond.
+            </p>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <span>&copy; 2025 HXiao.ai</span>
+        <ul class="footer-links" aria-label="Footer links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script>
+      const navbar = document.getElementById("navbar");
+      window.addEventListener(
+        "scroll",
+        () => {
+          navbar.classList.toggle("scrolled", window.scrollY > 65);
+        },
+        { passive: true },
+      );
+
+      const clapStorageKey = `hxiao:claps:${window.location.pathname}`;
+      const saveStorageKey = `hxiao:saved:${window.location.pathname}`;
+      const clapCountTop = document.getElementById("clapCount");
+      const clapCountBottom = document.getElementById("clapCountBottom");
+      const saveBtnTop = document.getElementById("saveBtn");
+      const saveBtnBottom = document.getElementById("saveBtnBottom");
+
+      function readClaps() {
+        try {
+          const raw = localStorage.getItem(clapStorageKey);
+          const parsed = Number.parseInt(raw ?? "0", 10);
+          return Number.isNaN(parsed) || parsed < 0 ? 0 : parsed;
+        } catch (error) {
+          return 0;
+        }
+      }
+
+      function writeClaps(value) {
+        try {
+          localStorage.setItem(clapStorageKey, String(value));
+        } catch (error) {}
+      }
+
+      function readSavedState() {
+        try {
+          return localStorage.getItem(saveStorageKey) === "1";
+        } catch (error) {
+          return false;
+        }
+      }
+
+      function writeSavedState(value) {
+        try {
+          localStorage.setItem(saveStorageKey, value ? "1" : "0");
+        } catch (error) {}
+      }
+
+      let claps = readClaps();
+
+      function renderClaps() {
+        clapCountTop.textContent = claps;
+        clapCountBottom.textContent = claps;
+      }
+
+      function handleClap() {
+        claps++;
+        writeClaps(claps);
+        renderClaps();
+
+        document.querySelectorAll(".clap-icon").forEach((icon) => {
+          icon.classList.add("clapped");
+          setTimeout(() => icon.classList.remove("clapped"), 300);
+        });
+      }
+
+      renderClaps();
+      document.getElementById("clapBtn").addEventListener("click", handleClap);
+      document
+        .getElementById("clapBtnBottom")
+        .addEventListener("click", handleClap);
+
+      let isSaved = readSavedState();
+
+      function renderSavedState() {
+        const label = isSaved ? "Saved" : "Save";
+        const icon = isSaved ? "✅" : "🔖";
+        [saveBtnTop, saveBtnBottom].forEach((button) => {
+          if (!button) {
+            return;
+          }
+          button.querySelector(".save-label").textContent = label;
+          button.querySelector(".save-icon").textContent = icon;
+          button.setAttribute(
+            "aria-label",
+            isSaved ? "Remove from saved articles" : "Save this article",
+          );
+        });
+      }
+
+      function handleSave() {
+        isSaved = !isSaved;
+        writeSavedState(isSaved);
+        renderSavedState();
+      }
+
+      renderSavedState();
+      saveBtnTop?.addEventListener("click", handleSave);
+      saveBtnBottom?.addEventListener("click", handleSave);
+
+      document.querySelectorAll(".btn-follow").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const isFollowing = this.textContent === "Following";
+          this.textContent = isFollowing ? "Follow" : "Following";
+          this.className = isFollowing ? "btn-follow" : "btn-following";
+        });
+      });
+
+      const shareTitle =
+        document.getElementById("article-title")?.textContent?.trim() ||
+        document.title;
+      const shareUrl = window.location.href;
+
+      function buildShareLinks(title, url) {
+        const encodedTitle = encodeURIComponent(title);
+        const encodedUrl = encodeURIComponent(url);
+        return [
+          {
+            label: "X",
+            href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+          },
+          {
+            label: "LinkedIn",
+            href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+          },
+          {
+            label: "Email",
+            href: `mailto:?subject=${encodedTitle}&body=${encodedUrl}`,
+          },
+        ];
+      }
+
+      const shareLinks = buildShareLinks(shareTitle, shareUrl);
+
+      function closeAllShareMenus() {
+        document.querySelectorAll(".share-menu").forEach((menu) => {
+          menu.hidden = true;
+        });
+        document.querySelectorAll(".share-toggle").forEach((toggle) => {
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      document.querySelectorAll(".share-actions").forEach((actions) => {
+        const toggle = actions.querySelector(".share-toggle");
+        const menu = actions.querySelector(".share-menu");
+        if (!toggle || !menu) {
+          return;
+        }
+
+        shareLinks.forEach((link) => {
+          const anchor = document.createElement("a");
+          anchor.className = "share-link";
+          anchor.href = link.href;
+          anchor.target = "_blank";
+          anchor.rel = "noopener noreferrer";
+          anchor.textContent = link.label;
+          anchor.setAttribute("role", "menuitem");
+          menu.appendChild(anchor);
+        });
+
+        const copyButton = document.createElement("button");
+        copyButton.type = "button";
+        copyButton.className = "share-link";
+        copyButton.textContent = "Copy link";
+        copyButton.setAttribute("role", "menuitem");
+        copyButton.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(shareUrl);
+            copyButton.textContent = "Copied";
+            setTimeout(() => {
+              copyButton.textContent = "Copy link";
+            }, 1200);
+          } catch (error) {
+            copyButton.textContent = "Copy failed";
+            setTimeout(() => {
+              copyButton.textContent = "Copy link";
+            }, 1200);
+          }
+        });
+        menu.appendChild(copyButton);
+
+        toggle.addEventListener("click", (event) => {
+          event.stopPropagation();
+          const isOpen = !menu.hidden;
+          closeAllShareMenus();
+          menu.hidden = isOpen;
+          toggle.setAttribute("aria-expanded", String(!isOpen));
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".share-actions")) {
+          closeAllShareMenus();
+        }
+      });
+
+      // ---- Comment System ----
+      const commentsKey = `hxiao:comments:${window.location.pathname}`;
+      const commentList = document.getElementById("comment-list");
+      const commentCount = document.getElementById("comment-count");
+      const commentsEmpty = document.getElementById("comments-empty");
+      const commentForm = document.getElementById("comment-form");
+
+      function loadComments() {
+        try {
+          return JSON.parse(localStorage.getItem(commentsKey) || "[]");
+        } catch {
+          return [];
+        }
+      }
+
+      function saveComments(comments) {
+        try {
+          localStorage.setItem(commentsKey, JSON.stringify(comments));
+        } catch {}
+      }
+
+      function formatDate(iso) {
+        return new Date(iso).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        });
+      }
+
+      function getInitial(name) {
+        return (name || "?").trim().charAt(0);
+      }
+
+      function buildCommentEl(comment) {
+        const item = document.createElement("div");
+        item.className = "comment-item";
+        item.innerHTML = `
+        <div class="comment-meta">
+          <div class="comment-avatar" aria-hidden="true">${getInitial(comment.name)}</div>
+          <span class="comment-author">${comment.name}</span>
+          <span class="comment-date">${formatDate(comment.date)}</span>
+        </div>
+        <p class="comment-body">${comment.body}</p>
+      `;
+        return item;
+      }
+
+      function renderComments() {
+        const comments = loadComments();
+        commentCount.textContent = comments.length;
+
+        // Remove existing rendered comments (preserve empty state p)
+        commentList
+          .querySelectorAll(".comment-item")
+          .forEach((el) => el.remove());
+
+        if (comments.length === 0) {
+          commentsEmpty.hidden = false;
+          return;
+        }
+        commentsEmpty.hidden = true;
+        comments.forEach((c) => commentList.appendChild(buildCommentEl(c)));
+      }
+
+      commentForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const nameInput = document.getElementById("comment-name");
+        const bodyInput = document.getElementById("comment-body");
+        const name = nameInput.value.trim();
+        const body = bodyInput.value.trim();
+        if (!name || !body) return;
+
+        const comments = loadComments();
+        comments.push({ name, body, date: new Date().toISOString() });
+        saveComments(comments);
+
+        nameInput.value = "";
+        bodyInput.value = "";
+        renderComments();
+
+        // Scroll to the new comment smoothly
+        commentList.lastElementChild?.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      });
+
+      renderComments();
+    </script>
+  </body>
+</html>

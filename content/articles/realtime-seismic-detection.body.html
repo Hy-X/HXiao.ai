@@ -1,0 +1,80 @@
+<p>
+  Seismology has always been a science of patterns in noise. For decades,
+  identifying the precise onset of a P-wave or S-wave arrival in a continuous
+  waveform was work done by trained analysts, armed with intuition built from
+  thousands of hours of waveform review. It was accurate, but slow — and
+  impossible to scale across regional networks generating terabytes of data per
+  day.
+</p>
+
+<p>
+  Deep learning has fundamentally changed the economics of phase picking. Models
+  like PhaseNet, EQTransformer, and the PNet variants I work with can process
+  continuous streams in real time, achieving analyst-level accuracy at a
+  fraction of the human time cost.
+</p>
+
+<h2>The Phase Picking Problem</h2>
+
+<p>
+  Phase picking is the task of identifying when a seismic wave type — P
+  (primary, compressional) or S (secondary, shear) — arrives at a given station.
+  The arrival time is used to locate the earthquake source via triangulation
+  across multiple stations. Errors on the order of even 0.1 seconds can shift
+  hypocenter estimates by several kilometers.
+</p>
+
+<blockquote>
+  In seismology, fractions of a second are not rounding errors — they are the
+  difference between a well-located event and a poorly-constrained one.
+</blockquote>
+
+<p>
+  The difficulty is that real seismograms are messy. Background seismic noise,
+  instrument artifacts, and overlapping events from multiple sources all
+  challenge automated pickers. Early rule-based approaches like STA/LTA
+  (Short-Term Average / Long-Term Average) trigger systems handled the easy
+  cases but struggled with low signal-to-noise events.
+</p>
+
+<h2>Deep Learning Architectures for Seismic Detection</h2>
+
+<p>
+  Modern deep phase pickers are predominantly U-Net-style encoder-decoder
+  networks operating on three-component waveforms (vertical, north-south,
+  east-west). The output is a probability time series for each phase type — P
+  arrival probability, S arrival probability, and noise — allowing
+  post-processing to extract precise onset times.
+</p>
+
+<p>
+  For Oklahoma's induced seismicity context — where events are frequent,
+  clustered, and often small-magnitude — domain adaptation matters
+  significantly. Models pretrained on tectonic event catalogs perform noticeably
+  below their full potential on Oklahoma Geological Survey data without
+  fine-tuning or transfer learning adjustments.
+</p>
+
+<h2>The Edge Deployment Challenge</h2>
+
+<p>
+  A phase-picking model running in a central server can leverage GPU
+  acceleration and full 3-component, high-sample-rate waveforms. A model running
+  on a field-deployed ESP32 microcontroller works under radically different
+  constraints: fixed-point arithmetic, kilobyte-scale buffers, and no
+  connectivity guarantee.
+</p>
+
+<p>
+  This is where the PNet knowledge-distillation pipeline becomes relevant. By
+  distilling the full-fidelity model into one that handles a 10-second sliding
+  window within tight memory constraints, we get a deployable seismic detector
+  that can run continuously at the sensor node — and transmit only candidate
+  events rather than raw data.
+</p>
+
+<p>
+  The implication for monitoring networks is significant: decentralized,
+  AI-native sensor nodes can maintain detection quality while dramatically
+  reducing the communication overhead that limits large-scale deployment.
+</p>

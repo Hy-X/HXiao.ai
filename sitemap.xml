@@ -43,14 +43,50 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://hy-x.github.io/HXiao.ai/article-tinyml-edge-devices.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://hy-x.github.io/HXiao.ai/article-reasoning-under-uncertainty.html</loc>
     <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://hy-x.github.io/HXiao.ai/article-knowledge-distillation-scientific-models.html</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://hy-x.github.io/HXiao.ai/article-agentic-ai-seismology-research.html</loc>
     <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hy-x.github.io/HXiao.ai/article-realtime-seismic-detection.html</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hy-x.github.io/HXiao.ai/article-mqtt-iot-sensor-networks.html</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hy-x.github.io/HXiao.ai/article-transfer-learning-geophysical-models.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hy-x.github.io/HXiao.ai/article-rag-scientific-literature-review.html</loc>
+    <lastmod>2025-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

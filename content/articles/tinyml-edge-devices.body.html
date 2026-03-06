@@ -1,0 +1,61 @@
+<p>
+  For most of the deep learning era, intelligence lived in the cloud.
+  Multi-billion-parameter models ran on server racks, consuming kilowatts and
+  requiring reliable internet connections. TinyML inverts this model entirely —
+  bringing trained neural networks down to devices that run on milliwatts.
+</p>
+
+<p>
+  The shift matters because the physical world generates data at the sensor
+  edge, not in data centers. A seismometer in the Oklahoma field doesn't benefit
+  from a 200ms round-trip to a cloud inference API. It needs answers in
+  milliseconds, on-site, even when connectivity fails.
+</p>
+
+<h2>What Makes TinyML Different</h2>
+
+<p>
+  TinyML is not simply "smaller ML." It requires rethinking the entire model
+  lifecycle — from architecture design and quantization to memory-constrained
+  deployment and power-aware scheduling. A model for an ESP32 microcontroller
+  must fit within roughly 1MB or 2MB of RAM and 4MB of flash memory. Every byte
+  counts.
+</p>
+
+<blockquote>
+  The discipline of TinyML forces a rigor that cloud AI rarely demands: you
+  cannot brute-force your way past hardware constraints.
+</blockquote>
+
+<h2>From PyTorch to TFLite Micro</h2>
+
+<p>
+  The typical deployment pipeline starts with a floating-point model trained in
+  PyTorch or TensorFlow. Post-training quantization converts 32-bit weights to
+  edge friendly format — reducing model size by with minimal accuracy loss. The
+  resulting TFLite model is then compiled into a C array and embedded directly
+  into firmware.
+</p>
+
+<p>
+  For seismology, this means a P-wave and S-wave detection model — like the
+  knowledge-distilled edge-friendly variants I've been working with — can run
+  continuously on a field station, classifying wave arrivals at the hardware
+  level without ever touching the internet.
+</p>
+
+<h2>The Implications for Scientific Monitoring</h2>
+
+<p>
+  Distributed TinyML changes what is possible in large-scale sensor networks.
+  Instead of streaming raw waveforms to a central server for processing, each
+  node pre-qualifies detections locally. Bandwidth requirements collapse.
+  Battery life extends. The network becomes resilient to connectivity gaps — a
+  critical property for remote or disaster-area deployments.
+</p>
+
+<p>
+  The tradeoff is real: edge models are inevitably simpler than their cloud
+  counterparts. But as compression and distillation techniques improve, the
+  fidelity gap is narrowing faster than most expected.
+</p>

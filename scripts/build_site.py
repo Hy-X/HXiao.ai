@@ -91,6 +91,18 @@ def load_articles() -> list[Article]:
 def render_feed_card(article: Article) -> str:
     tags_html = "\n".join(f'              <span class="tag">{escape(tag)}</span>' for tag in article.tags[:2])
     all_tags = "|".join(article.tags)
+
+    # Thumbnail: real image if available, skeleton otherwise
+    if article.hero_image_file and (ROOT / article.hero_image_file).exists():
+        thumbnail_html = (
+            f'              <img class="card-thumbnail" '
+            f'src="{escape(article.hero_image_file)}" '
+            f'alt="{escape(article.hero_aria)}" '
+            f'loading="lazy" decoding="async" />\n'
+        )
+    else:
+        thumbnail_html = '              <div class="card-thumbnail skeleton" role="img" aria-label="Article thumbnail"></div>\n'
+
     return (
         f'          <a href="{escape(article.file_name)}" class="article-card" '
         f'data-topics="{escape(all_tags)}" '
@@ -105,7 +117,7 @@ def render_feed_card(article: Article) -> str:
         f'                <h2 class="card-title">{escape(article.title)}</h2>\n'
         f'                <p class="card-preview">{escape(article.excerpt)}</p>\n'
         f'              </div>\n'
-        f'              <div class="card-thumbnail skeleton" role="img" aria-label="Article thumbnail"></div>\n'
+        f'{thumbnail_html}'
         f'            </div>\n'
         f'            <div class="card-footer">\n'
         f'{tags_html}\n'

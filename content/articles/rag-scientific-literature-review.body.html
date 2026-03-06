@@ -1,0 +1,72 @@
+<p>
+  A language model trained on a static corpus will never know what was published
+  last month. It cannot access the paper that contradicts its confidence, the
+  dataset that would challenge its assumption, or the follow-up study that
+  overturned the original finding. For casual text generation, this limitation
+  is manageable. For scientific work, it is disqualifying.
+</p>
+
+<p>
+  Retrieval-Augmented Generation addresses this directly. Instead of asking the
+  model to recall facts from parametric memory — weights baked in during
+  pretraining — RAG retrieves relevant documents at query time, injects them
+  into the context window, and grounds the generation in that retrieved
+  evidence. Every claim becomes traceable to a source.
+</p>
+
+<h2>The Architecture of a Scientific RAG System</h2>
+
+<p>
+  A RAG pipeline for scientific literature has three core components. First, an
+  indexing layer: papers, preprints, and data records are chunked, embedded into
+  dense vector representations, and stored in a vector database. Second, a
+  retrieval layer: at query time, the user's question is embedded into the same
+  space, and approximate nearest-neighbor search returns the most relevant
+  document chunks. Third, a generation layer: the retrieved chunks are prepended
+  to the prompt, and the LLM generates a response conditioned on that retrieved
+  context.
+</p>
+
+<blockquote>
+  The retrieval step does not just add information — it changes the epistemic
+  status of the generation. Claims are now conditional on evidence, not on the
+  model's prior beliefs.
+</blockquote>
+
+<h2>RAG for Seismological Research</h2>
+
+<p>
+  In seismology, where the literature spans decades of regional network reports,
+  USGS bulletins, and methodological papers across multiple journals, RAG has
+  obvious application. A researcher asking "what phase picking methods have been
+  applied to Oklahoma induced seismicity networks?" would normally spend hours
+  searching. A RAG system indexed on a curated seismological corpus can surface
+  relevant methodology comparisons, author affiliations, and dataset references
+  in seconds.
+</p>
+
+<p>
+  More importantly, the grounded output is verifiable. Rather than an LLM
+  confidently citing a fictional paper, a well-implemented RAG system returns
+  responses with explicit source attribution. The researcher can follow
+  citations, check the page, and evaluate the context in which the claim
+  appears.
+</p>
+
+<h2>The Limitations RAG Does Not Solve</h2>
+
+<p>
+  RAG is not a panacea. The quality of retrieval depends on the quality of the
+  index — poorly chunked documents, low-quality embeddings, or insufficient
+  corpus coverage all degrade downstream generation. Retrieval also introduces a
+  new failure mode: the model may faithfully ground its response in a retrieved
+  passage that is itself incorrect or out of date.
+</p>
+
+<p>
+  For agentic scientific workflows — where the system autonomously queries
+  literature to form hypotheses or evaluate competing models — robust RAG
+  infrastructure is becoming a foundational requirement, not an optional
+  enhancement. Getting the indexing and retrieval architecture right is as
+  important as the language model choice.
+</p>

@@ -1,0 +1,67 @@
+<p>
+  Every seismologist who has attempted to apply a model trained on California
+  tectonic earthquakes to Oklahoma induced seismicity has encountered the same
+  uncomfortable result: performance degrades, sometimes dramatically. The
+  waveform statistics are different. The magnitude-frequency distributions are
+  different. The focal mechanisms are different.
+</p>
+
+<p>
+  This is domain shift — the gap between the distribution a model was trained on
+  and the distribution it is asked to generalize to. Transfer learning does not
+  eliminate domain shift, but it provides principled tools for adapting across
+  it.
+</p>
+
+<h2>What Actually Transfers</h2>
+
+<p>
+  In deep neural networks for seismic phase picking, the lower layers (closer to
+  input) learn generic waveform features: onset sharpness, frequency content,
+  amplitude envelope shapes. These tend to transfer well across seismic domains
+  because P and S waves share physical characteristics regardless of tectonic
+  setting.
+</p>
+
+<blockquote>
+  The higher layers encode more domain-specific decision boundaries. These often
+  need retraining — or at minimum, fine-tuning — when applying to a new seismic
+  region.
+</blockquote>
+
+<p>
+  A practical approach is to freeze the first two-thirds of the encoder and
+  retrain only the decoder and final classification layers on the target domain
+  dataset. This preserves the general waveform representations while allowing
+  the model to adjust to the statistical differences in the target distribution.
+</p>
+
+<h2>Oklahoma as a Target Domain</h2>
+
+<p>
+  Oklahoma's induced seismicity — driven primarily by wastewater injection from
+  oil and gas operations — has unique signatures. Events tend to cluster in
+  space and time, magnitude ranges skew lower, and the regional velocity model
+  differs substantially from California. Models pretrained on the STEAD or SCSN
+  catalogs require careful adaptation before they perform at analyst level on
+  OGS network data.
+</p>
+
+<p>
+  In my work with distilled PNet models, I found that training on a regionally
+  curated Oklahoma subset — even a relatively small one of a few thousand
+  labeled events — closed roughly 80% of the performance gap relative to a
+  full-retraining baseline. The remaining gap was largely in very low-magnitude
+  detection where SNR is inherently challenging.
+</p>
+
+<h2>Data Efficiency and Few-Shot Adaptation</h2>
+
+<p>
+  One of transfer learning's greatest practical advantages is data efficiency.
+  Fully supervised training of a phase picker from scratch typically requires
+  tens of thousands of labeled examples. Transfer learning with fine-tuning can
+  achieve comparable performance with hundreds. For regional seismic networks
+  where labeled catalogs are incomplete or inconsistently annotated, this is not
+  merely convenient — it is often the only viable path to deployment.
+</p>

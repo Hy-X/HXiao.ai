@@ -1,0 +1,14 @@
+{
+  "slug": "mqtt-iot-sensor-networks",
+  "title": "MQTT and the Architecture of Real-Time IoT Sensor Networks",
+  "subtitle": "How a lightweight publish-subscribe protocol became the backbone of distributed sensor data",
+  "description": "MQTT's minimal overhead and publish-subscribe model make it the ideal communication protocol for low-power seismic sensors and IoT networks streaming real-time data to ringservers and dashboards.",
+  "excerpt": "A 2-byte fixed header. Asynchronous delivery. Persistent sessions. MQTT was designed for bandwidth-constrained telemetry — and it is exactly what modern distributed sensor networks need.",
+  "tags": ["Research", "Science"],
+  "published_date": "2026-01-10",
+  "published_display": "January 10, 2026",
+  "read_time": "6 min read",
+  "hero_caption": "A distributed network of IoT sensors communicating seismic events via MQTT to a central broker and visualization dashboard.",
+  "hero_aria": "Diagram of IoT sensor nodes connected by MQTT broker to a data visualization dashboard",
+  "body_file": "mqtt-iot-sensor-networks.body.html"
+}

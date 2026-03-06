@@ -1,0 +1,14 @@
+{
+  "slug": "transfer-learning-geophysical-models",
+  "title": "Transfer Learning Across Seismic Domains: What Travels and What Doesn't",
+  "subtitle": "Why a model trained in California needs retraining for Oklahoma — and how to do it efficiently",
+  "description": "Transfer learning accelerates geophysical model development by reusing representations learned on large tectonic datasets. But domain shift between seismic regimes is real, and understanding what transfers is critical.",
+  "excerpt": "Features learned on California tectonic seismicity do not map cleanly onto Oklahoma induced seismicity. Transfer learning helps — but only if you understand which layers to freeze and which to retrain.",
+  "tags": ["Seismology", "Research"],
+  "published_date": "2025-12-18",
+  "published_display": "December 18, 2025",
+  "read_time": "7 min read",
+  "hero_caption": "Visualization of feature representations shifting between a source seismic domain and a target domain during transfer learning.",
+  "hero_aria": "Abstract feature space visualization showing domain shift between tectonic and induced seismicity datasets",
+  "body_file": "transfer-learning-geophysical-models.body.html"
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "knowledge-distillation-scientific-models",
+  "title": "Knowledge Distillation: Teaching Small Models to Think Like Large Ones",
+  "subtitle": "Compression without catastrophic loss — the science of soft labels and dark knowledge",
+  "description": "Knowledge distillation compresses the intelligence of large teacher models into compact student networks — enabling accurate, efficient AI in resource-constrained scientific applications.",
+  "excerpt": "Distillation is one of the most underrated techniques in modern ML. By training a compact student on a larger teacher's soft outputs, we preserve accuracy without the computational cost.",
+  "tags": ["Research", "LLM"],
+  "published_date": "2026-02-14",
+  "published_display": "February 14, 2026",
+  "read_time": "6 min read",
+  "hero_caption": "A large teacher network transferring structured probabilistic knowledge to a compact student model.",
+  "hero_aria": "Teacher and student neural network diagram showing knowledge transfer",
+  "body_file": "knowledge-distillation-scientific-models.body.html"
+}

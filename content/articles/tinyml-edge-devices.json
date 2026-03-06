@@ -1,0 +1,15 @@
+{
+  "slug": "tinyml-edge-devices",
+  "title": "TinyML on Edge Devices: Bringing AI to the Physical World",
+  "subtitle": "Zero latency, ultra-low power, and real inference at the sensor level",
+  "description": "How TinyML enables machine learning inference directly on microcontrollers and edge devices, transforming IoT, seismology sensors, and real-time monitoring.",
+  "excerpt": "Zero latency. Ultra-low power. Real inference at the sensor level. TinyML inverts the cloud-first AI paradigm — and the implications for seismic monitoring are profound.",
+  "tags": ["TinyML", "Research"],
+  "published_date": "2026-02-28",
+  "published_display": "February 28, 2026",
+  "read_time": "7 min read",
+  "hero_caption": "A microcontroller running a trained neural network — processing seismic signals locally with no cloud dependency.",
+  "hero_aria": "Microcontroller board with neural network overlay visualization",
+  "hero_image_file": "content/articles/tinyml-edge-devices.png",
+  "body_file": "tinyml-edge-devices.body.html"
+}
