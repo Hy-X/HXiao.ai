@@ -10,5 +10,6 @@
   "read_time": "6 min read",
   "hero_caption": "A distributed network of IoT sensors communicating seismic events via MQTT to a central broker and visualization dashboard.",
   "hero_aria": "Diagram of IoT sensor nodes connected by MQTT broker to a data visualization dashboard",
+  "hero_image_file": "content/articles/mqtt-iot-sensor-networks.png",
   "body_file": "mqtt-iot-sensor-networks.body.html"
 }

@@ -10,5 +10,6 @@
   "read_time": "7 min read",
   "hero_caption": "Visualization of feature representations shifting between a source seismic domain and a target domain during transfer learning.",
   "hero_aria": "Abstract feature space visualization showing domain shift between tectonic and induced seismicity datasets",
+  "hero_image_file": "content/articles/transfer-learning-geophysical-models.png",
   "body_file": "transfer-learning-geophysical-models.body.html"
 }

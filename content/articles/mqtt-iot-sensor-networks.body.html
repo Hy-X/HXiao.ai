@@ -44,12 +44,12 @@
 <h2>MQTT in the Seismic Stack</h2>
 
 <p>
-  In my current sensor architecture, the ESP32 node publishes miniSEED-formatted
-  waveform packets on a structured topic hierarchy. A Python subscriber forwards
-  qualifying detection events to a ringserver via the DataLink protocol, while
-  another subscriber feeds the live earthquake tracker dashboard in real time.
-  MQTT serves as the decoupled message bus that allows these consumers to evolve
-  independently without modifying the sensor firmware.
+  In my current sensor architecture, the ESP32 node publishes waveform packets
+  on a structured topic hierarchy. A Python subscriber forwards qualifying
+  detection events to a ringserver, while another subscriber feeds the live
+  earthquake tracker dashboard in real time. MQTT serves as the decoupled
+  message bus that allows these consumers to evolve independently without
+  modifying the sensor firmware.
 </p>
 
 <p>

@@ -1,17 +1,17 @@
 <p>
   Seismology has always been a science of patterns in noise. For decades,
   identifying the precise onset of a P-wave or S-wave arrival in a continuous
-  waveform was work done by trained analysts, armed with intuition built from
-  thousands of hours of waveform review. It was accurate, but slow — and
+  waveform was work done by experienced analysts, armed with intuition built
+  from thousands of hours of waveform review. It was accurate, but slow — and
   impossible to scale across regional networks generating terabytes of data per
   day.
 </p>
 
 <p>
   Deep learning has fundamentally changed the economics of phase picking. Models
-  like PhaseNet, EQTransformer, and the PNet variants I work with can process
-  continuous streams in real time, achieving analyst-level accuracy at a
-  fraction of the human time cost.
+  like PhaseNet, EQTransformer, and the XiaoNet variants I work with can process
+  continuous streams in real time (psudo real-time), achieving close to
+  analyst-level accuracy at a fraction of the human time cost.
 </p>
 
 <h2>The Phase Picking Problem</h2>
@@ -58,23 +58,24 @@
 <h2>The Edge Deployment Challenge</h2>
 
 <p>
-  A phase-picking model running in a central server can leverage GPU
-  acceleration and full 3-component, high-sample-rate waveforms. A model running
-  on a field-deployed ESP32 microcontroller works under radically different
-  constraints: fixed-point arithmetic, kilobyte-scale buffers, and no
+  A phase-picking model running in a central server can leverage GPU or powerful
+  CPU acceleration and full 3-component, high-sample-rate waveforms. A model
+  running on a field-deployed ESP32 microcontroller works under radically
+  different constraints: fixed-point arithmetic, kilobyte-scale buffers, and no
   connectivity guarantee.
 </p>
 
 <p>
-  This is where the PNet knowledge-distillation pipeline becomes relevant. By
-  distilling the full-fidelity model into one that handles a 10-second sliding
-  window within tight memory constraints, we get a deployable seismic detector
-  that can run continuously at the sensor node — and transmit only candidate
-  events rather than raw data.
+  This is where the knowledge-distillation pipeline becomes relevant. By
+  distilling the full-fidelity model into one that handles a sliding window
+  within tight memory constraints, we get a deployable seismic detector that can
+  run continuously at the sensor node — and transmit only candidate events with
+  high probability rather than raw data.
 </p>
 
 <p>
   The implication for monitoring networks is significant: decentralized,
-  AI-native sensor nodes can maintain detection quality while dramatically
-  reducing the communication overhead that limits large-scale deployment.
+  AI-native sensor nodes can maintain reasonable detection quality while
+  dramatically reducing the communication overhead that limits large-scale
+  deployment.
 </p>

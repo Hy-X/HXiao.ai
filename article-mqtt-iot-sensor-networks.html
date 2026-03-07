@@ -219,7 +219,7 @@
 
         <!-- HERO_IMAGE_PLACEHOLDER: 1200x630 cover image -->
         <!-- HERO_IMAGE_NOTE: Replace skeleton with final article hero image when available. -->
-              <div class="article-hero-image article-hero-image-full skeleton" role="img" aria-label="Diagram of IoT sensor nodes connected by MQTT broker to a data visualization dashboard" data-image-placeholder="1200x630 cover image"></div>
+              <img class="article-hero-image article-hero-image-full" src="content/articles/mqtt-iot-sensor-networks.png" alt="Diagram of IoT sensor nodes connected by MQTT broker to a data visualization dashboard" loading="eager" decoding="async" />
         <figure>
           <figcaption class="article-hero-caption">A distributed network of IoT sensors communicating seismic events via MQTT to a central broker and visualization dashboard.</figcaption>
         </figure>
@@ -270,12 +270,12 @@
 <h2>MQTT in the Seismic Stack</h2>
 
 <p>
-  In my current sensor architecture, the ESP32 node publishes miniSEED-formatted
-  waveform packets on a structured topic hierarchy. A Python subscriber forwards
-  qualifying detection events to a ringserver via the DataLink protocol, while
-  another subscriber feeds the live earthquake tracker dashboard in real time.
-  MQTT serves as the decoupled message bus that allows these consumers to evolve
-  independently without modifying the sensor firmware.
+  In my current sensor architecture, the ESP32 node publishes waveform packets
+  on a structured topic hierarchy. A Python subscriber forwards qualifying
+  detection events to a ringserver, while another subscriber feeds the live
+  earthquake tracker dashboard in real time. MQTT serves as the decoupled
+  message bus that allows these consumers to evolve independently without
+  modifying the sensor firmware.
 </p>
 
 <p>

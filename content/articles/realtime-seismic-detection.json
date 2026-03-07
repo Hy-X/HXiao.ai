@@ -10,5 +10,6 @@
   "read_time": "8 min read",
   "hero_caption": "A three-component seismogram showing identified P-wave and S-wave arrivals produced by a deep phase-picking model.",
   "hero_aria": "Seismic waveform display with detected P and S wave arrivals highlighted",
+  "hero_image_file": "content/articles/realtime-seismic-detection.png",
   "body_file": "realtime-seismic-detection.body.html"
 }

@@ -219,7 +219,7 @@
 
         <!-- HERO_IMAGE_PLACEHOLDER: 1200x630 cover image -->
         <!-- HERO_IMAGE_NOTE: Replace skeleton with final article hero image when available. -->
-              <div class="article-hero-image article-hero-image-full skeleton" role="img" aria-label="Abstract feature space visualization showing domain shift between tectonic and induced seismicity datasets" data-image-placeholder="1200x630 cover image"></div>
+              <img class="article-hero-image article-hero-image-full" src="content/articles/transfer-learning-geophysical-models.png" alt="Abstract feature space visualization showing domain shift between tectonic and induced seismicity datasets" loading="eager" decoding="async" />
         <figure>
           <figcaption class="article-hero-caption">Visualization of feature representations shifting between a source seismic domain and a target domain during transfer learning.</figcaption>
         </figure>
@@ -255,13 +255,6 @@
   region.
 </blockquote>
 
-<p>
-  A practical approach is to freeze the first two-thirds of the encoder and
-  retrain only the decoder and final classification layers on the target domain
-  dataset. This preserves the general waveform representations while allowing
-  the model to adjust to the statistical differences in the target distribution.
-</p>
-
 <h2>Oklahoma as a Target Domain</h2>
 
 <p>
@@ -274,11 +267,11 @@
 </p>
 
 <p>
-  In my work with distilled PNet models, I found that training on a regionally
-  curated Oklahoma subset — even a relatively small one of a few thousand
-  labeled events — closed roughly 80% of the performance gap relative to a
-  full-retraining baseline. The remaining gap was largely in very low-magnitude
-  detection where SNR is inherently challenging.
+  In my work with transfer learning and distilled models, I found that training
+  on a regionally curated Oklahoma subset — even a relatively small one of a few
+  thousand labeled events — closed roughly 80% of the performance gap. The
+  remaining gap was largely in very low-magnitude detection where SNR is
+  inherently challenging.
 </p>
 
 <h2>Data Efficiency and Few-Shot Adaptation</h2>
@@ -287,9 +280,10 @@
   One of transfer learning's greatest practical advantages is data efficiency.
   Fully supervised training of a phase picker from scratch typically requires
   tens of thousands of labeled examples. Transfer learning with fine-tuning can
-  achieve comparable performance with hundreds. For regional seismic networks
-  where labeled catalogs are incomplete or inconsistently annotated, this is not
-  merely convenient — it is often the only viable path to deployment.
+  achieve comparable performance with lower thousands of labeled examples. For
+  regional seismic networks where labeled catalogs are incomplete or
+  inconsistently annotated, this is not merely convenient — it is often the only
+  viable path to deployment.
 </p></div>
 
         <div

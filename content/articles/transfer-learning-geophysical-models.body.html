@@ -29,13 +29,6 @@
   region.
 </blockquote>
 
-<p>
-  A practical approach is to freeze the first two-thirds of the encoder and
-  retrain only the decoder and final classification layers on the target domain
-  dataset. This preserves the general waveform representations while allowing
-  the model to adjust to the statistical differences in the target distribution.
-</p>
-
 <h2>Oklahoma as a Target Domain</h2>
 
 <p>
@@ -48,11 +41,11 @@
 </p>
 
 <p>
-  In my work with distilled PNet models, I found that training on a regionally
-  curated Oklahoma subset — even a relatively small one of a few thousand
-  labeled events — closed roughly 80% of the performance gap relative to a
-  full-retraining baseline. The remaining gap was largely in very low-magnitude
-  detection where SNR is inherently challenging.
+  In my work with transfer learning and distilled models, I found that training
+  on a regionally curated Oklahoma subset — even a relatively small one of a few
+  thousand labeled events — closed roughly 80% of the performance gap. The
+  remaining gap was largely in very low-magnitude detection where SNR is
+  inherently challenging.
 </p>
 
 <h2>Data Efficiency and Few-Shot Adaptation</h2>
@@ -61,7 +54,8 @@
   One of transfer learning's greatest practical advantages is data efficiency.
   Fully supervised training of a phase picker from scratch typically requires
   tens of thousands of labeled examples. Transfer learning with fine-tuning can
-  achieve comparable performance with hundreds. For regional seismic networks
-  where labeled catalogs are incomplete or inconsistently annotated, this is not
-  merely convenient — it is often the only viable path to deployment.
+  achieve comparable performance with lower thousands of labeled examples. For
+  regional seismic networks where labeled catalogs are incomplete or
+  inconsistently annotated, this is not merely convenient — it is often the only
+  viable path to deployment.
 </p>

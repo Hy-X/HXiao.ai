@@ -10,5 +10,6 @@
   "read_time": "8 min read",
   "hero_caption": "A retrieval-augmented pipeline grounding LLM responses in a live corpus of scientific papers.",
   "hero_aria": "Diagram of a RAG pipeline retrieving documents from a vector store to augment an LLM scientific query",
+  "hero_image_file": "content/articles/rag-scientific-literature-review.png",
   "body_file": "rag-scientific-literature-review.body.html"
 }
