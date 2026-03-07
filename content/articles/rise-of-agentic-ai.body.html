@@ -1,23 +1,112 @@
-        <p>
-          For years, mainstream AI progress was measured by better prediction. Agentic AI expands that paradigm by combining reasoning, tool use, and environmental feedback into a closed loop.
-        </p>
+<p>
+  For years, mainstream AI progress was measured by better prediction. Agentic
+  AI expands that paradigm by combining reasoning, tool use, and environmental
+  feedback into a closed loop.
+</p>
 
-        <p>
-          In practice, this means a model can decompose goals, execute tasks, and adapt when outcomes differ from expectation. The shift is not just a product feature; it changes how we design and govern AI systems.
-        </p>
+<p>
+  In practice, this means a model can decompose goals, execute tasks, and adapt
+  when outcomes differ from expectation. The shift is not just a product
+  feature; it changes how we design and govern AI systems.
+</p>
 
-        <h2>The ReAct Pattern in Production</h2>
+<h2>The ReAct Pattern in Production</h2>
 
-        <p>
-          A practical agent repeatedly cycles through reason → act → observe. This loop enables self-correction and task persistence, but it also introduces compounding failure risks when intermediate assumptions are wrong.
-        </p>
+<p>
+  A practical agent repeatedly cycles through reason → act → observe. This loop
+  enables self-correction and task persistence, but it also introduces
+  compounding failure risks when intermediate assumptions are wrong. A single
+  miscalibrated step early in the chain can send the agent down a path that
+  requires significant backtracking — or worse, completes confidently but
+  incorrectly.
+</p>
 
-        <blockquote>
-          Agent quality is less about a single answer and more about the quality of its iterative decisions under uncertainty.
-        </blockquote>
+<p>
+  What distinguishes production-ready agents from research demos is robustness
+  to this drift. The best implementations treat each intermediate step as a
+  checkpoint: verify the state, validate the output, and only proceed if the
+  result passes a lightweight self-consistency test.
+</p>
 
-        <h2>Research and Safety Implications</h2>
+<blockquote>
+  Agent quality is less about a single answer and more about the quality of its
+  iterative decisions under uncertainty.
+</blockquote>
 
-        <p>
-          In AI research and scientific workflows, agentic systems can accelerate synthesis, evaluation, and reproducibility. The same systems require stronger guardrails against prompt injection, scope drift, and overconfident actions.
-        </p>
+<h2>Tool Use as an Interface Problem</h2>
+
+<p>
+  Giving a language model access to tools — web search, code execution, file
+  systems, APIs — is not simply a matter of wiring up function calls. The model
+  must know when to invoke a tool, what inputs to supply, and how to interpret
+  structured outputs that bear no resemblance to natural language.
+</p>
+
+<p>
+  This is fundamentally an interface design problem. Tool schemas that are too
+  permissive lead to speculative calls. Schemas that are too narrow lead the
+  model to work around constraints in creative but undesirable ways. The most
+  reliable setups are those where tools have narrow, well-described contracts
+  and the model's confidence threshold for invoking them is explicitly
+  calibrated.
+</p>
+
+<p>
+  Code interpreters are a useful example. When an agent can execute arbitrary
+  Python, it gains genuine analytical capability. It can run computations,
+  validate results, and iterate. But it also introduces a new failure mode: code
+  that executes successfully but implements the wrong logic — with no visible
+  error to trigger a retry.
+</p>
+
+<h2>Multi-Agent Coordination</h2>
+
+<p>
+  A natural extension of single-agent systems is a network of agents with
+  specialized roles. One agent handles retrieval, another synthesizes, a third
+  critiques. This mirrors how productive human teams work, and it suggests a
+  principled way to scale beyond what a single context window can hold.
+</p>
+
+<p>
+  In practice, multi-agent systems introduce a new class of failure:
+  coordination breakdown. When one agent's output is another's input, errors
+  propagate and amplify. Trust calibration — knowing how much weight to give a
+  peer agent's output before acting on it — is an open problem. Current
+  approaches rely on structured handoffs and explicit verification steps rather
+  than agent-to-agent trust negotiation.
+</p>
+
+<p>
+  The research community hasn't converged on a standard for how agents should
+  communicate with each other. Message formats, state representations, and
+  handoff protocols vary widely across frameworks. This is an area where early
+  standardization would have outsized benefit.
+</p>
+
+<h2>Research and Safety Implications</h2>
+
+<p>
+  In AI research and scientific workflows, agentic systems can accelerate
+  synthesis, evaluation, and reproducibility. A well-designed agent pipeline can
+  monitor a literature feed, flag relevant new papers, generate summaries, and
+  link claims to prior work — tasks that currently consume significant
+  researcher time.
+</p>
+
+<p>
+  The same systems require stronger guardrails against prompt injection, scope
+  drift, and overconfident actions. An agent running inside a scientific
+  workflow has access to data, compute, and potentially external services.
+  Getting one thing wrong with high confidence is more dangerous than getting
+  many things wrong with appropriate uncertainty. Failure modes that are
+  acceptable in a conversational setting become safety-critical when an agent is
+  acting autonomously over extended periods.
+</p>
+
+<p>
+  The most pressing challenge for the field isn't capability — it's
+  controllability. Building agents that are powerful enough to be useful but
+  constrained enough to be trustworthy is the defining engineering problem of
+  this moment.
+</p>
