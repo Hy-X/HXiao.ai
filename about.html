@@ -1,123 +1,295 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Hongyu Xiao | HXiao.ai</title>
-  <meta name="description" content="About Hongyu Xiao and HXiao.ai: long-form writing at the intersection of AI, Agentic systems, Seismology, Research, and Science." />
-  <meta name="keywords" content="About Hongyu Xiao, AI, Agentic AI, Seismology, Research, Science" />
-  <meta name="author" content="Hongyu Xiao" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://hy-x.github.io/HXiao.ai/about.html" />
-  <meta property="og:type" content="profile" />
-  <meta property="og:site_name" content="HXiao.ai" />
-  <meta property="og:title" content="About — Hongyu Xiao | HXiao.ai" />
-  <meta property="og:description" content="Background, topics, and research focus across AI, Agentic systems, Seismology, and Science." />
-  <meta property="og:url" content="https://hy-x.github.io/HXiao.ai/about.html" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="About — Hongyu Xiao | HXiao.ai" />
-  <meta name="twitter:description" content="Background and focus areas: AI, Agentic AI, Seismology, Research, and Science." />
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Source+Code+Pro&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-      --font-serif: Lora, Georgia, "Times New Roman", serif;
-      --font-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
-      --font-mono: "Source Code Pro", "Courier New", monospace;
-    }
-  </style>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Hongyu Xiao",
-      "url": "https://hy-x.github.io/HXiao.ai/about.html",
-      "description": "Research-oriented writer focused on AI, Agentic systems, Seismology, and Science.",
-      "knowsAbout": ["AI", "Agentic AI", "Seismology", "Research", "Science"],
-      "sameAs": [
-        "https://hy-x.github.io/HXiao.ai/"
-      ]
-    }
-  </script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Hongyu Xiao | HXiao.ai</title>
+    <meta
+      name="description"
+      content="About Hongyu Xiao and HXiao.ai: long-form writing at the intersection of AI, Agentic systems, Seismology, Research, and Science." />
+    <meta
+      name="keywords"
+      content="About Hongyu Xiao, AI, Agentic AI, Seismology, Research, Science" />
+    <meta name="author" content="Hongyu Xiao" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://hy-x.github.io/HXiao.ai/about.html" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="HXiao.ai" />
+    <meta property="og:title" content="About — Hongyu Xiao | HXiao.ai" />
+    <meta
+      property="og:description"
+      content="Background, topics, and research focus across AI, Agentic systems, Seismology, and Science." />
+    <meta
+      property="og:url"
+      content="https://hy-x.github.io/HXiao.ai/about.html" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="About — Hongyu Xiao | HXiao.ai" />
+    <meta
+      name="twitter:description"
+      content="Background and focus areas: AI, Agentic AI, Seismology, Research, and Science." />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Source+Code+Pro&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+        --font-serif: Lora, Georgia, "Times New Roman", serif;
+        --font-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+        --font-mono: "Source Code Pro", "Courier New", monospace;
+      }
 
-  <header>
-    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-      <div class="navbar-inner">
-        <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
-          <span class="navbar-logo" aria-hidden="true">H</span>
-          <span class="navbar-site-name">HXiao.ai</span>
-        </a>
-        <div class="navbar-actions">
-          <a href="index.html" class="navbar-link">Articles</a>
-          <a href="article.html" class="btn-cta">Start reading</a>
+      /* Suppress drop-cap on the about page — opening line isn't a narrative paragraph */
+      .about-body > p:first-of-type::first-letter {
+        float: none;
+        font-size: inherit;
+        line-height: inherit;
+        margin: 0;
+        font-family: inherit;
+      }
+
+      .about-author-block {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space-xl) 0;
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+        margin-bottom: var(--space-2xl);
+      }
+
+      .about-author-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        border: 1px solid var(--color-border);
+        background:
+          radial-gradient(
+            circle at 50% 34%,
+            var(--color-text-muted) 0 18%,
+            transparent 19%
+          ),
+          radial-gradient(
+            ellipse at 50% 80%,
+            var(--color-text-muted) 0 34%,
+            transparent 35%
+          ),
+          var(--color-surface);
+      }
+
+      .about-author-info {
+        flex: 1;
+      }
+
+      .about-author-name {
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 2px;
+      }
+
+      .about-author-tagline {
+        font-family: var(--font-sans);
+        font-size: 13px;
+        color: var(--color-text-secondary);
+        line-height: 1.4;
+      }
+
+      .about-topics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        margin: var(--space-xl) 0;
+      }
+
+      .about-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-sans);
+        font-size: var(--text-ui);
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        margin-bottom: var(--space-xl);
+        transition: color var(--transition-fast);
+      }
+
+      .about-back:hover {
+        color: var(--color-text-primary);
+      }
+
+      .about-back-arrow {
+        font-size: 16px;
+        line-height: 1;
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hongyu Xiao",
+        "url": "https://hy-x.github.io/HXiao.ai/about.html",
+        "description": "Research-oriented writer focused on AI, Agentic systems, Seismology, and Science.",
+        "knowsAbout": [
+          "AI",
+          "Agentic AI",
+          "Seismology",
+          "Research",
+          "Science",
+          "TinyML",
+          "LLMs"
+        ],
+        "sameAs": ["https://hy-x.github.io/HXiao.ai/"]
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar"
+        id="navbar"
+        role="navigation"
+        aria-label="Main navigation">
+        <div class="navbar-inner">
+          <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
+            <span class="navbar-logo" aria-hidden="true">H</span>
+            <span class="navbar-site-name">HXiao.ai</span>
+          </a>
+          <div class="navbar-actions">
+            <a href="index.html#featured" class="navbar-link">Articles</a>
+            <a href="index.html#featured" class="btn-cta">Start reading</a>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <main>
-    <article class="article-container" aria-labelledby="about-title">
-      <header class="article-header">
-        <h1 class="article-title" id="about-title">About</h1>
-      </header>
+    <main>
+      <article class="article-container" aria-labelledby="about-title">
+        <a href="index.html" class="about-back">
+          <span class="about-back-arrow">←</span> All articles
+        </a>
 
-      <div class="article-body">
-        <p>
-          <strong>HXiao.ai</strong> is Hongyu Xiao's personal space for thinking out loud about artificial intelligence — specifically the emerging world of Agentic AI, and how it connects with scientific domains such as seismology and computational research.
-        </p>
+        <header class="article-header">
+          <h1 class="article-title" id="about-title">About</h1>
+          <p class="article-subtitle">
+            Writing at the edge of AI, seismology, and the unknown.
+          </p>
+        </header>
 
-        <p>
-          These are not polished academic papers. They are working notes, exploratory essays, and honest attempts to understand a technology that is changing faster than any single person can track. The writing is long-form by design: the ideas here don't fit in a thread.
-        </p>
+        <div class="about-author-block" aria-label="Author information">
+          <div
+            class="about-author-avatar"
+            role="img"
+            aria-label="Hongyu Xiao"></div>
+          <div class="about-author-info">
+            <div class="about-author-name">Hongyu Xiao</div>
+            <div class="about-author-tagline">
+              Researcher · AI &amp; Seismology · HXiao.ai
+            </div>
+          </div>
+        </div>
 
-        <h2>What I write about</h2>
+        <div class="article-body about-body">
+          <p>
+            <strong>HXiao.ai</strong> is a space for thinking out loud about
+            artificial intelligence — specifically the emerging world of Agentic
+            AI, and how it connects with scientific domains such as seismology
+            and computational research.
+          </p>
 
-        <ul>
-          <li><strong>Agentic AI systems</strong> — how they're built, why they fail, where they're going</li>
-          <li><strong>Seismology and scientific AI</strong> — signal interpretation, automation, and reproducible workflows</li>
-          <li><strong>Research methods</strong> for evaluating AI systems in real scientific settings</li>
-          <li><strong>Reasoning and planning</strong> in large language models</li>
-          <li><strong>Multi-agent architectures</strong> — coordination, trust, and emergent behavior</li>
-          <li><strong>Prompt engineering</strong> as a design discipline</li>
-          <li><strong>AI safety</strong> in the context of tools and autonomy</li>
+          <p>
+            These are not polished academic papers. They are working notes,
+            exploratory essays, and honest attempts to understand a technology
+            that is changing faster than any single person can track. The
+            writing is long-form by design: the ideas here don't fit in a
+            thread.
+          </p>
+
+          <h2>What I write about</h2>
+
+          <ul>
+            <li>
+              <strong>Agentic AI systems</strong> — how they're built, why they
+              fail, and where they're going
+            </li>
+            <li>
+              <strong>Seismology and scientific AI</strong> — signal
+              interpretation, automation, and reproducible workflows
+            </li>
+            <li>
+              <strong>TinyML and edge inference</strong> — bringing real-time
+              models to constrained hardware
+            </li>
+            <li>
+              <strong>Reasoning and planning</strong> in large language models
+            </li>
+            <li>
+              <strong>Multi-agent architectures</strong> — coordination, trust,
+              and emergent behavior
+            </li>
+            <li>
+              <strong>Knowledge distillation</strong> and model compression for
+              scientific applications
+            </li>
+            <li>
+              <strong>AI safety</strong> in the context of autonomous tools and
+              open-ended tasks
+            </li>
+          </ul>
+
+          <h2>Design philosophy</h2>
+
+          <p>
+            This site is intentionally minimal. Typography is the interface.
+            Whitespace is content. The goal is to get out of the way of the
+            writing.
+          </p>
+
+          <p>
+            The design follows an editorial minimalism system — reading-first,
+            serif body text, generous line height, no decoration for its own
+            sake. If you're curious about the specifics, the full design system
+            lives in the repository.
+          </p>
+        </div>
+
+        <div class="about-topics" aria-label="Topic areas">
+          <span class="tag">Agentic AI</span>
+          <span class="tag">LLM</span>
+          <span class="tag">Seismology</span>
+          <span class="tag">TinyML</span>
+          <span class="tag">Research</span>
+          <span class="tag">Reasoning</span>
+          <span class="tag">Science</span>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <span>&copy; 2026 HXiao.ai</span>
+        <ul class="footer-links" aria-label="Footer links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
         </ul>
-
-        <h2>Design philosophy</h2>
-
-        <p>
-          This site is intentionally minimal. Typography is the interface. Whitespace is content. The goal is to get out of the way of the writing.
-        </p>
-
-        <p>
-          The design follows an editorial minimalism system — reading-first, serif body text, generous line height, no decoration for its own sake. If you're curious about the specifics, the full design system is documented in the repository.
-        </p>
       </div>
-    </article>
-  </main>
+    </footer>
 
-  <footer class="footer" role="contentinfo">
-    <div class="footer-inner">
-      <span>&copy; 2025 HXiao.ai</span>
-      <ul class="footer-links" aria-label="Footer links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="help.html">Help</a></li>
-        <li><a href="terms.html">Terms</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 65);
-    }, { passive: true });
-  </script>
-
-</body>
+    <script>
+      const navbar = document.getElementById("navbar");
+      window.addEventListener(
+        "scroll",
+        () => {
+          navbar.classList.toggle("scrolled", window.scrollY > 65);
+        },
+        { passive: true },
+      );
+    </script>
+  </body>
 </html>
