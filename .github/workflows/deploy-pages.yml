@@ -28,10 +28,14 @@ jobs:
           enablement: true
 
       - name: Generate hero images (optional)
-        if: ${{ secrets.GEMINI_API_KEY != '' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python3 scripts/generate_images.py
+        run: |
+          if [ -n "$GEMINI_API_KEY" ]; then
+            python3 scripts/generate_images.py
+          else
+            echo "GEMINI_API_KEY not set — skipping image generation"
+          fi
 
       - name: Build site content
         run: python3 scripts/build_site.py
