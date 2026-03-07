@@ -1,64 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Help — HXiao.ai</title>
-  <meta name="description" content="Help and contact guidance for HXiao.ai." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://hy-x.github.io/HXiao.ai/help.html" />
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
-  <header>
-    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-      <div class="navbar-inner">
-        <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
-          <span class="navbar-logo" aria-hidden="true">H</span>
-          <span class="navbar-site-name">HXiao.ai</span>
-        </a>
-        <div class="navbar-actions">
-          <a href="index.html" class="navbar-link">Articles</a>
-          <a href="about.html" class="navbar-link">About</a>
-          <a href="article.html" class="btn-cta">Start reading</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help — HXiao.ai</title>
+    <meta
+      name="description"
+      content="Help, contact guidance, and contribution information for HXiao.ai." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://hy-x.github.io/HXiao.ai/help.html" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Source+Code+Pro&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+        --font-serif: Lora, Georgia, "Times New Roman", serif;
+        --font-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+        --font-mono: "Source Code Pro", "Courier New", monospace;
+      }
+      .article-body > p:first-of-type::first-letter {
+        float: none;
+        font-size: inherit;
+        line-height: inherit;
+        margin: 0;
+        font-family: inherit;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-sans);
+        font-size: var(--text-ui);
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        margin-bottom: var(--space-xl);
+        transition: color var(--transition-fast);
+      }
+      .back-link:hover {
+        color: var(--color-text-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar"
+        id="navbar"
+        role="navigation"
+        aria-label="Main navigation">
+        <div class="navbar-inner">
+          <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
+            <span class="navbar-logo" aria-hidden="true">H</span>
+            <span class="navbar-site-name">HXiao.ai</span>
+          </a>
+          <div class="navbar-actions">
+            <a href="index.html#featured" class="navbar-link">Articles</a>
+            <a href="about.html" class="navbar-link">About</a>
+            <a href="index.html#featured" class="btn-cta">Start reading</a>
+          </div>
         </div>
+      </nav>
+    </header>
+
+    <main>
+      <article class="article-container" aria-labelledby="help-title">
+        <a href="index.html" class="back-link">
+          <span aria-hidden="true">←</span> All articles
+        </a>
+
+        <header class="article-header">
+          <h1 class="article-title" id="help-title">Help</h1>
+          <p class="article-subtitle">
+            Questions, corrections, and collaboration.
+          </p>
+        </header>
+
+        <div class="article-body">
+          <h2>Getting in touch</h2>
+          <p>
+            For questions about an article, factual corrections, or general
+            feedback, the best path is the
+            <a
+              href="https://github.com/Hy-X/HXiao.ai/issues"
+              target="_blank"
+              rel="noopener"
+              >GitHub issue tracker</a
+            >. Opening an issue creates a transparent record and makes it easier
+            to track follow-ups.
+          </p>
+
+          <h2>Article corrections</h2>
+          <p>
+            If you spot an error — technical, factual, or typographic — please
+            file an issue with the article title and the specific passage.
+            Corrections are taken seriously and addressed promptly.
+          </p>
+
+          <h2>Collaboration</h2>
+          <p>
+            If you're working on something at the intersection of AI,
+            seismology, or scientific computing and think there's a story worth
+            writing together, reach out via the issue tracker with a brief
+            description of the idea.
+          </p>
+
+          <h2>Urgent matters</h2>
+          <p>
+            For privacy or legal concerns, refer to the
+            <a href="privacy.html">Privacy</a> and
+            <a href="terms.html">Terms</a> pages. Response times for non-urgent
+            requests may vary.
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <span>&copy; 2026 HXiao.ai</span>
+        <ul class="footer-links" aria-label="Footer links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
       </div>
-    </nav>
-  </header>
+    </footer>
 
-  <main>
-    <article class="article-container" aria-labelledby="help-title">
-      <header class="article-header">
-        <h1 class="article-title" id="help-title">Help</h1>
-      </header>
-      <div class="article-body">
-        <p>
-          For questions about this website, article corrections, or collaboration requests, please use the repository issue tracker.
-        </p>
-        <p>
-          Response times may vary. For urgent concerns related to privacy or legal matters, use the channels listed on the Privacy and Terms pages.
-        </p>
-      </div>
-    </article>
-  </main>
-
-  <footer class="footer" role="contentinfo">
-    <div class="footer-inner">
-      <span>&copy; 2025 HXiao.ai</span>
-      <ul class="footer-links" aria-label="Footer links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="help.html">Help</a></li>
-        <li><a href="terms.html">Terms</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 65);
-    }, { passive: true });
-  </script>
-</body>
+    <script>
+      const navbar = document.getElementById("navbar");
+      window.addEventListener(
+        "scroll",
+        () => {
+          navbar.classList.toggle("scrolled", window.scrollY > 65);
+        },
+        { passive: true },
+      );
+    </script>
+  </body>
 </html>

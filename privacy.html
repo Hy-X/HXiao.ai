@@ -1,64 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy — HXiao.ai</title>
-  <meta name="description" content="Privacy information for HXiao.ai." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://hy-x.github.io/HXiao.ai/privacy.html" />
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
-  <header>
-    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-      <div class="navbar-inner">
-        <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
-          <span class="navbar-logo" aria-hidden="true">H</span>
-          <span class="navbar-site-name">HXiao.ai</span>
-        </a>
-        <div class="navbar-actions">
-          <a href="index.html" class="navbar-link">Articles</a>
-          <a href="about.html" class="navbar-link">About</a>
-          <a href="article.html" class="btn-cta">Start reading</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy — HXiao.ai</title>
+    <meta
+      name="description"
+      content="Privacy policy for HXiao.ai — a static, no-tracking personal site." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://hy-x.github.io/HXiao.ai/privacy.html" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Source+Code+Pro&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+        --font-serif: Lora, Georgia, "Times New Roman", serif;
+        --font-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+        --font-mono: "Source Code Pro", "Courier New", monospace;
+      }
+      .article-body > p:first-of-type::first-letter {
+        float: none;
+        font-size: inherit;
+        line-height: inherit;
+        margin: 0;
+        font-family: inherit;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-sans);
+        font-size: var(--text-ui);
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        margin-bottom: var(--space-xl);
+        transition: color var(--transition-fast);
+      }
+      .back-link:hover {
+        color: var(--color-text-primary);
+      }
+      .terms-updated {
+        font-family: var(--font-sans);
+        font-size: var(--text-small);
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-2xl);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar"
+        id="navbar"
+        role="navigation"
+        aria-label="Main navigation">
+        <div class="navbar-inner">
+          <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
+            <span class="navbar-logo" aria-hidden="true">H</span>
+            <span class="navbar-site-name">HXiao.ai</span>
+          </a>
+          <div class="navbar-actions">
+            <a href="index.html#featured" class="navbar-link">Articles</a>
+            <a href="about.html" class="navbar-link">About</a>
+            <a href="index.html#featured" class="btn-cta">Start reading</a>
+          </div>
         </div>
+      </nav>
+    </header>
+
+    <main>
+      <article class="article-container" aria-labelledby="privacy-title">
+        <a href="index.html" class="back-link">
+          <span aria-hidden="true">←</span> All articles
+        </a>
+
+        <header class="article-header">
+          <h1 class="article-title" id="privacy-title">Privacy</h1>
+          <p class="article-subtitle">
+            What this site collects — and what it doesn't.
+          </p>
+        </header>
+
+        <p class="terms-updated">Last updated: March 2026</p>
+
+        <div class="article-body">
+          <h2>No tracking, no accounts</h2>
+          <p>
+            HXiao.ai is a fully static website. There is no account system, no
+            login, no cookies set by this site, and no third-party analytics or
+            advertising scripts. Reading an article here leaves no persistent
+            record on our end.
+          </p>
+
+          <h2>Hosting infrastructure</h2>
+          <p>
+            This site is hosted on GitHub Pages. GitHub may collect technical
+            metadata such as IP addresses and user-agent strings as part of
+            standard server logging. This data is governed by
+            <a
+              href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+              target="_blank"
+              rel="noopener"
+              >GitHub's privacy policy</a
+            >
+            and is not accessible to or controlled by HXiao.ai.
+          </p>
+
+          <h2>External services</h2>
+          <p>
+            Article thumbnail images and earthquake tracker data are loaded from
+            third-party sources. The earthquake tracker fetches data from the
+            USGS public API. By visiting pages that include these resources,
+            your browser may make requests to those services subject to their
+            own privacy terms.
+          </p>
+
+          <h2>Fonts</h2>
+          <p>
+            This site loads fonts from Google Fonts. Google may log requests
+            made to their CDN. For a fully private reading experience, you can
+            use a browser extension to block external font requests — the site
+            degrades gracefully to system serif and sans-serif fonts.
+          </p>
+
+          <h2>Future changes</h2>
+          <p>
+            If analytics, comments, or contact mechanisms are added in the
+            future, this page will be updated to reflect any new data practices
+            before those features go live.
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <span>&copy; 2026 HXiao.ai</span>
+        <ul class="footer-links" aria-label="Footer links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
       </div>
-    </nav>
-  </header>
+    </footer>
 
-  <main>
-    <article class="article-container" aria-labelledby="privacy-title">
-      <header class="article-header">
-        <h1 class="article-title" id="privacy-title">Privacy</h1>
-      </header>
-      <div class="article-body">
-        <p>
-          HXiao.ai is a static website and does not require account creation. Basic server logs from hosting providers may still collect technical metadata such as IP address and user-agent.
-        </p>
-        <p>
-          If analytics or contact mechanisms are added in the future, this page should be updated to reflect data collection, retention, and removal practices.
-        </p>
-      </div>
-    </article>
-  </main>
-
-  <footer class="footer" role="contentinfo">
-    <div class="footer-inner">
-      <span>&copy; 2025 HXiao.ai</span>
-      <ul class="footer-links" aria-label="Footer links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="help.html">Help</a></li>
-        <li><a href="terms.html">Terms</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 65);
-    }, { passive: true });
-  </script>
-</body>
+    <script>
+      const navbar = document.getElementById("navbar");
+      window.addEventListener(
+        "scroll",
+        () => {
+          navbar.classList.toggle("scrolled", window.scrollY > 65);
+        },
+        { passive: true },
+      );
+    </script>
+  </body>
 </html>
