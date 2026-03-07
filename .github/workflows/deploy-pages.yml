@@ -40,9 +40,12 @@ jobs:
         run: |
           mkdir -p public
           cp ./*.html public/
-          cp sitemap.xml robots.txt llms.txt public/
           cp -r css public/
           cp -r assets public/
+          cp -r content public/
+          [ -f sitemap.xml ] && cp sitemap.xml public/ || true
+          [ -f robots.txt ]  && cp robots.txt  public/ || true
+          [ -f llms.txt ]    && cp llms.txt    public/ || true
           touch public/.nojekyll
 
       - name: Upload artifact
