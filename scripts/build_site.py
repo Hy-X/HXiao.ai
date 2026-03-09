@@ -122,6 +122,10 @@ def render_feed_card(article: Article) -> str:
         f'            <div class="card-footer">\n'
         f'{tags_html}\n'
         f'              <span class="card-read-time">{escape(article.read_time)}</span>\n'
+        f'              <div class="card-actions">\n'
+        f'                <span aria-label="Save" class="btn-icon" title="Save"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>\n'
+        f'                <span aria-label="More" class="btn-icon" title="More options"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>\n'
+        f'              </div>\n'
         f'            </div>\n'
         f'          </a>'
     )
@@ -182,6 +186,10 @@ def render_related_cards(current: Article, articles: list[Article]) -> str:
             f'          <div class="card-footer">\n'
             f'            <span class="tag">{escape(article.tags[0])}</span>\n'
             f'            <span class="card-read-time">{escape(article.read_time)}</span>\n'
+            f'            <div class="card-actions">\n'
+            f'              <span aria-label="Save" class="btn-icon" title="Save"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>\n'
+            f'              <span aria-label="More" class="btn-icon" title="More options"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>\n'
+            f'            </div>\n'
             f'          </div>\n'
             f'        </a>'
         )
