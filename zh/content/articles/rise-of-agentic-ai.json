@@ -1,0 +1,17 @@
+{
+  "slug": "rise-of-agentic-ai",
+  "title": "智能体AI的崛起：当模型学会行动",
+  "subtitle": "从预测到行动——现代AI系统的范式转变",
+  "description": "一篇聚焦智能体AI的研究文章，从ReAct循环到安全性，探讨其对地震学与科学工作流的影响。",
+  "excerpt": "多年来，我们教机器预测下一个词元。现在，我们教它们迈出下一步。智能体AI不仅仅是能力升级——它是一场哲学层面的范式转变。",
+  "tags": ["智能体AI", "研究"],
+  "published_date": "2026-03-05",
+  "published_display": "2026年3月5日",
+  "read_time": "8 分钟阅读",
+  "hero_caption": "智能体系统中分支决策的抽象表达。",
+  "hero_aria": "AI决策树的抽象可视化",
+  "hero_image_placeholder": "1200x630 概念性分支决策图",
+  "hero_image_note": "使用简洁的节点/边结构插图，避免展示仪表盘截图。",
+  "hero_image_file": "content/articles/rise-of-agentic-ai.png",
+  "body_file": "rise-of-agentic-ai.body.html"
+}

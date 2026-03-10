@@ -1,0 +1,17 @@
+{
+  "slug": "transfer-learning-geophysical-models",
+  "title": "迁移学习在地球物理模型间的跨域应用",
+  "subtitle": "哪些特征可以迁移，哪些不能——这才是核心问题",
+  "description": "从加州构造地震学习到的特征，并不能直接映射到俄克拉荷马州诱发地震上。迁移学习有所帮助——但前提是理解哪些层应该冻结，哪些应该重新训练。",
+  "excerpt": "从加州构造地震中学习到的特征，无法直接映射到俄克拉荷马州的诱发地震上。迁移学习有帮助——但前提是理解该冻结哪些层、该重新训练哪些层。",
+  "tags": ["地震学", "研究"],
+  "published_date": "2025-12-18",
+  "published_display": "2025年12月18日",
+  "read_time": "7 分钟阅读",
+  "hero_caption": "展示构造地震与诱发地震数据集之间域偏移的特征空间抽象可视化。",
+  "hero_aria": "展示构造地震与诱发地震数据集域偏移的特征空间抽象可视化",
+  "hero_image_placeholder": "1200x630 域偏移特征空间可视化图",
+  "hero_image_note": "展示两个地震域之间域偏移的抽象特征空间图，突出迁移学习主题。",
+  "hero_image_file": "content/articles/transfer-learning-geophysical-models.png",
+  "body_file": "transfer-learning-geophysical-models.body.html"
+}

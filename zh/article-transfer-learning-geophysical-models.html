@@ -1,35 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hans">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Transfer Learning Across Seismic Domains: What Travels and What Doesn't — HXiao.ai</title>
-    <meta name="description" content="Transfer learning accelerates geophysical model development by reusing representations learned on large tectonic datasets. But domain shift between seismic regimes is real, and understanding what transfers is critical." />
-    <meta
-      name="keywords"
-      content="AI, Agentic AI, Seismology, Research, Science" />
-    <meta name="author" content="Hongyu Xiao" />
+    <title>迁移学习在地球物理模型间的跨域应用 — HXiao.ai</title>
+    <meta name="description" content="从加州构造地震学习到的特征，并不能直接映射到俄克拉荷马州诱发地震上。迁移学习有所帮助——但前提是理解哪些层应该冻结，哪些应该重新训练。" />
+    <meta name="keywords" content="AI, 智能体AI, 地震学, 研究, 科学" />
+    <meta name="author" content="肖鸿宇" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://hy-x.github.io/HXiao.ai/article-transfer-learning-geophysical-models.html" />
+    <link rel="canonical" href="https://hy-x.github.io/HXiao.ai/zh/article-transfer-learning-geophysical-models.html" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="HXiao.ai" />
-    <meta property="og:title" content="Transfer Learning Across Seismic Domains: What Travels and What Doesn't — HXiao.ai" />
-    <meta property="og:description" content="Transfer learning accelerates geophysical model development by reusing representations learned on large tectonic datasets. But domain shift between seismic regimes is real, and understanding what transfers is critical." />
-    <meta property="og:url" content="https://hy-x.github.io/HXiao.ai/article-transfer-learning-geophysical-models.html" />
+    <meta property="og:title" content="迁移学习在地球物理模型间的跨域应用 — HXiao.ai" />
+    <meta property="og:description" content="从加州构造地震学习到的特征，并不能直接映射到俄克拉荷马州诱发地震上。迁移学习有所帮助——但前提是理解哪些层应该冻结，哪些应该重新训练。" />
+    <meta property="og:url" content="https://hy-x.github.io/HXiao.ai/zh/article-transfer-learning-geophysical-models.html" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Transfer Learning Across Seismic Domains: What Travels and What Doesn't — HXiao.ai" />
-    <meta name="twitter:description" content="Transfer learning accelerates geophysical model development by reusing representations learned on large tectonic datasets. But domain shift between seismic regimes is real, and understanding what transfers is critical." />
-    <link rel="stylesheet" href="css/styles.css" />
+    <meta name="twitter:title" content="迁移学习在地球物理模型间的跨域应用 — HXiao.ai" />
+    <meta name="twitter:description" content="从加州构造地震学习到的特征，并不能直接映射到俄克拉荷马州诱发地震上。迁移学习有所帮助——但前提是理解哪些层应该冻结，哪些应该重新训练。" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Source+Code+Pro&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Source+Code+Pro&family=Noto+Sans+SC:wght@400;500;700&display=swap"
       rel="stylesheet" />
     <style>
       :root {
-        --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-        --font-serif: Lora, Georgia, "Times New Roman", serif;
-        --font-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+        --font-display:
+          "Playfair Display", "Noto Sans SC", Georgia, "Times New Roman", serif;
+        --font-serif: Lora, "Noto Sans SC", Georgia, "Times New Roman", serif;
+        --font-sans:
+          "DM Sans", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
         --font-mono: "Source Code Pro", "Courier New", monospace;
       }
 
@@ -136,32 +136,28 @@
       }
     </style>
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Transfer Learning Across Seismic Domains: What Travels and What Doesn't", "description": "Transfer learning accelerates geophysical model development by reusing representations learned on large tectonic datasets. But domain shift between seismic regimes is real, and understanding what transfers is critical.", "author": {"@type": "Person", "name": "Hongyu Xiao"}, "publisher": {"@type": "Organization", "name": "HXiao.ai"}, "datePublished": "2025-12-18", "dateModified": "2025-12-18", "mainEntityOfPage": "https://hy-x.github.io/HXiao.ai/article-transfer-learning-geophysical-models.html", "keywords": ["AI", "Agentic AI", "Seismology", "Research", "Science"]}
+      {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "迁移学习在地球物理模型间的跨域应用", "description": "从加州构造地震学习到的特征，并不能直接映射到俄克拉荷马州诱发地震上。迁移学习有所帮助——但前提是理解哪些层应该冻结，哪些应该重新训练。", "author": {"@type": "Person", "name": "肖鸿宇"}, "publisher": {"@type": "Organization", "name": "HXiao.ai"}, "datePublished": "2025-12-18", "dateModified": "2025-12-18", "mainEntityOfPage": "https://hy-x.github.io/HXiao.ai/zh/article-transfer-learning-geophysical-models.html", "keywords": ["AI", "智能体AI", "地震学", "研究", "科学"], "inLanguage": "zh-Hans"}
     </script>
   </head>
   <body>
     <header>
-      <nav
-        class="navbar"
-        id="navbar"
-        role="navigation"
-        aria-label="Main navigation">
+      <nav class="navbar" id="navbar" role="navigation" aria-label="主导航">
         <div class="navbar-inner">
-          <a href="index.html" class="navbar-brand" aria-label="HXiao.ai home">
+          <a href="index.html" class="navbar-brand" aria-label="HXiao.ai 首页">
             <span class="navbar-logo" aria-hidden="true">H</span>
             <span class="navbar-site-name">HXiao.ai</span>
           </a>
 
           <div class="navbar-actions">
-            <a href="index.html" class="navbar-link">Articles</a>
-            <a href="about.html" class="navbar-link">About</a>
+            <a href="index.html" class="navbar-link">文章</a>
+            <a href="../about.html" class="navbar-link">关于</a>
             <a
-              href="zh/index.html"
+              href="../index.html"
               class="navbar-link"
-              aria-label="切换至中文版"
-              >中文</a
+              aria-label="Switch to English"
+              >EN</a
             >
-            <a href="article.html" class="btn-cta">Start reading</a>
+            <a href="article.html" class="btn-cta">开始阅读</a>
           </div>
         </div>
       </nav>
@@ -170,154 +166,130 @@
     <main>
       <article class="article-container" aria-labelledby="article-title">
         <header class="article-header">
-          <h1 class="article-title" id="article-title">Transfer Learning Across Seismic Domains: What Travels and What Doesn't</h1>
-          <p class="article-subtitle">Why a model trained in California needs retraining for Oklahoma — and how to do it efficiently</p>
+          <h1 class="article-title" id="article-title">迁移学习在地球物理模型间的跨域应用</h1>
+          <p class="article-subtitle">哪些特征可以迁移，哪些不能——这才是核心问题</p>
 
           <div class="article-byline">
             <div
               class="byline-avatar"
               role="img"
-              aria-label="Hongyu Xiao avatar"></div>
+              aria-label="肖鸿宇 头像"></div>
             <div class="byline-info">
               <div class="byline-name">
-                Hongyu Xiao
-                <button class="btn-follow" aria-label="Follow Hongyu Xiao">
-                  Follow
+                肖鸿宇
+                <button class="btn-follow" aria-label="关注 肖鸿宇">
+                  关注
                 </button>
               </div>
               <div class="byline-meta">
-                HXiao.ai &middot; December 18, 2025 &middot; 7 min read
+                HXiao.ai · 2025年12月18日 · 7 分钟阅读
               </div>
             </div>
           </div>
 
-          <div
-            class="engagement-bar"
-            role="group"
-            aria-label="Article engagement">
-            <button
-              class="clap-btn"
-              aria-label="Clap for this article"
-              id="clapBtn">
+          <div class="engagement-bar" role="group" aria-label="文章互动">
+            <button class="clap-btn" aria-label="为本文鼓掌" id="clapBtn">
               <span class="clap-icon" aria-hidden="true">👏</span>
               <span id="clapCount">0</span>
             </button>
             <div class="share-actions">
               <button
                 class="clap-btn save-btn"
-                aria-label="Save this article"
+                aria-label="收藏本文"
                 id="saveBtn">
                 <span class="save-icon" aria-hidden="true">🔖</span>
-                <span class="save-label">Save</span>
+                <span class="save-label">收藏</span>
               </button>
               <button
                 class="clap-btn share-toggle"
-                aria-label="Share this article"
+                aria-label="分享本文"
                 aria-expanded="false"
                 aria-haspopup="menu">
                 <span class="share-icon" aria-hidden="true">↗</span>
-                <span class="share-label">Share</span>
+                <span class="share-label">分享</span>
               </button>
               <div class="share-menu" role="menu" hidden></div>
             </div>
           </div>
         </header>
 
-        <!-- HERO_IMAGE_PLACEHOLDER: 1200x630 cover image -->
-        <!-- HERO_IMAGE_NOTE: Replace skeleton with final article hero image when available. -->
-              <img class="article-hero-image article-hero-image-full" src="content/articles/transfer-learning-geophysical-models.png" alt="Abstract feature space visualization showing domain shift between tectonic and induced seismicity datasets" loading="eager" decoding="async" />
+        <!-- HERO_IMAGE_PLACEHOLDER: 1200x630 域偏移特征空间可视化图 -->
+        <!-- HERO_IMAGE_NOTE: 展示两个地震域之间域偏移的抽象特征空间图，突出迁移学习主题。 -->
+              <img class="article-hero-image article-hero-image-full" src="../content/articles/transfer-learning-geophysical-models.png" alt="展示构造地震与诱发地震数据集域偏移的特征空间抽象可视化" loading="eager" decoding="async" />
         <figure>
-          <figcaption class="article-hero-caption">Visualization of feature representations shifting between a source seismic domain and a target domain during transfer learning.</figcaption>
+          <figcaption class="article-hero-caption">展示构造地震与诱发地震数据集之间域偏移的特征空间抽象可视化。</figcaption>
         </figure>
 
         <div class="article-body"><p>
-  Every seismologist who has attempted to apply a model trained on California
-  tectonic earthquakes to Oklahoma induced seismicity has encountered the same
-  uncomfortable result: performance degrades, sometimes dramatically. The
-  waveform statistics are different. The magnitude-frequency distributions are
-  different. The focal mechanisms are different.
+  迁移学习承诺减少标注数据的需求，通过将从一个任务或领域学到的知识迁移至另一个任务或领域。在理论上，这种承诺是合理的；在实践中，其有效性高度依赖于源域与目标域的相似程度。
 </p>
 
 <p>
-  This is domain shift — the gap between the distribution a model was trained on
-  and the distribution it is asked to generalize to. Transfer learning does not
-  eliminate domain shift, but it provides principled tools for adapting across
-  it.
+  地震学为研究这一问题提供了特别清晰的实验场景，因为地震体系本身存在显著的、有据可查的地域变异。构造地震（由板块边界应力驱动）与诱发地震（由注水或采矿引发）表现出不同的震源机制，继而产生不同的波形特征。
 </p>
 
-<h2>What Actually Transfers</h2>
+<h2>为什么特征不能直接迁移</h2>
 
 <p>
-  In deep neural networks for seismic phase picking, the lower layers (closer to
-  input) learn generic waveform features: onset sharpness, frequency content,
-  amplitude envelope shapes. These tend to transfer well across seismic domains
-  because P and S waves share physical characteristics regardless of tectonic
-  setting.
-</p>
-
-<blockquote>
-  The higher layers encode more domain-specific decision boundaries. These often
-  need retraining — or at minimum, fine-tuning — when applying to a new seismic
-  region.
-</blockquote>
-
-<h2>Oklahoma as a Target Domain</h2>
-
-<p>
-  Oklahoma's induced seismicity — driven primarily by wastewater injection from
-  oil and gas operations — has unique signatures. Events tend to cluster in
-  space and time, magnitude ranges skew lower, and the regional velocity model
-  differs substantially from California. Models pretrained on the STEAD or SCSN
-  catalogs require careful adaptation before they perform at analyst level on
-  OGS network data.
+  在加利福尼亚地震数据上预训练的模型，已经学会识别与加州构造环境相关的振幅衰减特性、地壳结构效应和震源机制模式。当部署至俄克拉荷马州诱发地震体系时，这些特征的关联性减弱——不是完全消失，而是精度下降到不可接受的程度。
 </p>
 
 <p>
-  In my work with transfer learning and distilled models, I found that training
-  on a regionally curated Oklahoma subset — even a relatively small one of a few
-  thousand labeled events — closed roughly 80% of the performance gap. The
-  remaining gap was largely in very low-magnitude detection where SNR is
-  inherently challenging.
+  这种性能下降并非模型失败，而是正确识别了数据中真实存在的分布偏移。问题在于如何量化这一差距，并决定代价更小的是：收集更多目标域标注数据，还是将迁移学习与领域适应技术结合使用。
 </p>
 
-<h2>Data Efficiency and Few-Shot Adaptation</h2>
+<blockquote>知道哪些特征可以迁移，与知道如何迁移同样重要。</blockquote>
+
+<h2>层级冻结策略</h2>
 
 <p>
-  One of transfer learning's greatest practical advantages is data efficiency.
-  Fully supervised training of a phase picker from scratch typically requires
-  tens of thousands of labeled examples. Transfer learning with fine-tuning can
-  achieve comparable performance with lower thousands of labeled examples. For
-  regional seismic networks where labeled catalogs are incomplete or
-  inconsistently annotated, this is not merely convenient — it is often the only
-  viable path to deployment.
+  深度神经网络的早期层学习低级特征（边缘、纹理、在时序模型中则是局部波形形态），后期层学习依赖于更多特定领域上下文的高级表示。对于跨域迁移学习，通用做法是冻结早期层（保留其权重），仅在目标域数据上微调后期层。
+</p>
+
+<p>
+  然而，"早期层可安全迁移"的规则并不总是成立。当源域和目标域在信号特征上差异显著时，即便是早期层也会存在强烈的领域偏见。诊断方法之一是比较中间激活在两个领域上的类激活图，以识别偏差最为严重的层。
+</p>
+
+<h2>持续学习与目录问题</h2>
+
+<p>
+  现实应用中往往缺乏充足的标注目标域数据用于微调——这正是最初诉诸迁移学习的重要原因。半监督方法，如伪标签（pseudo-labeling）和一致性正则化，允许在小量高质量标注数据的基础上，利用大量无标注的目标域数据进行训练。
+</p>
+
+<p>
+  地震目录的质量至关重要。在历史目录中系统性缺失的小震级事件，会在数据集中引入选择偏差，导致迁移的模型在未被充分标注的震级范围内性能偏低。迁移学习并不能修复糟糕的标注数据——只会将问题以更隐蔽的方式传播。
+</p>
+
+<h2>实践意义</h2>
+
+<p>
+  对于需要快速部署至新地区的研究团队而言，迁移学习是减少冷启动所需数据量的有效工具。但它需要清醒地认识所需资源：确认域偏移的时间、寻找高质量目标域标注数据的成本，以及在部署后监控性能退化的持续工作。
+</p>
+
+<p>
+  从生产角度来看，最稳健的做法是将迁移学习的模型视为起点，而非终点——是在目标域数据积累过程中持续改进的基线，而非固定不变的解决方案。
 </p></div>
 
-        <div
-          class="engagement-bar"
-          role="group"
-          aria-label="Article engagement">
-          <button
-            class="clap-btn"
-            aria-label="Clap for this article"
-            id="clapBtnBottom">
+        <div class="engagement-bar" role="group" aria-label="文章互动">
+          <button class="clap-btn" aria-label="为本文鼓掌" id="clapBtnBottom">
             <span class="clap-icon" aria-hidden="true">👏</span>
             <span id="clapCountBottom">0</span>
           </button>
           <div class="share-actions">
             <button
               class="clap-btn save-btn"
-              aria-label="Save this article"
+              aria-label="收藏本文"
               id="saveBtnBottom">
               <span class="save-icon" aria-hidden="true">🔖</span>
-              <span class="save-label">Save</span>
+              <span class="save-label">收藏</span>
             </button>
             <button
               class="clap-btn share-toggle"
-              aria-label="Share this article"
+              aria-label="分享本文"
               aria-expanded="false"
               aria-haspopup="menu">
               <span class="share-icon" aria-hidden="true">↗</span>
-              <span class="share-label">Share</span>
+              <span class="share-label">分享</span>
             </button>
             <div class="share-menu" role="menu" hidden></div>
           </div>
@@ -328,19 +300,18 @@
             <div
               class="author-bio-avatar"
               role="img"
-              aria-label="Hongyu Xiao avatar"></div>
+              aria-label="肖鸿宇 头像"></div>
             <div>
               <p class="author-bio-name" id="author-bio-heading">
-                Hongyu Xiao
+                肖鸿宇
               </p>
-              <button class="btn-follow" aria-label="Follow Hongyu Xiao">
-                Follow
+              <button class="btn-follow" aria-label="关注 肖鸿宇">
+                关注
               </button>
             </div>
           </div>
           <p class="author-bio-text">
-            Personal essays on AI, Agentic systems, Seismology, Research, and
-            Science.
+            关于AI、智能体系统、地震学、研究与科学的个人文章。
           </p>
         </section>
 
@@ -348,46 +319,48 @@
 
         <section class="more-articles" aria-labelledby="more-heading">
           <h2 class="more-articles-heading" id="more-heading">
-            More from HXiao.ai
+            更多来自 HXiao.ai
           </h2>
                   <a href="article-rise-of-agentic-ai.html" class="article-card">
           <div class="card-meta">
-            <div class="card-avatar" role="img" aria-label="Author avatar"></div>
-            <span class="card-author">Hongyu Xiao</span>
+            <div class="card-avatar" role="img" aria-label="作者头像"></div>
+            <span class="card-author">肖鸿宇</span>
           </div>
           <div class="card-body">
             <div class="card-text">
-              <h3 class="card-title">The Rise of Agentic AI: When Models Learn to Act</h3>
-              <p class="card-preview">We&#x27;ve spent years teaching machines to predict the next token. Now we&#x27;re teaching them to take the next step. Agentic AI is not just a capability upgrade — it&#x27;s a philosophical shift.</p>
+              <h3 class="card-title">智能体AI的崛起：当模型学会行动</h3>
+              <p class="card-preview">多年来，我们教机器预测下一个词元。现在，我们教它们迈出下一步。智能体AI不仅仅是能力升级——它是一场哲学层面的范式转变。</p>
             </div>
+          <img class="card-thumbnail" src="../content/articles/rise-of-agentic-ai.png" alt="AI决策树的抽象可视化" loading="lazy" decoding="async" />
           </div>
           <div class="card-footer">
-            <span class="tag">Agentic AI</span>
-            <span class="card-read-time">8 min read</span>
+            <span class="tag">智能体AI</span>
+            <span class="card-read-time">8 分钟阅读</span>
             <div class="card-actions">
-              <span aria-label="Save" class="btn-icon" title="Save"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>
-              <span aria-label="More" class="btn-icon" title="More options"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
+              <span aria-label="收藏" class="btn-icon" title="收藏"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>
+              <span aria-label="更多" class="btn-icon" title="更多选项"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
             </div>
           </div>
         </a>
 
         <a href="article-tinyml-edge-devices.html" class="article-card">
           <div class="card-meta">
-            <div class="card-avatar" role="img" aria-label="Author avatar"></div>
-            <span class="card-author">Hongyu Xiao</span>
+            <div class="card-avatar" role="img" aria-label="作者头像"></div>
+            <span class="card-author">肖鸿宇</span>
           </div>
           <div class="card-body">
             <div class="card-text">
-              <h3 class="card-title">TinyML on Edge Devices: Bringing AI to the Physical World</h3>
-              <p class="card-preview">Zero latency. Ultra-low power. Real inference at the sensor level. TinyML inverts the cloud-first AI paradigm — and the implications for seismic monitoring are profound.</p>
+              <h3 class="card-title">TinyML与边缘设备：将AI带入物理世界</h3>
+              <p class="card-preview">零延迟。超低功耗。在传感器层面进行真实推理。TinyML颠覆了云优先的AI范式——这对地震监测的影响不可小觑。</p>
             </div>
+          <img class="card-thumbnail" src="../content/articles/tinyml-edge-devices.png" alt="带神经网络叠加可视化的微控制器开发板" loading="lazy" decoding="async" />
           </div>
           <div class="card-footer">
             <span class="tag">TinyML</span>
-            <span class="card-read-time">7 min read</span>
+            <span class="card-read-time">7 分钟阅读</span>
             <div class="card-actions">
-              <span aria-label="Save" class="btn-icon" title="Save"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>
-              <span aria-label="More" class="btn-icon" title="More options"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
+              <span aria-label="收藏" class="btn-icon" title="收藏"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>
+              <span aria-label="更多" class="btn-icon" title="更多选项"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
             </div>
           </div>
         </a>
@@ -397,7 +370,7 @@
 
         <section class="comments-section" aria-labelledby="comments-heading">
           <h2 class="comments-heading" id="comments-heading">
-            Responses (<span id="comment-count">0</span>)
+            评论 (<span id="comment-count">0</span>)
           </h2>
 
           <form class="comment-form" id="comment-form" novalidate>
@@ -405,27 +378,25 @@
               type="text"
               id="comment-name"
               name="name"
-              placeholder="Your name"
+              placeholder="您的姓名"
               maxlength="80"
               autocomplete="name"
-              aria-label="Your name"
+              aria-label="您的姓名"
               required />
             <textarea
               id="comment-body"
               name="body"
-              placeholder="Share a thought or response..."
+              placeholder="分享您的想法或回应…"
               maxlength="2000"
-              aria-label="Your response"
+              aria-label="您的回应"
               required></textarea>
             <button type="submit" class="btn-cta comment-submit">
-              Post response
+              发布评论
             </button>
           </form>
 
           <div class="comment-list" id="comment-list" aria-live="polite">
-            <p class="comments-empty" id="comments-empty">
-              Be the first to respond.
-            </p>
+            <p class="comments-empty" id="comments-empty">成为第一个评论者。</p>
           </div>
         </section>
       </article>
@@ -433,12 +404,12 @@
 
     <footer class="footer" role="contentinfo">
       <div class="footer-inner">
-        <span>&copy; 2025 HXiao.ai</span>
-        <ul class="footer-links" aria-label="Footer links">
-          <li><a href="about.html">About</a></li>
-          <li><a href="help.html">Help</a></li>
-          <li><a href="terms.html">Terms</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
+        <span>&copy; 2026 HXiao.ai</span>
+        <ul class="footer-links" aria-label="页脚链接">
+          <li><a href="../about.html">关于</a></li>
+          <li><a href="../help.html">帮助</a></li>
+          <li><a href="../terms.html">条款</a></li>
+          <li><a href="../privacy.html">隐私</a></li>
         </ul>
       </div>
     </footer>
@@ -517,7 +488,7 @@
       let isSaved = readSavedState();
 
       function renderSavedState() {
-        const label = isSaved ? "Saved" : "Save";
+        const label = isSaved ? "已收藏" : "收藏";
         const icon = isSaved ? "✅" : "🔖";
         [saveBtnTop, saveBtnBottom].forEach((button) => {
           if (!button) {
@@ -525,10 +496,7 @@
           }
           button.querySelector(".save-label").textContent = label;
           button.querySelector(".save-icon").textContent = icon;
-          button.setAttribute(
-            "aria-label",
-            isSaved ? "Remove from saved articles" : "Save this article",
-          );
+          button.setAttribute("aria-label", isSaved ? "取消收藏" : "收藏本文");
         });
       }
 
@@ -544,8 +512,8 @@
 
       document.querySelectorAll(".btn-follow").forEach((btn) => {
         btn.addEventListener("click", function () {
-          const isFollowing = this.textContent === "Following";
-          this.textContent = isFollowing ? "Follow" : "Following";
+          const isFollowing = this.textContent === "已关注";
+          this.textContent = isFollowing ? "关注" : "已关注";
           this.className = isFollowing ? "btn-follow" : "btn-following";
         });
       });
@@ -568,7 +536,7 @@
             href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
           },
           {
-            label: "Email",
+            label: "邮件",
             href: `mailto:?subject=${encodedTitle}&body=${encodedUrl}`,
           },
         ];
@@ -606,19 +574,19 @@
         const copyButton = document.createElement("button");
         copyButton.type = "button";
         copyButton.className = "share-link";
-        copyButton.textContent = "Copy link";
+        copyButton.textContent = "复制链接";
         copyButton.setAttribute("role", "menuitem");
         copyButton.addEventListener("click", async () => {
           try {
             await navigator.clipboard.writeText(shareUrl);
-            copyButton.textContent = "Copied";
+            copyButton.textContent = "已复制";
             setTimeout(() => {
-              copyButton.textContent = "Copy link";
+              copyButton.textContent = "复制链接";
             }, 1200);
           } catch (error) {
-            copyButton.textContent = "Copy failed";
+            copyButton.textContent = "复制失败";
             setTimeout(() => {
-              copyButton.textContent = "Copy link";
+              copyButton.textContent = "复制链接";
             }, 1200);
           }
         });
@@ -661,15 +629,15 @@
       }
 
       function formatDate(iso) {
-        return new Date(iso).toLocaleDateString("en-US", {
+        return new Date(iso).toLocaleDateString("zh-CN", {
           year: "numeric",
-          month: "short",
+          month: "long",
           day: "numeric",
         });
       }
 
       function getInitial(name) {
-        return (name || "?").trim().charAt(0);
+        return (name || "？").trim().charAt(0);
       }
 
       function buildCommentEl(comment) {
@@ -690,7 +658,6 @@
         const comments = loadComments();
         commentCount.textContent = comments.length;
 
-        // Remove existing rendered comments (preserve empty state p)
         commentList
           .querySelectorAll(".comment-item")
           .forEach((el) => el.remove());
@@ -719,7 +686,6 @@
         bodyInput.value = "";
         renderComments();
 
-        // Scroll to the new comment smoothly
         commentList.lastElementChild?.scrollIntoView({
           behavior: "smooth",
           block: "nearest",

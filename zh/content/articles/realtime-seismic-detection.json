@@ -1,0 +1,17 @@
+{
+  "slug": "realtime-seismic-detection",
+  "title": "基于深度学习的实时地震信号检测",
+  "subtitle": "自动化、实时的P波与S波拾取——精准且可在边缘部署",
+  "description": "震相拾取历来是费时费力的人工过程。深度学习正在改变这一现状，使自动化实时P波和S波检测既精准又可部署于边缘设备。",
+  "excerpt": "震相拾取历来是费时费力的人工过程。深度学习正在改变这一现状——使自动化实时P波和S波检测既精准又可部署于边缘设备。",
+  "tags": ["地震学", "科学"],
+  "published_date": "2026-01-22",
+  "published_display": "2026年1月22日",
+  "read_time": "8 分钟阅读",
+  "hero_caption": "地震波形图，高亮显示检测到的P波和S波到时。",
+  "hero_aria": "地震波形显示图，标注P波和S波到时",
+  "hero_image_placeholder": "1200x630 地震波形图",
+  "hero_image_note": "展示标注P波和S波到时的地震波形图，突出自动检测效果。",
+  "hero_image_file": "content/articles/realtime-seismic-detection.png",
+  "body_file": "realtime-seismic-detection.body.html"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "tinyml-edge-devices",
+  "title": "TinyML与边缘设备：将AI带入物理世界",
+  "subtitle": "零延迟、超低功耗——在传感器层面进行真实推理",
+  "description": "TinyML颠覆了云优先的AI范式，将推理能力直接部署到边缘设备，在地震监测等领域具有深远影响。",
+  "excerpt": "零延迟。超低功耗。在传感器层面进行真实推理。TinyML颠覆了云优先的AI范式——这对地震监测的影响不可小觑。",
+  "tags": ["TinyML", "研究"],
+  "published_date": "2026-02-28",
+  "published_display": "2026年2月28日",
+  "read_time": "7 分钟阅读",
+  "hero_caption": "带有神经网络叠加可视化的微控制器开发板。",
+  "hero_aria": "带神经网络叠加可视化的微控制器开发板",
+  "hero_image_placeholder": "1200x630 微控制器与神经网络叠加图",
+  "hero_image_note": "展示嵌入神经网络叠加的微控制器板，突出边缘AI主题。",
+  "hero_image_file": "content/articles/tinyml-edge-devices.png",
+  "body_file": "tinyml-edge-devices.body.html"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "mqtt-iot-sensor-networks",
+  "title": "MQTT与实时物联网传感器网络架构",
+  "subtitle": "2字节固定报头、异步传输、持久会话——专为带宽受限遥测而生",
+  "description": "MQTT专为带宽受限的遥测设计，正是现代分布式传感器网络所需的协议。",
+  "excerpt": "2字节固定报头。异步传输。持久会话。MQTT专为带宽受限的遥测而设计——而这正是现代分布式传感器网络所需要的。",
+  "tags": ["研究", "科学"],
+  "published_date": "2026-01-10",
+  "published_display": "2026年1月10日",
+  "read_time": "6 分钟阅读",
+  "hero_caption": "物联网传感器节点通过MQTT代理连接至数据可视化仪表盘的示意图。",
+  "hero_aria": "物联网传感器节点通过MQTT代理连接至数据可视化仪表盘示意图",
+  "hero_image_placeholder": "1200x630 物联网MQTT架构图",
+  "hero_image_note": "展示传感器节点、MQTT代理与数据可视化仪表盘之间连接关系的清晰架构图。",
+  "hero_image_file": "content/articles/mqtt-iot-sensor-networks.png",
+  "body_file": "mqtt-iot-sensor-networks.body.html"
+}

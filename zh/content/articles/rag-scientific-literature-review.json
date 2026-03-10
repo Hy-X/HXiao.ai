@@ -1,0 +1,17 @@
+{
+  "slug": "rag-scientific-literature-review",
+  "title": "RAG科学文献综述：用检索增强生成导航研究文献",
+  "subtitle": "基于静态语料训练的大语言模型无法了解上个月发表了什么——RAG解决了这一问题",
+  "description": "RAG通过在查询时检索相关论文并将每个论断根植于可追溯来源，弥补了静态语料大语言模型的时效性缺陷。",
+  "excerpt": "基于静态语料训练的大语言模型无法了解上个月发表了什么。RAG解决了这一问题——在查询时检索相关论文，将每个论断根植于可追溯的来源。",
+  "tags": ["智能体AI", "大语言模型"],
+  "published_date": "2025-12-05",
+  "published_display": "2025年12月5日",
+  "read_time": "8 分钟阅读",
+  "hero_caption": "RAG管道从向量存储检索文档以增强大语言模型科学查询的示意图。",
+  "hero_aria": "RAG管道从向量存储检索文档以增强大语言模型科学查询示意图",
+  "hero_image_placeholder": "1200x630 RAG管道架构图",
+  "hero_image_note": "展示从向量存储到大语言模型的检索增强生成管道的清晰架构图。",
+  "hero_image_file": "content/articles/rag-scientific-literature-review.png",
+  "body_file": "rag-scientific-literature-review.body.html"
+}

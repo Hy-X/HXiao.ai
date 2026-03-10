@@ -1,0 +1,17 @@
+{
+  "slug": "reasoning-under-uncertainty",
+  "title": "在不确定性中推理：大语言模型如何处理未知",
+  "subtitle": "置信度与校准度之间的鸿沟，正是幻觉滋生之处",
+  "description": "探讨现代大语言模型如何表达不确定性，以及如何改进其校准行为。",
+  "excerpt": "置信度与校准度之间的鸿沟，正是幻觉滋生之处。本文探讨现代语言模型如何表达不确定性——以及我们如何改进这一行为。",
+  "tags": ["大语言模型", "推理"],
+  "published_date": "2026-02-20",
+  "published_display": "2026年2月20日",
+  "read_time": "6 分钟阅读",
+  "hero_caption": "不确定性的抽象视觉化表达。",
+  "hero_aria": "不确定性抽象可视化",
+  "hero_image_placeholder": "1200x630 不确定性视觉化图",
+  "hero_image_note": "使用抽象概率或模糊性的视觉隐喻，避免仪表盘截图。",
+  "hero_image_file": "content/articles/reasoning-under-uncertainty.png",
+  "body_file": "reasoning-under-uncertainty.body.html"
+}

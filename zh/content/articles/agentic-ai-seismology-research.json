@@ -1,0 +1,17 @@
+{
+  "slug": "agentic-ai-seismology-research",
+  "title": "智能体AI在地震学研究中的应用",
+  "subtitle": "从信号检测到科学工作流的全面探索",
+  "description": "地震学正在成为AI原生科学。本文探讨智能体管道如何辅助地震信号分类、文献综述与可重现研究工作流。",
+  "excerpt": "地震学正在成为AI原生科学。本文探讨智能体管道如何辅助地震信号分类、文献综述与可重现研究工作流。",
+  "tags": ["地震学", "科学"],
+  "published_date": "2026-02-05",
+  "published_display": "2026年2月5日",
+  "read_time": "7 分钟阅读",
+  "hero_caption": "地震学工作流的抽象可视化。",
+  "hero_aria": "地震学工作流抽象可视化",
+  "hero_image_placeholder": "1200x630 地震学工作流概念图",
+  "hero_image_note": "展示智能体辅助地震学工作流的概念性插图。",
+  "hero_image_file": "content/articles/agentic-ai-seismology-research.png",
+  "body_file": "agentic-ai-seismology-research.body.html"
+}

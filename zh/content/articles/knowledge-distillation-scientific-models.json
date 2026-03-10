@@ -1,0 +1,17 @@
+{
+  "slug": "knowledge-distillation-scientific-models",
+  "title": "知识蒸馏：教小模型像大模型一样思考",
+  "subtitle": "现代机器学习中最被低估的技术之一",
+  "description": "通过让紧凑的学生模型学习更大教师模型的软输出，知识蒸馏在不牺牲精度的前提下显著降低计算成本。",
+  "excerpt": "蒸馏是现代机器学习中最被低估的技术之一。通过让紧凑的学生模型训练于更大教师模型的软输出，我们在无需高计算成本的情况下保留了精度。",
+  "tags": ["研究", "地震学"],
+  "published_date": "2026-02-14",
+  "published_display": "2026年2月14日",
+  "read_time": "6 分钟阅读",
+  "hero_caption": "展示知识迁移的师生神经网络示意图。",
+  "hero_aria": "展示知识迁移的师生神经网络示意图",
+  "hero_image_placeholder": "1200x630 师生神经网络知识迁移图",
+  "hero_image_note": "展示知识从大型教师模型流向紧凑学生模型的清晰示意图。",
+  "hero_image_file": "content/articles/knowledge-distillation-scientific-models.png",
+  "body_file": "knowledge-distillation-scientific-models.body.html"
+}
