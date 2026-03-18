@@ -12,6 +12,6 @@
   "hero_aria": "ONNX 静态图与 PyTorch 动态图对比的抽象可视化",
   "hero_image_placeholder": "1200x630 ONNX vs PyTorch 性能对比",
   "hero_image_note": "展示 PyTorch 动态图与 ONNX 静态图执行差异的概念性插图。",
-  "hero_image_file": "",
+  "hero_image_file": "content/articles/onnx-vs-pytorch-inference.png",
   "body_file": "onnx-vs-pytorch-inference.body.html"
 }
