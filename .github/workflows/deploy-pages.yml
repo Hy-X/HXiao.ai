@@ -38,7 +38,9 @@ jobs:
           fi
 
       - name: Build site content
-        run: python3 scripts/build_site.py
+        run: |
+          python3 scripts/build_site.py
+          python3 scripts/build_site_zh.py
 
       - name: Prepare site files
         run: |
@@ -46,6 +48,7 @@ jobs:
           cp ./*.html public/
           cp -r css public/
           cp -r content public/
+          [ -d zh ]          && cp -r zh          public/ || true
           [ -d assets ]      && cp -r assets      public/ || true
           [ -f sitemap.xml ] && cp sitemap.xml    public/ || true
           [ -f robots.txt ]  && cp robots.txt     public/ || true
