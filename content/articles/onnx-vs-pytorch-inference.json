@@ -1,0 +1,17 @@
+{
+  "slug": "onnx-vs-pytorch-inference",
+  "title": "Why ONNX Inference Outperforms PyTorch in Production",
+  "subtitle": "Achieving drastic speedups without additional optimization",
+  "description": "Transitioning from PyTorch (.pth) to ONNX for model inference can yield drastic speed improvements during product building, even before applying complex optimizations like quantization.",
+  "excerpt": "When building AI products, inference speed is critical. Switching from PyTorch's native format to ONNX can lead to drastic performance gains out of the box.",
+  "tags": ["Machine Learning", "Model Deployment", "Engineering"],
+  "published_date": "2026-03-18",
+  "published_display": "March 18, 2026",
+  "read_time": "5 min read",
+  "hero_caption": "A conceptual comparison of execution graphs.",
+  "hero_aria": "Abstract visualization of ONNX graph vs PyTorch execution",
+  "hero_image_placeholder": "1200x630 ONNX vs PyTorch Comparison",
+  "hero_image_note": "A diagram comparing PyTorch dynamic graph and ONNX static graph execution.",
+  "hero_image_file": "",
+  "body_file": "onnx-vs-pytorch-inference.body.html"
+}

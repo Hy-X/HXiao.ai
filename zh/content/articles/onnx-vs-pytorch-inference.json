@@ -1,0 +1,17 @@
+{
+  "slug": "onnx-vs-pytorch-inference",
+  "title": "为什么在生产环境中 ONNX 推理远超 PyTorch",
+  "subtitle": "无需额外优化即可实现速度的大幅提升",
+  "description": "在产品构建中，将模型推理从 PyTorch (.pth) 切换为 ONNX 格式可以带来极大的速度提升，甚至在应用量化等复杂优化之前就能见到显著效果。",
+  "excerpt": "构建 AI 产品时，推理速度至关重要。将原生的 PyTorch 格式切换为 ONNX，可以让你的模型在开箱即用的状态下获得巨大的性能提升。",
+  "tags": ["机器学习", "模型部署", "工程化"],
+  "published_date": "2026-03-18",
+  "published_display": "2026年3月18日",
+  "read_time": "5 分钟阅读",
+  "hero_caption": "执行图的抽象概念对比。",
+  "hero_aria": "ONNX 静态图与 PyTorch 动态图对比的抽象可视化",
+  "hero_image_placeholder": "1200x630 ONNX vs PyTorch 性能对比",
+  "hero_image_note": "展示 PyTorch 动态图与 ONNX 静态图执行差异的概念性插图。",
+  "hero_image_file": "",
+  "body_file": "onnx-vs-pytorch-inference.body.html"
+}
