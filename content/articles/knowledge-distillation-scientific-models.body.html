@@ -1,64 +1,139 @@
 <p>
-  When Geoffrey Hinton introduced knowledge distillation in 2015, the core
-  insight was deceptively simple: a trained neural network knows more than its
-  predictions reveal. The probability distribution over all classes — not just
-  the winning prediction — encodes structural relationships that can be
-  transferred to a smaller model.
+  When neural-network pioneers Geoffrey Hinton, Oriol Vinyals, and Jeff Dean
+  formally introduced the concept of Knowledge Distillation in 2015, their core
+  insight was as elegant as it was deceptively simple: a rigorously trained
+  neural network knows fundamentally more than its final, hardened predictions
+  actually reveal.
 </p>
 
 <p>
-  These "soft labels" carry what Hinton called "dark knowledge." A model that
-  assigns 0.7 probability to class A, 0.2 to class B, and 0.1 to class C is
-  communicating something richer than a hard one-hot label ever could: it is
-  expressing the similarity structure of the input space.
+  In a standard classification task, a model outputs a probability distribution
+  over all possible classes. We usually only care about the class with the
+  highest probability (the winning prediction). However, the remaining
+  probability distribution across all the "losing" classes encodes profound
+  structural relationships about the dataset—relationships that can be
+  mathematically transferred to supervise the training of a vastly smaller,
+  faster model.
 </p>
 
-<h2>The Mechanics of Distillation</h2>
+<h2>"Dark Knowledge" and the Geometry of Errors</h2>
 
 <p>
-  Training a student model under distillation combines two objectives. The first
-  is standard cross-entropy against ground truth labels. The second — weighted
-  by a temperature hyperparameter — is the KL divergence between the student's
-  soft outputs and the teacher's soft outputs at elevated temperature.
+  These non-winning probabilities, often referred to as "soft labels," carry
+  what Hinton famously called "dark knowledge."
+</p>
+
+<p>
+  Consider an image classification model looking at an image of a BMW. The model
+  might assign a 0.7 probability to <em>Car</em>, a 0.2 probability to
+  <em>Truck</em>, and a 0.0001 probability to <em>Carrot</em>. A standard "hard"
+  one-hot label simply says
+  <em>"This is 100% a Car and 0% everything else."</em>
+</p>
+
+<p>
+  But the soft distribution is communicating something infinitely richer: the
+  neural network has geometrically learned that a Car is visually much more
+  similar to a Truck than it is to a Carrot. By forcing a small "Student" model
+  to mimic this exact probability distribution (rather than just the hard binary
+  label), the Student learns the intricate similarity structure of the entire
+  input space, mapping relationships it could never discover on its own given
+  its limited internal capacity.
+</p>
+
+<h2>The Mechanics of Distillation: Temperature Scaling</h2>
+
+<p>
+  Training a student model under distillation combines two distinct loss
+  objectives. The first is the standard cross-entropy loss against the actual
+  ground-truth labels. The second — which is weighted by a hyperparameter — is
+  the Kullback-Leibler (KL) divergence between the student's soft outputs and
+  the teacher's soft outputs at an artificially elevated "Temperature".
 </p>
 
 <blockquote>
-  Temperature scaling softens both distributions, amplifying the signal in the
-  low-probability tails and giving the student richer gradient information about
-  the structure of the problem.
+  Temperature scaling softens both probability distributions before comparing
+  them. It artificially inflates the signal in the low-probability tails (making
+  that 0.0001 probability for a Carrot slightly larger), giving the student
+  model richer, non-zero gradient information about the underlying structure of
+  the problem.
 </blockquote>
 
 <p>
-  In practice, the temperature parameter <code>T</code> is typically swept
-  between 2 and 10. Higher values transfer more relational structure; lower
-  values keep the student closer to hard decisions. The right balance is
-  task-specific.
+  In practical implementations, the temperature parameter <code>T</code> is
+  typically swept between 2 and 10. Higher values transfer more aggressive
+  relational structure (smoothing out the distribution significantly); lower
+  values keep the Student closer to the Teacher's definitive, hard decisions.
+  Finding the right balance is entirely task-specific and requires empirical
+  tuning.
 </p>
 
-<h2>Applications in Scientific Machine Learning</h2>
+<h2>Distillation in Scientific Machine Learning</h2>
 
 <p>
-  In seismological applications — where I work on P-wave and S-wave detection
-  models — distillation offers a practical path to field deployment. A large
-  teacher network, trained on full Oklahoma datasets with high-capacity
-  architectures, can supervise a compact student that runs within a
-  microcontroller's limited RAM constraint.
+  In geophysical applications — specifically where I focus on deploying P-wave
+  and S-wave phase detection models to remote edge sensors — classical Knowledge
+  Distillation offers a highly practical path to bringing AI into the physical
+  field.
 </p>
 
 <p>
-  The student inherits the teacher's calibration and its understanding of
-  borderline cases — exactly the events that matter most for real-time
-  monitoring. In lab tests with some distilled variants, we observed accuracy
-  preservation above 90% of the teacher's performance at a fraction of the
-  compute and memory footprint.
+  A massive, computationally expensive Teacher network (like the heavily
+  parameterized EQTransformer or PhaseNet variants), trained on hundreds of
+  gigabytes of complete historical Oklahoma datasets, can expertly supervise a
+  highly compact, few-layer Convolutional Neural Network (the Student, such as
+  XiaoNet) with simplified architecture. This Student model is intentionally
+  designed to fit entirely within the 2MB/4MB/8MB PSRAM constraint of an ESP32
+  microcontroller.
+</p>
+
+<p>
+  Because it is trained via distillation, the tiny Student inherits the massive
+  Teacher's calibration and its nuanced understanding of borderline, ambiguous
+  cases — exactly the noisy, low-SNR events that matter most for real-time
+  seismic monitoring. In rigorous lab tests with these distilled variants, we
+  frequently observed accuracy preservation easily above 90% of the massive
+  Teacher’s performance, all while operating at a tiny fraction of the
+  compute latency and memory footprint.
+</p>
+
+<h2>Distilling the Unseen: Limitations and Caveats</h2>
+
+<p>
+  Distillation is powerful, but it cannot fundamentally violate information
+  theory. If the Student model's architecture is <em>too</em> severely
+  constrained, no amount of Teacher supervision will allow it to represent the
+  necessary decision boundaries.
+</p>
+
+<p>
+  Furthermore, a Student can only learn what the Teacher knows. If the Teacher
+  model is poorly calibrated, biased against microseismicity, or prone to
+  hallucinating arrivals in high noise, the Student will faithfully and
+  flawlessly learn those exact same flaws.
 </p>
 
 <h2>Distillation vs. Quantization</h2>
 
 <p>
-  Distillation and quantization are complementary, not competing. Distillation
-  compresses the model's capacity; quantization compresses its numerical
-  representation. Used together — distill first, then quantize — they produce
-  models that are both architecturally lean and numerically compact, maximally
-  suited for edge deployment scenarios where both RAM and flash are limited.
+  It is a common misconception that Distillation and Quantization (converting
+  32-bit floats to 8-bit integers) are competing techniques. They are, in fact,
+  entirely complementary.
+</p>
+
+<p>
+  Distillation compresses the model's
+  <strong>architectural capacity</strong> (reducing the number of layers and
+  parameters). Quantization compresses the model's
+  <strong>numerical representation</strong> (reducing the byte-size of the
+  remaining parameters). Used sequentially — distill a massive model into a lean
+  architecture first, and then quantize those lean weights — they
+  produce edge-deployable models that are both structurally elegant and
+  numerically minuscule. Importantly, quantization provides a flexible dial: you
+  do not necessarily need to aggressively compress all the way from FP64 down to
+  INT8. Depending on the specific precision needs and the physical constraints
+  of your target hardware, you can choose to quantize from FP64 to FP32, or down
+  to FP16. This dual approach represents the cutting edge for deploying advanced
+  scientific ML into severely battery- and memory-constrained field
+  environments.
 </p>
