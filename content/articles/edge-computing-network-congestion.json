@@ -1,0 +1,15 @@
+{
+  "slug": "edge-computing-network-congestion",
+  "title": "Solving Network Congestion in Dense Sensor Arrays: The Edge Computing Paradigm",
+  "subtitle": "How decentralized processing and light communication models eliminate data queuing and unlock large N array scalability.",
+  "description": "As dense sensor networks grow, transmitting raw data to centralized cloud servers causes severe network congestion and queuing. Discover how edge computing and light communication models solve this bottleneck.",
+  "excerpt": "When thousands of sensors stream data simultaneously, networks choke and data queues up. Edge computing solves this by processing data locally and transmitting only lightweight insights, fundamentally changing large N array architecture.",
+  "tags": ["Edge Computing", "IoT", "Networking", "Sensor Arrays"],
+  "published_date": "2026-03-20",
+  "published_display": "March 20, 2026",
+  "read_time": "5 min read",
+  "hero_caption": "Edge processing nodes filtering raw data and transmitting lightweight insights to prevent network congestion.",
+  "hero_aria": "Diagram illustrating dense sensor arrays using edge computing to process data locally and avoiding network bottlenecks",
+  "hero_image_file": "content/articles/edge-computing-network-congestion.png",
+  "body_file": "edge-computing-network-congestion.body.html"
+}
