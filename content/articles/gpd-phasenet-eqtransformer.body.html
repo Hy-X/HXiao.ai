@@ -1,0 +1,107 @@
+<p>
+  The deployment of deep learning models for automated seismic phase picking has
+  fundamentally changed observational seismology. By rapidly identifying P-waves
+  and S-waves in continuous waveform streams, these AI tools enable the
+  construction of massive, high-resolution earthquake catalogs that were
+  previously impossible to assemble manually. Among the most popular
+  architectures deployed in real-world seismic networks are
+  <strong>Generalized Phase Detection (GPD)</strong>, <strong>PhaseNet</strong>,
+  and <strong>EQTransformer</strong>. While PhaseNet and EQTransformer have
+  largely become the gold standards for precision, GPD retains a significant
+  structural advantage: raw computational speed. However, deploying GPD in
+  real-world, highly dense networks reveals a critical operational trade-off
+  centering on false positive generation.
+</p>
+
+<h2>The Architecture and Training of GPD</h2>
+
+<p>
+  GPD was designed with simplicity and rapid inference in mind. It treats
+  seismic phase identification as a straightforward window classification
+  problem. In its original training configuration, GPD evaluates discrete
+  4-second windows of seismic data sampled at 100 Hz (yielding 400 data points
+  per channel).
+</p>
+
+<p>
+  Unlike its successors that output continuous probability distributions across
+  a sliding time series, GPD is trained on discrete labels formatted as a simple
+  hard-coded vector—such as <code>[1, 0, 0]</code> for a P-wave,
+  <code>[0, 1, 0]</code> for an S-wave, or <code>[0, 0, 1]</code> for pure
+  noise. The model examines a specific 4-second chunk of data and rigidly
+  classifies the entire window into one of these three distinct categories.
+</p>
+
+<h2>The Speed Advantage</h2>
+
+<p>
+  Because GPD relies on evaluating these discrete, non-overlapping or lightly
+  sliding windows with a relatively shallow convolutional architecture, it is
+  incredibly fast. Among the "big three" deep learning pickers, GPD boasts the
+  lowest inference latency and requires the least computational overhead. This
+  makes it an attractive candidate for massive retrospective catalog processing
+  where millions of hours of archive data must be scanned, or for deployment on
+  resource-constrained edge devices. GPD will churn through waveforms
+  significantly faster than the dense UNet architecture of PhaseNet or the heavy
+  attention mechanisms of EQTransformer.
+</p>
+
+<h2>The False Positive Trade-Off and "Over-Picking"</h2>
+
+<p>
+  The speed of GPD comes at a steep cost when applied to continuous, noisy,
+  real-world data. Because GPD was trained on discrete 4-second windows labeled
+  in simple vector forms, it lacks the broader contextual awareness of the
+  waveform surrounding that snapshot.
+</p>
+
+<p>
+  In practice, when scanning a continuous seismic trace, GPD exhibits a strong
+  tendency to <em>over-pick</em>. A single, complex physical arrival (such as a
+  messy P-wave with a long coda or scattered energy) may span multiple
+  consecutive windows depending on the sliding step size. Because the model
+  independently assesses each window, it often fires multiple positive
+  classifications in rapid succession for what is physically just one event.
+  Furthermore, some transient noise that resembles a phase arrival within a
+  4-second vacuum will trigger a positive classification as well.
+</p>
+
+<p>
+  The result is an abundance of false positives compared to PhaseNet and
+  EQTransformer. If you deploy GPD on an active trace, the good news is that it
+  will have high capability to pick every legitimate true positive present. The
+  bad news is that these true positives will be buried underneath a large volume
+  of incorrect or redundant picks. By contrast, PhaseNet produces a continuous
+  probability distribution over the waveform to pinpoint the precise sample
+  index of the phase onset (avoiding redundant triggers), and EQTransformer uses
+  self-attention to understand the global context of the station's full trace,
+  leading to significantly cleaner, singular outputs for each arrival.
+</p>
+
+<h2>The Limitations of Fine-Tuning</h2>
+
+<p>
+  A common strategy to improve a deep learning model's performance on a specific
+  local network is transfer learning or fine-tuning. Researchers often take the
+  base GPD model and retrain it on a regional dataset of manually verified local
+  earthquakes to suppress noise and improve accuracy.
+</p>
+
+<p>
+  However, my empirical deployment shows that fine-tuning GPD does not
+  fundamentally resolve the false positive issue. While fine-tuning might help
+  the model learn the specific frequency content of local regional noise, it
+  cannot fix the structural limitation of the architecture itself. The 4-second
+  windowing approach and vector-based classification dictate that GPD will
+  continue to over-pick the sample length of a trace.
+</p>
+
+<p>
+  Ultimately, GPD remains a powerful tool when computational speed is the
+  absolute primary constraint and network analysts possess robust downstream
+  association algorithms capable of aggressively filtering out thousands of
+  false picks. But when precision, clean catalogs, and low false alarm rates are
+  necessary, the architectural constraints of GPD make PhaseNet and
+  EQTransformer the vastly superior choices, despite their computationally
+  heavier footprints.
+</p>

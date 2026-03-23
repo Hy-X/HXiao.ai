@@ -1,0 +1,15 @@
+{
+  "slug": "gpd-phasenet-eqtransformer",
+  "title": "The False Positive Trade-Off: GPD vs. PhaseNet and EQTransformer",
+  "subtitle": "Why the fastest AI seismic picker struggles with over-picking, even after extensive fine-tuning.",
+  "description": "An architectural comparison of GPD, PhaseNet, and EQTransformer. While GPD offers unmatched inference speed via its 4-second window vector classification, it structurally generates severe false positives.",
+  "excerpt": "GPD is incredibly fast but fundamentally prone to over-picking. Learn why its 4-second classification windows and vector labels lead to overwhelming false positives compared to PhaseNet and EQTransformer.",
+  "tags": ["AI Models", "Seismology", "Machine Learning"],
+  "published_date": "2026-03-23",
+  "published_display": "March 23, 2026",
+  "read_time": "5 min read",
+  "hero_caption": "Comparative AI model outputs showing GPD's dense cluster of false positive picks against a clean PhaseNet arrival.",
+  "hero_aria": "Seismic waveform visualization showing dense noisy false positive markers next to clean, precise ones.",
+  "hero_image_file": "content/articles/gpd-phasenet-eqtransformer.png",
+  "body_file": "gpd-phasenet-eqtransformer.body.html"
+}
