@@ -1,0 +1,15 @@
+{
+  "slug": "high-value-small-seismic-datasets",
+  "title": "The Disproportionate Power of Small, High-Value Datasets in Seismic AI",
+  "subtitle": "Why a tightly curated catalog of just a few thousand traces is the secret to unlocking massive performance gains in regional AI models.",
+  "description": "While foundation models require millions of traces, local fine-tuning only requires a few thousand. Discover the immense value of small, highly curated regional datasets in adapting off-the-shelf seismic AI.",
+  "excerpt": "Off-the-shelf deep learning models often struggle with local noise. Discover why curating a small, high-value dataset of just a few thousand traces is the secret to unlocking massive performance gains in regional seismic networks.",
+  "tags": ["AI Models", "Data Curation", "Transfer Learning", "Seismology"],
+  "published_date": "2026-03-23",
+  "published_display": "March 23, 2026",
+  "read_time": "5 min read",
+  "hero_caption": "Visualizing the fine-tuning process: a small, precise local dataset sharpening a generalized global AI model.",
+  "hero_aria": "Concept art showing a massive global dataset filtering down into a specialized local AI mechanism.",
+  "hero_image_file": "content/articles/high-value-small-seismic-datasets.png",
+  "body_file": "high-value-small-seismic-datasets.body.html"
+}
